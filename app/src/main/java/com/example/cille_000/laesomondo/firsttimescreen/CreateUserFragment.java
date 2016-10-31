@@ -13,8 +13,16 @@ public class CreateUserFragment extends Fragment {
 
     TextView text;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.activity_start, container, false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_createuser, container, false);
 
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        text = (TextView) view.findViewById(R.id.test);
+        text.setText("Hej");
+    }
 }
+
