@@ -15,14 +15,24 @@ public class CreateUserFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_createuser, container, false);
+        View view = inflater.inflate(R.layout.fragment_createuser, container, false);
 
+        text = (TextView) view.findViewById(R.id.createuser_title);
+        text.setText("Create User");
+
+        return view;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        text = (TextView) view.findViewById(R.id.test);
-        text.setText("Hej");
+    public static CreateUserFragment newInstance() {
+        CreateUserFragment fragment = new CreateUserFragment();
+
+        return fragment;
     }
+
+//    @Override
+//    public void onViewCreated(View view, Bundle savedInstanceState) {
+//        text = (TextView) view.findViewById(R.id.createuser_title);
+//        text.setText("Create User");
+//    }
 }
 
