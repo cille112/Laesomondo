@@ -14,4 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/StartActivityTitle" />
+
+    <fragment android:name="com.example.cille_000.laesomondo.firsttimescreen.CreateUserFragment"
+        android:id="@+id/headlines_fragment"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
 </RelativeLayout>
