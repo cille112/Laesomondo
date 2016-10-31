@@ -1,9 +1,8 @@
 package com.example.cille_000.laesomondo.firsttimescreen;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,13 +17,9 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new MyPagerAdapter);
+        viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
 
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.testFrameLayout, new CreateUserFragment());
-
-        transaction.commit();
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {
@@ -38,9 +33,16 @@ public class StartActivity extends AppCompatActivity {
 
             switch(pos)
             {
-                case 0:
-                    return new CreateUserFragment();
+                case 0: return new CreateUserFragment();
+                case 1: return new TestInfoFragment();
+                default: return  new CreateUserFragment();
             }
+
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
         }
     }
 }
