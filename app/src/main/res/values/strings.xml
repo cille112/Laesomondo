@@ -3,8 +3,10 @@
     <string name="app_name">Læsomondo</string>
 
     <!-- FIRST TIME SCREEN -->
-    <string name="StartActivityTitle">Start Activity</string>
-    <string name="CreateUserFragmentTitle">Create User</string>
+    <string name="CreateUserFragmentTitle">Velkommen</string>
+    <string name="CreateUserFragmentName">Navn</string>
+    <string name="CreateUserFragmentAge">Alder</string>
+
     <string name="TestInfoFragmentTitle">Test Info</string>
 
 

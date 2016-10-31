@@ -18,8 +18,6 @@ public class StartActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
-
-
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {
@@ -30,14 +28,12 @@ public class StartActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int pos) {
-
             switch(pos)
             {
                 case 0: return new CreateUserFragment();
                 case 1: return new TestInfoFragment();
                 default: return  new CreateUserFragment();
             }
-
         }
 
         @Override
