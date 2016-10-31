@@ -16,17 +16,27 @@
         android:text="@string/StartActivityTitle"
         android:id="@+id/textView" />
 
-    <fragment android:name="com.example.cille_000.laesomondo.firsttimescreen.CreateUserFragment"
-        android:id="@+id/createUser_fragment"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-    <fragment
-        android:name="com.example.cille_000.laesomondo.firsttimescreen.TestInfoFragment"
-        android:id="@+id/testInfo_fragment"
-        android:layout_weight="1"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+        <fragment android:name="com.example.cille_000.laesomondo.firsttimescreen.CreateUserFragment"
+            android:id="@+id/createUser_fragment"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <fragment
+            android:name="com.example.cille_000.laesomondo.firsttimescreen.TestInfoFragment"
+            android:id="@+id/testInfo_fragment"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </RelativeLayout>
