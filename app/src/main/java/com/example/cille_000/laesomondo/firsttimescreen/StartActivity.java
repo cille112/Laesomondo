@@ -25,6 +25,39 @@ public class StartActivity extends AppCompatActivity {
 
         r1 = (RadioButton) findViewById(R.id.createuser_radio1);
         r2 = (RadioButton) findViewById(R.id.testinfo_radio2);
+
+        ViewPager.OnPageChangeListener PageListener = new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch(position)
+                {
+                    case 0:
+                        r1.setChecked(true);
+                        break;
+
+                    case 1:
+                        r2.setChecked(true);
+                        break;
+
+                    default:
+                        r1.setChecked(true);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        };
+
+        viewPager.addOnPageChangeListener(PageListener);
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {
@@ -37,20 +70,11 @@ public class StartActivity extends AppCompatActivity {
         public Fragment getItem(int pos) {
             switch(pos)
             {
-                case 0:
-                    r1.setChecked(false);
-                    r2.setChecked(false);
-                    return new CreateUserFragment();
+                case 0: return new CreateUserFragment();
 
-                case 1:
-                    r1.setChecked(false);
-                    r2.setChecked(false);
-                    return new TestInfoFragment();
+                case 1: return new TestInfoFragment();
 
-                default:
-                    r1.setChecked(false);
-                    r2.setChecked(false);
-                    return  new CreateUserFragment();
+                default: return  new CreateUserFragment();
             }
         }
 
@@ -59,5 +83,9 @@ public class StartActivity extends AppCompatActivity {
             return 2;
         }
     }
+
+
+
+
 }
 
