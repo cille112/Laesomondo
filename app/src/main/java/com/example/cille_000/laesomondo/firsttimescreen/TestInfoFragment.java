@@ -1,4 +1,6 @@
 package com.example.cille_000.laesomondo.firsttimescreen;
 
-class TestInfoFragment {
+import android.app.Fragment;
+
+class TestInfoFragment extends Fragment{
 }
