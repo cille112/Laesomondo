@@ -9,6 +9,8 @@
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
 
     <string name="TestInfoFragmentTitle">Test Info</string>
+    <string name="TestInfoFragmentButton">Tag test nu</string>
+    <string name="TestInfoFragmentNotNow">Senere</string>
 
 
 </resources>
