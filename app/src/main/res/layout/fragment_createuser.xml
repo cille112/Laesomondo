@@ -5,21 +5,27 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/createuser_title"
         android:text="@string/CreateUserFragmentTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/createuser_name"
-        android:text="@string/CreateUserFragmentName"
+        android:hint="@string/CreateUserFragmentName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/createuser_age"
-        android:text="@string/CreateUserFragmentAge"
+        android:hint="@string/CreateUserFragmentAge"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/createuser_btn"
+        android:text="@string/CreateUserFragmentButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@
     <string name="CreateUserFragmentTitle">Velkommen</string>
     <string name="CreateUserFragmentName">Navn</string>
     <string name="CreateUserFragmentAge">Alder</string>
+    <string name="CreateUserFragmentButton">Opret bruger</string>
 
     <string name="TestInfoFragmentTitle">Test Info</string>
 
