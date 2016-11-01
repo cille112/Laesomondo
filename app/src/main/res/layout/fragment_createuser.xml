@@ -22,10 +22,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/createuser_btn"
-        android:text="@string/CreateUserFragmentButton"
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/createuser_picture"
+        android:text="@string/CreateUserFragmentPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/createuser_picturebtn"
+            android:background="@drawable/av1"
+            android:layout_width="50dip"
+            android:layout_height="50dip" />
+
+        </LinearLayout>
 
 </LinearLayout>
