@@ -1,20 +1,50 @@
 package com.example.cille_000.laesomondo.firsttimescreen;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
-
 import com.example.cille_000.laesomondo.R;
+
 
 public class CreateUserFragment extends Fragment {
 
+    ImageButton avatar;
+    EditText t1;
+    EditText t2;
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
+
+        avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
+        t1 = (EditText) view.findViewById(R.id.createuser_name);
+        t2 = (EditText) view.findViewById(R.id.createuser_age);
+
+
+
+        avatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = getActivity();
+                SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.Prefrence_file_key),Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("name", t1.getText().toString());
+                editor.putString("alder", t2.getText().toString());
+                editor.commit();
+                Fragment avatarFragment = new AvatarFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.activity_start, avatarFragment );
+                transaction.commit();
+            }
+        });
 
         return view;
     }

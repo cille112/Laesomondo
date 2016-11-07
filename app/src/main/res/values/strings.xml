@@ -7,10 +7,11 @@
     <string name="CreateUserFragmentName">Navn</string>
     <string name="CreateUserFragmentAge">Alder</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
-
+    <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
     <string name="TestInfoFragmentTitle">Test Info</string>
     <string name="TestInfoFragmentButton">Tag test nu</string>
     <string name="TestInfoFragmentNotNow">Senere</string>
+
 
 
 </resources>
