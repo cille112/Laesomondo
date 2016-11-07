@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.firsttimescreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -59,32 +60,33 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.Prefrence_file_key),Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         if (v == av1) {
-            editor.putString("image" , "av1");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av1);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av1);}
         if (v == av2) {
-            editor.putString("image" , "av2");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av2);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av2);}
         if (v == av3) {
-            editor.putString("image" , "av3");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av3);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av3);}
         if (v == av4) {
-            editor.putString("image" , "av4");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av4);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av4);}
         if (v == av5) {
-            editor.putString("image" , "av5");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av5);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av5);}
         if (v == av6) {
-            editor.putString("image" , "av6");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av6);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av6);}
         if (v == av7) {
-            editor.putString("image" , "av7");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av7);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av7);}
         if (v == av8) {
-            editor.putString("image" , "av8");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av8);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av8);}
         if (v == av9) {
-            editor.putString("image" , "av9");
-            transaction.remove(this).commit();}
+            editor.putInt("image" , R.drawable.av9);
+            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av9);}
+        transaction.remove(this).commit();
         editor.commit();
     }
 }
