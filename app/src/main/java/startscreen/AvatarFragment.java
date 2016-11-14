@@ -12,12 +12,19 @@ import com.example.cille_000.laesomondo.R;
 
 public class AvatarFragment extends Fragment implements View.OnClickListener {
 
+    public interface OnDoneListener {
+        void onDone();
+    }
+
     private ImageButton[] list;
-    private ImageButton current;
+    private int current;
+    private OnDoneListener onDoneListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_avatar, container, false);
+
+        current = 0;
 
         list = new ImageButton[] {
                 (ImageButton) view.findViewById(R.id.imageButton1),
@@ -42,28 +49,38 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        for (ImageButton i: list) {
-            if(v == i)
+        for(int i = 0; i < list.length; i++) {
+            if(v == list[i]) {
                 current = i;
+                break;
+            }
+        }
+
+        if(onDoneListener != null) {
+            onDoneListener.onDone();
         }
 
         transaction.remove(this).commit();
     }
 
     public int getCurrent() {
-        switch (current.getTag().toString()) {
+        switch (current) {
 
-            case "av1": return R.drawable.av1;
-            case "av2": return R.drawable.av2;
-            case "av3": return R.drawable.av3;
-            case "av4": return R.drawable.av4;
-            case "av5": return R.drawable.av5;
-            case "av6": return R.drawable.av6;
-            case "av7": return R.drawable.av7;
-            case "av8": return R.drawable.av8;
-            case "av9": return R.drawable.av9;
+            case 0: return R.drawable.av1;
+            case 1: return R.drawable.av2;
+            case 2: return R.drawable.av3;
+            case 3: return R.drawable.av4;
+            case 4: return R.drawable.av5;
+            case 5: return R.drawable.av6;
+            case 6: return R.drawable.av7;
+            case 7: return R.drawable.av8;
+            case 8: return R.drawable.av9;
 
             default: return R.drawable.av1;
         }
+    }
+
+    public void setOnDoneListener(OnDoneListener odl) {
+        onDoneListener = odl;
     }
 }

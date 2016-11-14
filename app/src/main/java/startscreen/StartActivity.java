@@ -18,6 +18,7 @@ public class StartActivity extends AppCompatActivity {
 
     private RadioButton r1, r2;
     private StartLogic logic;
+    private int index;
     private SharedPreferences pref;
     private CreateUserFragment createUser;
     private TestInfoFragment testInfo;

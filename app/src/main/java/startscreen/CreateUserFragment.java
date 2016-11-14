@@ -18,8 +18,6 @@ public class CreateUserFragment extends Fragment {
 
     private ImageButton avatar;
     private EditText t1, t2;
-    private SharedPreferences sharedPref;
-    private StartLogic logic;
     private AvatarFragment avatarFragment;
 
     @Override
@@ -27,9 +25,16 @@ public class CreateUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
         Context context = getActivity();
 
-        sharedPref = context.getSharedPreferences("User", Context.MODE_PRIVATE);
-        logic = new StartLogic(sharedPref);
+        SharedPreferences sharedPref = context.getSharedPreferences("User", Context.MODE_PRIVATE);
+        StartLogic logic = new StartLogic(sharedPref);
         avatarFragment = new AvatarFragment();
+
+        avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
+            @Override
+            public void onDone() {
+                setAvatar(avatarFragment.getCurrent());
+            }
+        });
 
         avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
         t1 = (EditText) view.findViewById(R.id.createuser_name);
@@ -48,13 +53,9 @@ public class CreateUserFragment extends Fragment {
             }
         });
 
-        return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         setAvatar(avatarFragment.getCurrent());
+
+        return view;
     }
 
     public void setAvatar(int index) {
