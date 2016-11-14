@@ -11,6 +11,7 @@
     <string name="TestInfoFragmentTitle">Test Info</string>
     <string name="TestInfoFragmentButton">Tag test nu</string>
     <string name="TestInfoFragmentNotNow">Senere</string>
+    <string name="CreateUserFragmentAvatar">Avatar</string>
 
 
 

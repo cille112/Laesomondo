@@ -1,103 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="40dp">
+        android:gravity="center">
 
         <ImageButton
-            app:srcCompat="@drawable/av1"
+            android:background="@drawable/av1"
             android:id="@+id/imageButton1"
-            android:layout_height="100dp"
-            android:layout_width="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_height="80dp"
+            android:layout_width="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+
         <ImageButton
-            app:srcCompat="@drawable/av2"
+            android:background="@drawable/av2"
             android:id="@+id/imageButton2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+
         <ImageButton
-            app:srcCompat="@drawable/av3"
+            android:background="@drawable/av3"
             android:id="@+id/imageButton3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="125dp"
+        android:gravity="center">
 
         <ImageButton
-            app:srcCompat="@drawable/av4"
+            android:background="@drawable/av4"
             android:id="@+id/imageButton4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         <ImageButton
-            app:srcCompat="@drawable/av5"
+            android:background="@drawable/av5"
             android:id="@+id/imageButton5"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         <ImageButton
-            app:srcCompat="@drawable/av6"
+            android:background="@drawable/av6"
             android:id="@+id/imageButton6"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="275dp">
+        android:layout_marginTop="225dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center">
 
         <ImageButton
-            app:srcCompat="@drawable/av7"
+            android:background="@drawable/av7"
             android:id="@+id/imageButton7"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         <ImageButton
-            app:srcCompat="@drawable/av8"
+            android:background="@drawable/av8"
             android:id="@+id/imageButton8"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         <ImageButton
-            app:srcCompat="@drawable/av9"
+            android:background="@drawable/av9"
             android:id="@+id/imageButton9"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter" />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
 
     </LinearLayout>
