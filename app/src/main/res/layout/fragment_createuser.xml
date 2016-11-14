@@ -42,7 +42,8 @@
             android:background="@drawable/av1"
             android:layout_width="50dip"
             android:layout_height="50dip"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av1"/>
 
         </LinearLayout>
 

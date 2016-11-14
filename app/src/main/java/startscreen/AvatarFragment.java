@@ -12,9 +12,12 @@ import android.widget.ImageButton;
 
 import com.example.cille_000.laesomondo.R;
 
+import logic.StartLogic;
+
 public class AvatarFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton av1, av2, av3, av4, av5, av6, av7, av8, av9;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,42 +46,20 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
     @Override
     public void onClick(View v) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Context context = getActivity();
-        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.Prefrence_file_key),Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-
-        if (v == av1) {
-            editor.putInt("image" , R.drawable.av1);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av1);}
-        if (v == av2) {
-            editor.putInt("image" , R.drawable.av2);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av2);}
-        if (v == av3) {
-            editor.putInt("image" , R.drawable.av3);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av3);}
-        if (v == av4) {
-            editor.putInt("image" , R.drawable.av4);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av4);}
-        if (v == av5) {
-            editor.putInt("image" , R.drawable.av5);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av5);}
-        if (v == av6) {
-            editor.putInt("image" , R.drawable.av6);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av6);}
-        if (v == av7) {
-            editor.putInt("image" , R.drawable.av7);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av7);}
-        if (v == av8) {
-            editor.putInt("image" , R.drawable.av8);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av8);}
-        if (v == av9) {
-            editor.putInt("image" , R.drawable.av9);
-            CreateUserFragment.avatar.setBackgroundResource(R.drawable.av9);}
+        if (v == av1) {CreateUserFragment.setAvatar(R.drawable.av1);}
+        if (v == av2) CreateUserFragment.setAvatar(R.drawable.av2);
+        if (v == av3) CreateUserFragment.setAvatar(R.drawable.av3);
+        if (v == av4) CreateUserFragment.setAvatar(R.drawable.av4);
+        if (v == av5) CreateUserFragment.setAvatar(R.drawable.av5);
+        if (v == av6) CreateUserFragment.setAvatar(R.drawable.av6);
+        if (v == av7) CreateUserFragment.setAvatar(R.drawable.av7);
+        if (v == av8) CreateUserFragment.setAvatar(R.drawable.av8);
+        if (v == av9) CreateUserFragment.setAvatar(R.drawable.av9);
 
         transaction.remove(this).commit();
-        editor.commit();
     }
 }

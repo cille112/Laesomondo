@@ -1,6 +1,5 @@
 package challengescreen;
 
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,8 +27,6 @@ public class TextInfoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_textinfo, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_textinfo, container, false);
     }
 }

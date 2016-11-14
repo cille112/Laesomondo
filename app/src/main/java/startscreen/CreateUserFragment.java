@@ -12,47 +12,36 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import com.example.cille_000.laesomondo.R;
 
+import logic.StartLogic;
+
 
 public class CreateUserFragment extends Fragment {
 
-    static ImageButton avatar;
-    EditText t1;
-    EditText t2;
-
+    private static ImageButton avatar;
+    private EditText t1;
+    private EditText t2;
+    private SharedPreferences sharedPref;
+    private StartLogic logic;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
-
-
         Context context = getActivity();
-        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.Prefrence_file_key),Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPref.edit();
+
+        sharedPref = context.getSharedPreferences("User", Context.MODE_PRIVATE);
+        logic = new StartLogic(sharedPref);
 
         avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
         t1 = (EditText) view.findViewById(R.id.createuser_name);
         t2 = (EditText) view.findViewById(R.id.createuser_age);
-        t1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                t1.setText("");
-            }
-        });
-        t2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                t2.setText("");
-            }
-        });
-        t1.setText(sharedPref.getString("name", "Navn"));
-        t2.setText(sharedPref.getString("alder", "Alder"));
+
+        avatar.setBackgroundResource(logic.getAvatar());
+        t1.setText(logic.getName());
+        t2.setText(logic.getDate());
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("name", t1.getText().toString());
-                editor.putString("alder", t2.getText().toString());
-                editor.commit();
                 Fragment avatarFragment = new AvatarFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.activity_start, avatarFragment );
@@ -61,6 +50,23 @@ public class CreateUserFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public static void setAvatar(int index) {
+        avatar.setTag(index);
+        avatar.setBackgroundResource(index);
+    }
+
+    public String getName() {
+        return t1.getText().toString();
+    }
+
+    public String getDate() {
+        return t2.getText().toString();
+    }
+
+    public int getAvatar() {
+        return Integer.valueOf(avatar.getTag().toString());
     }
 }
 
