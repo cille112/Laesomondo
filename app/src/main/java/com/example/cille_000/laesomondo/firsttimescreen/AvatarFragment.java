@@ -21,13 +21,9 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
 
     ImageButton av1, av2, av3, av4, av5, av6, av7, av8, av9;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_avatar, container, false);
-
-
 
         av1 = (ImageButton) view.findViewById(R.id.imageButton1);
         av2 = (ImageButton) view.findViewById(R.id.imageButton2);
@@ -38,7 +34,6 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
         av7 = (ImageButton) view.findViewById(R.id.imageButton7);
         av8 = (ImageButton) view.findViewById(R.id.imageButton8);
         av9 = (ImageButton) view.findViewById(R.id.imageButton9);
-
 
         av1.setOnClickListener(this);
         av2.setOnClickListener(this);
@@ -59,6 +54,7 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.Prefrence_file_key),Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
+
         if (v == av1) {
             editor.putInt("image" , R.drawable.av1);
             CreateUserFragment.avatar.setBackgroundResource(R.drawable.av1);}
@@ -86,6 +82,7 @@ public class AvatarFragment extends Fragment implements View.OnClickListener {
         if (v == av9) {
             editor.putInt("image" , R.drawable.av9);
             CreateUserFragment.avatar.setBackgroundResource(R.drawable.av9);}
+
         transaction.remove(this).commit();
         editor.commit();
     }
