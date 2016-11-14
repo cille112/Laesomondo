@@ -12,7 +12,7 @@
     <!-- TEST INFO FRAGMENT -->
     <string name="TestInfoFragmentTitle">Test Info</string>
     <string name="TestInfoFragmentButton">Tag test nu</string>
-    <string name="TestInfoFragmentNotNow">Senere</string>
+    <string name="TestInfoFragmentNotNow"><u>Senere</u></string>
 
     <!-- PREFERENCES -->
     <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
