@@ -19,7 +19,8 @@
             android:layout_height="80dp"
             android:layout_width="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av1"/>
 
         <ImageButton
             android:background="@drawable/av2"
@@ -27,7 +28,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av2"/>
 
         <ImageButton
             android:background="@drawable/av3"
@@ -35,7 +37,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av3"/>
 
     </LinearLayout>
 
@@ -52,7 +55,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av4"/>
 
         <ImageButton
             android:background="@drawable/av5"
@@ -60,7 +64,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av5"/>
 
         <ImageButton
             android:background="@drawable/av6"
@@ -68,7 +73,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av6"/>
 
 
     </LinearLayout>
@@ -87,7 +93,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av7"/>
 
         <ImageButton
             android:background="@drawable/av8"
@@ -95,7 +102,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av8"/>
 
         <ImageButton
             android:background="@drawable/av9"
@@ -103,7 +111,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/CreateUserFragmentAvatar"/>
+            android:contentDescription="@string/CreateUserFragmentAvatar"
+            android:tag="av9"/>
 
 
     </LinearLayout>

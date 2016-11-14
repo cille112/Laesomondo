@@ -14,14 +14,13 @@ import com.example.cille_000.laesomondo.R;
 
 import logic.StartLogic;
 
-
 public class CreateUserFragment extends Fragment {
 
-    private static ImageButton avatar;
-    private EditText t1;
-    private EditText t2;
+    private ImageButton avatar;
+    private EditText t1, t2;
     private SharedPreferences sharedPref;
     private StartLogic logic;
+    private AvatarFragment avatarFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +29,7 @@ public class CreateUserFragment extends Fragment {
 
         sharedPref = context.getSharedPreferences("User", Context.MODE_PRIVATE);
         logic = new StartLogic(sharedPref);
+        avatarFragment = new AvatarFragment();
 
         avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
         t1 = (EditText) view.findViewById(R.id.createuser_name);
@@ -42,7 +42,6 @@ public class CreateUserFragment extends Fragment {
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment avatarFragment = new AvatarFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.activity_start, avatarFragment );
                 transaction.commit();
@@ -52,7 +51,13 @@ public class CreateUserFragment extends Fragment {
         return view;
     }
 
-    public static void setAvatar(int index) {
+    @Override
+    public void onResume() {
+        super.onResume();
+        setAvatar(avatarFragment.getCurrent());
+    }
+
+    public void setAvatar(int index) {
         avatar.setTag(index);
         avatar.setBackgroundResource(index);
     }
