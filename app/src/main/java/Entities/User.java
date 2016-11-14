@@ -1,8 +1,4 @@
-package Entities;
-
-import android.media.Image;
-
-import java.util.Date;
+package entities;
 
 public class  User {
 

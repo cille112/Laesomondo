@@ -1,36 +1,23 @@
-package com.example.cille_000.laesomondo.firsttimescreen;
+package startscreen;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 
-import java.sql.Date;
-
-import Entities.User;
-
 public class StartActivity extends AppCompatActivity {
 
-
-
-    RadioButton r1;
-    RadioButton r2;
+    private RadioButton r1, r2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
@@ -75,7 +62,7 @@ public class StartActivity extends AppCompatActivity {
 
     private class PagerAdapter extends FragmentPagerAdapter {
 
-        public PagerAdapter(FragmentManager fm) {
+        private PagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -96,9 +83,6 @@ public class StartActivity extends AppCompatActivity {
             return 2;
         }
     }
-
-
-
 
 }
 

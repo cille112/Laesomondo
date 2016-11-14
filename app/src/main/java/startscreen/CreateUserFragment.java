@@ -1,4 +1,4 @@
-package com.example.cille_000.laesomondo.firsttimescreen;
+package startscreen;
 
 import android.content.Context;
 import android.content.SharedPreferences;

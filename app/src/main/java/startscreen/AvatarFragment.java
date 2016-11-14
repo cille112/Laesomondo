@@ -1,7 +1,6 @@
-package com.example.cille_000.laesomondo.firsttimescreen;
+package startscreen;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,13 +12,9 @@ import android.widget.ImageButton;
 
 import com.example.cille_000.laesomondo.R;
 
-import java.sql.Date;
-
-import Entities.User;
-
 public class AvatarFragment extends Fragment implements View.OnClickListener {
 
-    ImageButton av1, av2, av3, av4, av5, av6, av7, av8, av9;
+    private ImageButton av1, av2, av3, av4, av5, av6, av7, av8, av9;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
