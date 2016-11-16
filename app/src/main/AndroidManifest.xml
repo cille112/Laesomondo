@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="startscreen.StartActivity">
+        <activity android:name="com.example.cille_000.laesomondo.startscreen.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

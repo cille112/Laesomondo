@@ -1,4 +1,4 @@
-package challengescreen;
+package com.example.cille_000.laesomondo.challengescreen;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.cille_000.laesomondo.R;
 
-import entities.ReadingTest;
+import com.example.cille_000.laesomondo.entities.ReadingTest;
 
 public class TextInfoFragment extends Fragment {
 

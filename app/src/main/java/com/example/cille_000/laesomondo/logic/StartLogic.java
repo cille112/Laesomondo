@@ -1,4 +1,4 @@
-package logic;
+package com.example.cille_000.laesomondo.logic;
 
 import android.content.SharedPreferences;
 

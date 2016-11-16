@@ -1,4 +1,4 @@
-package startscreen;
+package com.example.cille_000.laesomondo.startscreen;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 
 import com.example.cille_000.laesomondo.R;
 
-import logic.StartLogic;
+import com.example.cille_000.laesomondo.logic.StartLogic;
 
 public class StartActivity extends AppCompatActivity {
 

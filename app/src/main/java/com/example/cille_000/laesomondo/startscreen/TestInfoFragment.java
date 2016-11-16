@@ -1,4 +1,4 @@
-package startscreen;
+package com.example.cille_000.laesomondo.startscreen;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
