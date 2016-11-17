@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="@string/CreateUserFragmentTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/Logo"/>
 
     <EditText
         android:id="@+id/createuser_name"
