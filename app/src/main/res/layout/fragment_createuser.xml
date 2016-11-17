@@ -37,7 +37,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp">
+        android:layout_marginLeft="40dp">
 
     <TextView
         android:id="@+id/createuser_picture"
@@ -52,7 +52,7 @@
             android:id="@+id/createuser_picturebtn"
             android:background="@drawable/av1"
             android:layout_width="50dip"
-            android:layout_height="40dip"
+            android:layout_height="50dip"
             android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         </LinearLayout>
