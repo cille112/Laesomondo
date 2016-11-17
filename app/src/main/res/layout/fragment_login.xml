@@ -11,23 +11,23 @@
         android:layout_gravity="center"
         android:background="@drawable/logo"/>
 
-    <TextView
+    <EditText
         android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:hint="@string/CreateUserFragmentName"
         android:textSize="18sp"/>
 
-    <TextView
+    <EditText
         android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:hint="@string/LoginFragmentPassword"
         android:textSize="18sp"/>
 
@@ -45,6 +45,7 @@
         android:id="@+id/login_createuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:text="@string/LoginFragmentCreateUser"
         android:clickable="true"/>

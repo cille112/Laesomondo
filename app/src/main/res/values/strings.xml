@@ -6,7 +6,7 @@
     <string name="LoginFragmentName">Brugernavn</string>
     <string name="LoginFragmentPassword">Kodeord</string>
     <string name="LoginFragmentLogin">Log ind</string>
-    <string name="LoginFragmentCreateUser"><b>Opret dig som ny bruger her!</b></string>
+    <string name="LoginFragmentCreateUser"><u>Opret dig som ny bruger her!</u></string>
 
     <!-- CREATE USER FRAGMENT -->
     <string name="CreateUserFragmentName">Brugernavn</string>
