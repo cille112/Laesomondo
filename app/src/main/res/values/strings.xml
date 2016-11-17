@@ -2,9 +2,14 @@
 
     <string name="app_name"> </string>
 
+    <!-- LOGIN FRAGMENT -->
+    <string name="LoginFragmentName">Brugernavn</string>
+    <string name="LoginFragmentPassword">Kodeord</string>
+    <string name="LoginFragmentLogin">Log ind</string>
+    <string name="LoginFragmentCreateUser"><b>Opret dig som ny bruger her!</b></string>
+
     <!-- CREATE USER FRAGMENT -->
-    <string name="CreateUserFragmentTitle">Velkommen</string>
-    <string name="CreateUserFragmentName">Navn</string>
+    <string name="CreateUserFragmentName">Brugernavn</string>
     <string name="CreateUserFragmentAge">Alder</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
     <string name="CreateUserFragmentAvatar">Avatar</string>
