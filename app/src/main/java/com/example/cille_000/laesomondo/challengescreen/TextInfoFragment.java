@@ -11,8 +11,6 @@ import android.widget.Button;
 
 import com.example.cille_000.laesomondo.R;
 
-import com.example.cille_000.laesomondo.entities.ReadingTest;
-
 public class TextInfoFragment extends Fragment {
 
     private int text;
@@ -38,7 +36,7 @@ public class TextInfoFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ShowText.class);
+                Intent intent = new Intent(getActivity(), ShowTextActivity.class);
                 intent.putExtra("intVariableName", 1);
                 startActivity(intent);
             }
