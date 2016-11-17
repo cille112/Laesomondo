@@ -9,7 +9,7 @@
         android:layout_height="105dp"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/Logo"/>
+        android:background="@drawable/logo"/>
 
     <EditText
         android:id="@+id/createuser_name"
