@@ -30,6 +30,6 @@ public class StartLogic {
     }
 
     public int getAvatar() {
-        return pref.getInt("Avatar", R.drawable.av2);
+        return pref.getInt("Avatar", R.drawable.av1);
     }
 }
