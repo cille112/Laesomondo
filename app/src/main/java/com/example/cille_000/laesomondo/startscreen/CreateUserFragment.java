@@ -44,9 +44,9 @@ public class CreateUserFragment extends Fragment {
 
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-        avatar.setBackgroundResource(logic.getAvatar());
         username.setText(logic.getName());
         age.setText(logic.getDate());
+        avatar.setBackgroundResource(logic.getAvatar());
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
