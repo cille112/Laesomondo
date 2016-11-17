@@ -11,7 +11,7 @@ public class TestLogic {
 
     private ReadingTest readingTest;
     private Long startTime, stopTime, startPause, stopPause;
-    private ArrayList<Long> paused = new ArrayList<Long>();
+    private ArrayList<Long> paused = new ArrayList<>();
     private Long totalTime;
 
     public TestLogic(int id, Context context){
