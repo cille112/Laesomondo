@@ -36,7 +36,7 @@ public class CreateUserActivity extends AppCompatActivity {
         r1 = (RadioButton) findViewById(R.id.createuser_radio1);
         r2 = (RadioButton) findViewById(R.id.testinfo_radio2);
 
-        pref = getSharedPreferences("NewUserInfo", Context.MODE_PRIVATE);
+        pref = getSharedPreferences("User", Context.MODE_PRIVATE);
         logic = new StartLogic(pref);
 
         ViewPager.OnPageChangeListener PageListener = new ViewPager.OnPageChangeListener() {
