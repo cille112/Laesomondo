@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import com.example.cille_000.laesomondo.logic.StartLogic;
 public class CreateUserFragment extends Fragment {
 
     private ImageButton avatar;
-    private EditText t1, t2;
+    private EditText username, password, age;
     private AvatarFragment avatarFragment;
 
     @Override
@@ -37,12 +38,15 @@ public class CreateUserFragment extends Fragment {
         });
 
         avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
-        t1 = (EditText) view.findViewById(R.id.createuser_name);
-        t2 = (EditText) view.findViewById(R.id.createuser_age);
+        username = (EditText) view.findViewById(R.id.createuser_name);
+        password = (EditText) view.findViewById(R.id.createuser_password);
+        age = (EditText) view.findViewById(R.id.createuser_age);
+
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         avatar.setBackgroundResource(logic.getAvatar());
-        t1.setText(logic.getName());
-        t2.setText(logic.getDate());
+        username.setText(logic.getName());
+        age.setText(logic.getDate());
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +68,11 @@ public class CreateUserFragment extends Fragment {
     }
 
     public String getName() {
-        return t1.getText().toString();
+        return username.getText().toString();
     }
 
     public String getDate() {
-        return t2.getText().toString();
+        return age.getText().toString();
     }
 
     public int getAvatar() {
