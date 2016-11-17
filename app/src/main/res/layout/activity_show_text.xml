@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_show_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:srcCompat="@android:drawable/ic_media_pause"
+        android:id="@+id/imageButton"
+        android:layout_weight="0.1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/PDF"
+                android:textSize="24sp"
+                android:padding="20dp"/>
+
+            <Button
+                android:text="Stop"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/button"
+                android:background="@color/RED"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

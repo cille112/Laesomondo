@@ -24,6 +24,9 @@
 
         <activity android:name=".startscreen.CreateUserActivity"></activity>
 
+        <activity
+            android:name=".challengescreen.ShowText"/>
+
     </application>
 
 </manifest>

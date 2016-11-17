@@ -10,11 +10,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.challengescreen.TextInfoFragment;
 
 public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
     private Button btn;
     private TextView notnow;
+    private TextInfoFragment textinfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
         btn = (Button) view.findViewById(R.id.testinfo_btn);
         btn.setOnClickListener(this);
+        textinfo = new TextInfoFragment();
 
         notnow = (TextView) view.findViewById(R.id.testinfo_notnow);
         notnow.setOnClickListener(this);
@@ -33,7 +36,6 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v == btn)
         {
-            Fragment textinfo = new Fragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.activity_start, textinfo);
             transaction.commit();
