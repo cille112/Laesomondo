@@ -14,28 +14,38 @@
     <EditText
         android:id="@+id/createuser_name"
         android:hint="@string/CreateUserFragmentName"
+        android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"/>
 
     <EditText
         android:id="@+id/createuser_age"
         android:hint="@string/CreateUserFragmentAge"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:inputType="date" />
 
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp">
 
     <TextView
         android:id="@+id/createuser_picture"
         android:text="@string/CreateUserFragmentPicture"
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="10dp"
         android:layout_gravity="center_vertical"/>
 
         <ImageButton
@@ -46,5 +56,6 @@
             android:contentDescription="@string/CreateUserFragmentAvatar"/>
 
         </LinearLayout>
+
 
 </LinearLayout>

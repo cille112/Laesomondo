@@ -12,38 +12,41 @@
         android:background="@drawable/logo"/>
 
     <TextView
+        android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:hint="@string/CreateUserFragmentName"
-        android:id="@+id/login_username"/>
+        android:textSize="18sp"/>
 
     <TextView
+        android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:hint="@string/LoginFragmentPassword"
-        android:id="@+id/login_password"/>
+        android:textSize="18sp"/>
 
     <Button
+        android:id="@+id/login_btnlogin"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:background="@color/colorComplimentary"
         android:text="@string/LoginFragmentLogin"
-        android:textColor="@color/colorWhite"
-        android:id="@+id/login_btnlogin"/>
+        android:textColor="@color/colorWhite" />
 
     <TextView
+        android:id="@+id/login_createuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/LoginFragmentCreateUser"
-        android:id="@+id/login_createuser"/>
+        android:clickable="true"/>
 
 </LinearLayout>

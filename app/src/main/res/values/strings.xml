@@ -10,7 +10,7 @@
 
     <!-- CREATE USER FRAGMENT -->
     <string name="CreateUserFragmentName">Brugernavn</string>
-    <string name="CreateUserFragmentAge">Alder</string>
+    <string name="CreateUserFragmentAge">Alder dd-mm-yyyy</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
     <string name="CreateUserFragmentAvatar">Avatar</string>
 
