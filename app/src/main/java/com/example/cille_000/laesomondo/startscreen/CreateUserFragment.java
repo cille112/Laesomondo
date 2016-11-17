@@ -26,7 +26,7 @@ public class CreateUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
         Context context = getActivity();
 
-        SharedPreferences sharedPref = context.getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences("NewUserInfo", Context.MODE_PRIVATE);
         StartLogic logic = new StartLogic(sharedPref);
         avatarFragment = new AvatarFragment();
 
