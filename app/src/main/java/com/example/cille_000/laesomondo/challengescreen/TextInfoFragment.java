@@ -15,17 +15,17 @@ import com.example.cille_000.laesomondo.entities.ReadingTest;
 
 public class TextInfoFragment extends Fragment {
 
-    private ReadingTest text;
+    private int text;
     private Button button;
 
-    public static TextInfoFragment newInstance(ReadingTest text) {
+    public static TextInfoFragment newInstance(int text) {
         TextInfoFragment fragment = new TextInfoFragment();
-        fragment.setReadingText(text);
+        fragment.setTextId(text);
 
         return fragment;
     }
 
-    public void setReadingText(ReadingTest text) {
+    public void setTextId(int text) {
         this.text = text;
     }
 
@@ -39,6 +39,7 @@ public class TextInfoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ShowText.class);
+                intent.putExtra("intVariableName", 1);
                 startActivity(intent);
             }
         });
