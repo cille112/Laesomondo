@@ -12,35 +12,30 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Question"
         android:layout_weight="1" />
 
     <Button
-        android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/firstAnswer"
         android:layout_weight="1" />
 
     <Button
-        android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/secondAnswer"
         android:layout_weight="1" />
 
     <Button
-        android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/thirdAnswer"
         android:layout_weight="1" />
 
     <Button
-        android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fourthAnswer"
