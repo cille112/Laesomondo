@@ -30,7 +30,7 @@ public class Validator {
             int month = Integer.valueOf(date.substring(3, 5));
             int year = Integer.valueOf(date.substring(6, 10));
 
-            if(day < 31 && month < 12 && year > 1990 && year < 2010)
+            if(day < 31 && month < 12 && year > 1900 && year < 2010)
                 return true;
         }
 
