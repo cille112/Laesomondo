@@ -66,17 +66,5 @@ public class CreateUserFragment extends Fragment {
         avatar.setTag(index);
         avatar.setBackgroundResource(index);
     }
-
-    public String getName() {
-        return username.getText().toString();
-    }
-
-    public String getDate() {
-        return age.getText().toString();
-    }
-
-    public int getAvatar() {
-        return Integer.valueOf(avatar.getTag().toString());
-    }
 }
 
