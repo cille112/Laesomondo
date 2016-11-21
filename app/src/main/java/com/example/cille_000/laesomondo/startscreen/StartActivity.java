@@ -1,9 +1,6 @@
 package com.example.cille_000.laesomondo.startscreen;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -13,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.logic.StartLogic;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 

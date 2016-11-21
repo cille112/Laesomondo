@@ -88,4 +88,8 @@ public class CreateUserActivity extends AppCompatActivity {
             return 2;
         }
     }
+
+    public void close() {
+        finish();
+    }
 }

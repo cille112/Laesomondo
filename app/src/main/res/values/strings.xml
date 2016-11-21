@@ -13,6 +13,7 @@
     <string name="CreateUserFragmentAge">Alder dd-mm-yyyy</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
     <string name="CreateUserFragmentAvatar">Avatar</string>
+    <string name="CreateUserFragmentLogin"><u>Har du allerede en bruger?</u></string>
 
     <!-- TEST INFO FRAGMENT -->
     <string name="TestInfoFragmentTitle">Test Info</string>

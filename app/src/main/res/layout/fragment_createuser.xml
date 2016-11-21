@@ -67,5 +67,14 @@
 
         </LinearLayout>
 
+    <TextView
+        android:id="@+id/createuser_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="@string/CreateUserFragmentLogin"
+        android:clickable="true"/>
+
 
 </LinearLayout>
