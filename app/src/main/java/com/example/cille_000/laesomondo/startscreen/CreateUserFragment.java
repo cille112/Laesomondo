@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.logic.StartLogic;
 import com.example.cille_000.laesomondo.util.Validator;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,6 +26,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
     private TextView login;
     private AvatarFragment avatarFragment;
     private Validator validate;
+    private StartLogic logic;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
         validate = new Validator();
         avatarFragment = new AvatarFragment();
+        logic = new StartLogic();
 
         avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
             @Override
@@ -50,6 +53,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
         avatar.setOnClickListener(this);
         login.setOnClickListener(this);
+
         username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -63,15 +67,13 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(validate.checkUsername(s.toString())) {
-                    Drawable myIcon = getResources().getDrawable(R.drawable.checkmark);
-                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
-                    username.setError("Username available", myIcon);
+                if(logic.checkUsername(s.toString())) {
+                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    username.setError(null, icon);
                 }
                 else {
-                    Drawable myIcon = getResources().getDrawable(R.drawable.errormark);
-                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
-                    username.setError("Invalid username", myIcon);
+                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    username.setError(null, icon);
                 }
             }
         });
@@ -89,15 +91,37 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(validate.chechPassword(s.toString())) {
-                    Drawable myIcon = getResources().getDrawable(R.drawable.checkmark);
-                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
-                    username.setError("Valid password", myIcon);
+                if(logic.checkPassword(s.toString())) {
+                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    password.setError(null, icon);
                 }
                 else {
-                    Drawable myIcon = getResources().getDrawable(R.drawable.errormark);
-                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
-                    username.setError("Invalid password", myIcon);
+                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    password.setError(null, icon);
+                }
+            }
+        });
+
+        age.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(logic.checkAge(s.toString())) {
+                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    age.setError(null, icon);
+                }
+                else {
+                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    age.setError(null, icon);
                 }
             }
         });
