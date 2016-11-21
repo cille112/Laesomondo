@@ -24,9 +24,8 @@
 
         <activity android:name=".startscreen.CreateUserActivity"></activity>
         <activity android:name=".mainscreen.MainActivity"></activity>
-
-        <activity
-            android:name=".challengescreen.ShowTextActivity"/>
+        <activity android:name=".challengescreen.QuizActivity"/>
+        <activity android:name=".challengescreen.ShowTextActivity"/>
 
     </application>
 

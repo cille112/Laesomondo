@@ -24,6 +24,8 @@ public class TestLogic {
         return readingTest.getText();
     }
 
+    public String getWriter (){ return readingTest.getWriter(); }
+
     public void paused(){
         startPause = System.currentTimeMillis();
     }

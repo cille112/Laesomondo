@@ -10,21 +10,22 @@ import android.widget.Button;
 
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.logic.TestLogic;
 
 public class TextInfoFragment extends Fragment {
 
-    private int text;
+    private int textID;
     private Button button;
+    private TestLogic logic;
 
     public static TextInfoFragment newInstance(int text) {
         TextInfoFragment fragment = new TextInfoFragment();
         fragment.setTextId(text);
-
         return fragment;
     }
 
     public void setTextId(int text) {
-        this.text = text;
+        this.textID = text;
     }
 
     @Override
@@ -32,12 +33,13 @@ public class TextInfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_textinfo, container, false);
 
         button = (Button) view.findViewById(R.id.button3);
+        logic = new TestLogic(textID, getActivity());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ShowTextActivity.class);
-                intent.putExtra("intVariableName", 1);
+                intent.putExtra("textID", 1);
                 startActivity(intent);
             }
         });
