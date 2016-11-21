@@ -1,8 +1,5 @@
 package com.example.cille_000.laesomondo.util;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Validator {
     private String[] illegalChars = new String[] {
@@ -24,24 +21,17 @@ public class Validator {
     }
 
     public boolean checkPassword(String password) {
-        if(password.length() < 3 || password.length() > 20)
-            return false;
-
-        return true;
+        return (password.length() < 3 || password.length() > 20);
     }
 
     public boolean checkDate(String date) {
         if(date.length() == 10) {
-            try {
-                DateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-                Date result = format.parse(date);
-                System.out.println("DATO: " + result);
+            int day = Integer.valueOf(date.substring(0, 2));
+            int month = Integer.valueOf(date.substring(3, 5));
+            int year = Integer.valueOf(date.substring(6, 10));
 
+            if(day < 31 && month < 12 && year > 1990 && year < 2010)
                 return true;
-            }
-            catch (Exception e) {
-                return false;
-            }
         }
 
         return false;

@@ -7,21 +7,42 @@ import java.util.Date;
 public class StartLogic {
 
     private Validator validate;
+    private String username;
+    private String password;
+    private String date;
 
     public StartLogic() {
         validate = new Validator();
     }
 
-    public boolean checkUsername(String username) {
+    public boolean checkUsername(String s) {
         // Tjek om brugernavnet er optaget
-        return validate.checkUsername(username);
+        if(validate.checkUsername(s)) {
+            username = s;
+
+            return true;
+        }
+
+        return false;
     }
 
-    public boolean checkPassword(String password) {
-        return validate.checkPassword(password);
+    public boolean checkPassword(String s) {
+        if(validate.checkPassword(s)) {
+            password = s;
+
+            return true;
+        }
+
+        return false;
     }
 
     public boolean checkAge(String s) {
-        return validate.checkDate(s);
+        if(validate.checkDate(s)) {
+            date = s;
+
+            return true;
+        }
+
+        return false;
     }
 }
