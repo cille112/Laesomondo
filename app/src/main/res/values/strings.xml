@@ -25,9 +25,9 @@
     <string name="Third">Historien handler om  </string>
     <string name="StartText">Start test  </string>
 
-
-    <!-- PREFERENCES -->
-    <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
+    <!-- Test Result Activity-->
+    <string name="result">Tillykke</string>
+    <string name="ButtonTest">OK</string>
 
     <!-- USERPROFILE FRAGMENT -->
     <string name="UserProfileFragmentWordMin">Ord i minuttet</string>

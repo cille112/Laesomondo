@@ -15,6 +15,7 @@ import java.util.List;
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
 
     private int textID;
+    private long time;
     private TestLogic logic;
     private List<String> firstQuestion;
     private List<String> secondQuestion;
@@ -31,6 +32,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
+        time = intent.getLongExtra("time", 0);
         logic = new TestLogic(textID, this);
 
         first = (Button) findViewById(R.id.firstAnswer);
@@ -124,7 +126,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             if(v==fourth && correctanswer==4){
                 correct++;
             }
-
+            Intent intent = new Intent(this, TestResultActivity.class);
+            intent.putExtra("textID", textID);
+            intent.putExtra("time", time);
+            intent.putExtra("correct", correct);
+            startActivity(intent);
         }
     }
 }

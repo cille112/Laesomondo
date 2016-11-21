@@ -63,5 +63,7 @@ public class TestLogic {
         return totalTime;
     }
 
-
+    public int calculateXP(long time, int correct){
+        return (int) (int)time/1000%60*correct;
+    }
 }
