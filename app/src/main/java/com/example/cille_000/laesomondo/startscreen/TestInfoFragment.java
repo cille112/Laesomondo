@@ -1,5 +1,6 @@
 package com.example.cille_000.laesomondo.startscreen;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -11,12 +12,14 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.challengescreen.TextInfoFragment;
+import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 
 public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
     private Button btn;
     private TextView notnow;
     private TextInfoFragment textinfo;
+    private Intent mainscreen;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +46,8 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
         if(v == notnow)
         {
-            //sumthing
+            mainscreen = new Intent(getActivity(), MainActivity.class);
+            startActivity(mainscreen);
         }
     }
 }
