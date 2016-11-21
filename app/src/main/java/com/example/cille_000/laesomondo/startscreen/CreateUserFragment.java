@@ -1,9 +1,12 @@
 package com.example.cille_000.laesomondo.startscreen;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,7 @@ import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.util.Validator;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CreateUserFragment extends Fragment implements View.OnClickListener{
+public class CreateUserFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton avatar;
     private EditText username, password, age;
@@ -47,6 +50,57 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
         avatar.setOnClickListener(this);
         login.setOnClickListener(this);
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(validate.checkUsername(s.toString())) {
+                    Drawable myIcon = getResources().getDrawable(R.drawable.checkmark);
+                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
+                    username.setError("Username available", myIcon);
+                }
+                else {
+                    Drawable myIcon = getResources().getDrawable(R.drawable.errormark);
+                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
+                    username.setError("Invalid username", myIcon);
+                }
+            }
+        });
+
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(validate.chechPassword(s.toString())) {
+                    Drawable myIcon = getResources().getDrawable(R.drawable.checkmark);
+                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
+                    username.setError("Valid password", myIcon);
+                }
+                else {
+                    Drawable myIcon = getResources().getDrawable(R.drawable.errormark);
+                    myIcon.setBounds(0, 0, myIcon.getIntrinsicWidth(), myIcon.getIntrinsicHeight());
+                    username.setError("Invalid password", myIcon);
+                }
+            }
+        });
 
         setAvatar(avatarFragment.getCurrent());
 
@@ -67,14 +121,9 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
             transaction.commit();
         }
 
-        if(v == username) {
-
-        }
-
         if(v == login) {
             ((CreateUserActivity)getActivity()).close();
         }
     }
-
 }
 
