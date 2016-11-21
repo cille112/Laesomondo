@@ -29,5 +29,13 @@
     <!-- PREFERENCES -->
     <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
 
+    <!-- USERPROFILE FRAGMENT -->
+    <string name="UserProfileFragmentWordMin">Ord i minuttet</string>
+    <string name="UserProfileFragmentWordMinValue">30 ord/min</string>
+    <string name="UserProfileFragmentLix">Lix</string>
+    <string name="UserProfileFragmentLixValue">10</string>
+    <string name="UserProfileFragmentAchievement">Achievement</string>
+    <string name="UserProfileFragmentStats">Stats</string>
+    <string name="UserProfileFragmentPilTilbage">Tilbage</string>
 
 </resources>
