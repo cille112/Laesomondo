@@ -3,6 +3,7 @@ package com.example.cille_000.laesomondo.challengescreen;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.example.cille_000.laesomondo.logic.TestLogic;
 
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity {
+public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
 
     private int textID;
     private TestLogic logic;
@@ -21,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button first, second, third, fourth;
     private TextView question;
     private int questionNumber = 1;
+    private int correct = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,11 @@ public class QuizActivity extends AppCompatActivity {
         third = (Button) findViewById(R.id.thirdAnswer);
         fourth = (Button) findViewById(R.id.fourthAnswer);
         question = (TextView) findViewById(R.id.Question);
+
+        first.setOnClickListener(this);
+        second.setOnClickListener(this);
+        third.setOnClickListener(this);
+        fourth.setOnClickListener(this);
 
         firstQuestion = logic.getQuestion1();
         secondQuestion = logic.getQuestion2();
@@ -59,11 +66,65 @@ public class QuizActivity extends AppCompatActivity {
         third.setText(secondQuestion.get(3));
         fourth.setText(secondQuestion.get(4));
     }
-    private void thridQuestion(){
+    private void thirdQuestion(){
         question.setText(thirdQuestion.get(0));
         first.setText(thirdQuestion.get(1));
         second.setText(thirdQuestion.get(2));
         third.setText(thirdQuestion.get(3));
         fourth.setText(thirdQuestion.get(4));
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (questionNumber == 1){
+            int correctanswer = logic.correctAnswer1();
+            if(v==first && correctanswer==1){
+                correct++;
+            }
+            if(v==second && correctanswer==2){
+                correct++;
+            }
+            if(v==third && correctanswer==3){
+                correct++;
+            }
+            if(v==fourth && correctanswer==4){
+                correct++;
+            }
+            secondQuestion();
+            questionNumber++;
+        }
+        else if (questionNumber==2){
+            int correctanswer = logic.correctAnswer2();
+            if(v==first && correctanswer==1){
+                correct++;
+            }
+            if(v==second && correctanswer==2){
+                correct++;
+            }
+            if(v==third && correctanswer==3){
+                correct++;
+            }
+            if(v==fourth && correctanswer==4){
+                correct++;
+            }
+            thirdQuestion();
+            questionNumber++;
+        }
+        else{
+            int correctanswer = logic.correctAnswer3();
+            if(v==first && correctanswer==1){
+                correct++;
+            }
+            if(v==second && correctanswer==2){
+                correct++;
+            }
+            if(v==third && correctanswer==3){
+                correct++;
+            }
+            if(v==fourth && correctanswer==4){
+                correct++;
+            }
+
+        }
     }
 }

@@ -37,6 +37,10 @@ public class TestLogic {
 
     public List<String> getQuestion3() {return readingTest.getQuestion3();}
 
+    public int correctAnswer1 (){return readingTest.correctanswer1();}
+    public int correctAnswer2 (){return readingTest.correctanswer2();}
+    public int correctAnswer3 (){return readingTest.correctanswer3();}
+
 
     public void paused(){
         startPause = System.currentTimeMillis();
