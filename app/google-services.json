@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "677273937141",
+    "firebase_url": "https://laesomondo.firebaseio.com",
+    "project_id": "laesomondo",
+    "storage_bucket": "laesomondo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677273937141:android:f6d2aef18d30fdde",
+        "android_client_info": {
+          "package_name": "com.example.cille_000.laesomondo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677273937141-q9e3deegrjemt67fdkllfs9oprok6o53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABJYUF3gTuuMNpNraDwzWbFNwtvdaRNLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

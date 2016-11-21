@@ -6,4 +6,7 @@
     <color name="colorComplimentary">#DF8128</color>
     <color name="colorWhite">#FFF</color>
     <color name="RED">#FF0000</color>
+    <color name="colorInputApproved">#9fe263</color>
+    <color name="colorInputNotApproved">#e26563</color>
+    <color name="transparent">#00000000</color>
 </resources>
