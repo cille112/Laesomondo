@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.util.Validator;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateUserFragment extends Fragment implements View.OnClickListener{
 
@@ -19,11 +21,13 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
     private EditText username, password, age;
     private TextView login;
     private AvatarFragment avatarFragment;
+    private Validator validate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
 
+        validate = new Validator();
         avatarFragment = new AvatarFragment();
 
         avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
@@ -46,6 +50,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
 
         setAvatar(avatarFragment.getCurrent());
 
+
         return view;
     }
 
@@ -62,9 +67,14 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
             transaction.commit();
         }
 
+        if(v == username) {
+
+        }
+
         if(v == login) {
             ((CreateUserActivity)getActivity()).close();
         }
     }
+
 }
 
