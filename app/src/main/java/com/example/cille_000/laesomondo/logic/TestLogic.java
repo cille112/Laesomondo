@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.cille_000.laesomondo.entities.ReadingTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestLogic {
 
@@ -26,6 +27,17 @@ public class TestLogic {
 
     public String getWriter (){ return readingTest.getWriter(); }
 
+    public String getName (){ return readingTest.getName(); }
+
+    public String getInfo (){ return readingTest.getinfo();}
+
+    public List<String> getQuestion1() {return readingTest.getQuestion1();}
+
+    public List<String> getQuestion2() {return readingTest.getQuestion2();}
+
+    public List<String> getQuestion3() {return readingTest.getQuestion3();}
+
+
     public void paused(){
         startPause = System.currentTimeMillis();
     }
@@ -41,6 +53,10 @@ public class TestLogic {
         for (int i = 0; i<paused.size(); i++){
             totalTime = totalTime-paused.get(i);
         }
+    }
+
+    public long getTime(){
+        return totalTime;
     }
 
 

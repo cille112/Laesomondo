@@ -21,7 +21,10 @@
     <string name="TestInfoFragmentNotNow"><u>Senere</u></string>
 
     <!-- TEXT INFO FRAGMENT -->
-    <string name="TextInfo">Her skal der stå noget om den text bruger skal i gang med at læse</string>
+    <string name="Second">Skrevet af:  </string>
+    <string name="Third">Historien handler om  </string>
+    <string name="StartText">Start test  </string>
+
 
     <!-- PREFERENCES -->
     <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>

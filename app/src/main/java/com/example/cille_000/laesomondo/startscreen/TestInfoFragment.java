@@ -41,6 +41,7 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
         {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.activity_start, textinfo);
+            transaction.remove(this);
             transaction.commit();
         }
 

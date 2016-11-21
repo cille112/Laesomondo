@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 import com.example.cille_000.laesomondo.R;
@@ -17,6 +18,9 @@ public class TextInfoFragment extends Fragment {
     private int textID;
     private Button button;
     private TestLogic logic;
+    private TextView textInfo;
+    private String info = "";
+    private TextView textInfoname;
 
     public static TextInfoFragment newInstance(int text) {
         TextInfoFragment fragment = new TextInfoFragment();
@@ -34,6 +38,13 @@ public class TextInfoFragment extends Fragment {
 
         button = (Button) view.findViewById(R.id.button3);
         logic = new TestLogic(textID, getActivity());
+        textInfo = (TextView) view.findViewById(R.id.textInfo);
+        textInfoname = (TextView) view.findViewById(R.id.textInfoName);
+
+        info =  getString(R.string.Second) + " " + logic.getWriter() + "\n" +
+                getString(R.string.Third) + " " + logic.getInfo();
+        textInfo.setText(info);
+        textInfoname.setText(logic.getName());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

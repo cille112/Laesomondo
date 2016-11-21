@@ -47,4 +47,20 @@ public class ReadingTest {
 
     public String getWriter(){ return listInfo.get(1);}
 
+    public String getName(){ return  listInfo.get(0);}
+
+    public String getinfo () { return listInfo.get(2);}
+
+    public int getLix(){ return Integer.valueOf(listInfo.get(3));}
+
+    public int getWordCount (){return Integer.valueOf(listInfo.get(4));}
+
+    public List<String> getQuestion1(){return listInfo.subList(5,10);}
+    public List<String> getQuestion2(){return listInfo.subList(10,15);}
+    public List<String> getQuestion3(){return listInfo.subList(15,20);}
+
+    public int correctanswer1 (){return Integer.valueOf(listInfo.get(20));}
+    public int correctanswer2 (){return Integer.valueOf(listInfo.get(21));}
+    public int correctanswer3 (){return Integer.valueOf(listInfo.get(22));}
+
 }

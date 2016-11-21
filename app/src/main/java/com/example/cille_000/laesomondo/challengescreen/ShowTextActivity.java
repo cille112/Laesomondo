@@ -63,6 +63,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             logic.stopTimer();
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("textID", textID);
+            intent.putExtra("time", logic.getTime());
             startActivity(intent);
         }
     }
