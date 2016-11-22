@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +39,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         if(v == login) {
             username.setText("");
             password.setText("");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
         if(v == createuser) {
