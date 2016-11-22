@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.cille_000.laesomondo.entities.ReadingTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TestLogic {
 
@@ -13,6 +14,7 @@ public class TestLogic {
     private Long startTime, stopTime, startPause, stopPause;
     private ArrayList<Long> paused = new ArrayList<>();
     private Long totalTime;
+    private int standardReadingSpeed = 3;
 
     public TestLogic(int id, Context context){
         readingTest = new ReadingTest(id, context);
@@ -23,6 +25,23 @@ public class TestLogic {
     public String getText(){
         return readingTest.getText();
     }
+
+    public String getWriter (){ return readingTest.getWriter(); }
+
+    public String getName (){ return readingTest.getName(); }
+
+    public String getInfo (){ return readingTest.getinfo();}
+
+    public List<String> getQuestion1() {return readingTest.getQuestion1();}
+
+    public List<String> getQuestion2() {return readingTest.getQuestion2();}
+
+    public List<String> getQuestion3() {return readingTest.getQuestion3();}
+
+    public int correctAnswer1 (){return readingTest.correctanswer1();}
+    public int correctAnswer2 (){return readingTest.correctanswer2();}
+    public int correctAnswer3 (){return readingTest.correctanswer3();}
+
 
     public void paused(){
         startPause = System.currentTimeMillis();
@@ -41,5 +60,15 @@ public class TestLogic {
         }
     }
 
+    public long getTime(){
+        return totalTime;
+    }
 
+    public int calculateXP(long time, int correct){
+        int seconds = (int) time/1000%60;
+        int readingspeed = readingTest.getWordCount()/standardReadingSpeed;
+        int xp = (readingTest.getLix()*correct)+seconds+readingspeed-seconds+50;
+        if(xp <= 10){return 10;}
+        else {return xp;}
+    }
 }

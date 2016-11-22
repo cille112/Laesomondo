@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name"> </string>
+    <string name="app_name">Læsomondo</string>
 
     <!-- LOGIN FRAGMENT -->
     <string name="LoginFragmentName">Brugernavn</string>
@@ -13,17 +13,31 @@
     <string name="CreateUserFragmentAge">Alder dd-mm-yyyy</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
     <string name="CreateUserFragmentAvatar">Avatar</string>
+    <string name="CreateUserFragmentLogin"><u>Har du allerede en bruger?</u></string>
 
     <!-- TEST INFO FRAGMENT -->
-    <string name="TestInfoFragmentTitle">Test Info</string>
+    <string name="TestInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
+    Denne test består af en tekst, som du skal læse så hurtigt og grundigt som muligt. Her efter kommer der 3 spørgsmål om den tekst du lige har læst.
+        Ud fra denne test bliver du så placeret i et level, som passer til dit start niveau.</string>
     <string name="TestInfoFragmentButton">Tag test nu</string>
     <string name="TestInfoFragmentNotNow"><u>Senere</u></string>
 
     <!-- TEXT INFO FRAGMENT -->
-    <string name="TextInfo">Her skal der stå noget om den text bruger skal i gang med at læse</string>
+    <string name="Second">Skrevet af:  </string>
+    <string name="Third">Historien handler om  </string>
+    <string name="StartText">Start test  </string>
 
-    <!-- PREFERENCES -->
-    <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
+    <!-- Test Result Activity-->
+    <string name="result">Tillykke</string>
+    <string name="ButtonTest">OK</string>
 
+    <!-- USERPROFILE FRAGMENT -->
+    <string name="UserProfileFragmentWordMin">Ord i minuttet</string>
+    <string name="UserProfileFragmentWordMinValue">30 ord/min</string>
+    <string name="UserProfileFragmentLix">Lix</string>
+    <string name="UserProfileFragmentLixValue">10</string>
+    <string name="UserProfileFragmentAchievement">Achievement</string>
+    <string name="UserProfileFragmentStats">Stats</string>
+    <string name="UserProfileFragmentPilTilbage">Tilbage</string>
 
 </resources>

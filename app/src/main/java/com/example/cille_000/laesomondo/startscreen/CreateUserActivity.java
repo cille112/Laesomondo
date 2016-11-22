@@ -1,7 +1,5 @@
 package com.example.cille_000.laesomondo.startscreen;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
@@ -11,14 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.util.Validator;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
 
-import com.example.cille_000.laesomondo.logic.StartLogic;
 
 public class CreateUserActivity extends AppCompatActivity {
 
+    private FirebaseAuth auth;
+    private Validator validate;
     private RadioButton r1, r2;
-    private StartLogic logic;
-    private SharedPreferences pref;
     private CreateUserFragment createUser;
     private TestInfoFragment testInfo;
 
@@ -27,6 +27,8 @@ public class CreateUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createuser);
 
+        auth = FirebaseAuth.getInstance();
+        validate = new Validator();
         createUser = new CreateUserFragment();
         testInfo = new TestInfoFragment();
 
@@ -35,9 +37,6 @@ public class CreateUserActivity extends AppCompatActivity {
 
         r1 = (RadioButton) findViewById(R.id.createuser_radio1);
         r2 = (RadioButton) findViewById(R.id.testinfo_radio2);
-
-        pref = getSharedPreferences("User", Context.MODE_PRIVATE);
-        logic = new StartLogic(pref);
 
         ViewPager.OnPageChangeListener PageListener = new ViewPager.OnPageChangeListener() {
 
@@ -56,7 +55,6 @@ public class CreateUserActivity extends AppCompatActivity {
 
                     case 1:
                         r2.setChecked(true);
-                        logic.saveUserInfo(createUser.getName(), createUser.getDate(), createUser.getAvatar());
                         break;
 
                     default:
@@ -96,5 +94,9 @@ public class CreateUserActivity extends AppCompatActivity {
         public int getCount() {
             return 2;
         }
+    }
+
+    public void close() {
+        finish();
     }
 }

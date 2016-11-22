@@ -1,35 +1,52 @@
 package com.example.cille_000.laesomondo.logic;
 
-import android.content.SharedPreferences;
+import com.example.cille_000.laesomondo.util.Validator;
 
-import com.example.cille_000.laesomondo.R;
+import java.util.Date;
 
 public class StartLogic {
 
-    private SharedPreferences pref;
-    private SharedPreferences.Editor editor;
+    private Validator validate;
+    private String username;
+    private String password;
+    private String date;
 
-    public StartLogic(SharedPreferences pref) {
-        this.pref = pref;
+    public StartLogic() {
+        validate = new Validator();
     }
 
-    public void saveUserInfo(String name, String date, int avatar) {
-        editor = pref.edit();
-        editor.putString("Name", name);
-        editor.putString("Date", date);
-        editor.putInt("Avatar", avatar);
-        editor.commit();
+    public boolean checkUsername(String s) {
+        // Tjek om brugernavnet er optaget
+        if(validate.checkUsername(s)) {
+            username = s;
+
+            return true;
+        }
+
+        return false;
     }
 
-    public String getName() {
-        return pref.getString("Name", "");
+    public boolean checkPassword(String s) {
+        if(validate.checkPassword(s)) {
+            password = s;
+
+            return true;
+        }
+
+        return false;
     }
 
-    public String getDate() {
-        return pref.getString("Date", "");
+    public boolean checkAge(String s) {
+        if(validate.checkDate(s)) {
+            date = s;
+
+            return true;
+        }
+
+        return false;
     }
 
-    public int getAvatar() {
-        return pref.getInt("Avatar", R.drawable.av1);
+    public boolean validInfo() {
+        return (username != null && password != null && date != null)
     }
 }

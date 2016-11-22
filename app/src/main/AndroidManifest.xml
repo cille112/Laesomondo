@@ -4,6 +4,10 @@
 
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21"/>
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -22,10 +26,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".startscreen.CreateUserActivity"></activity>
-
-        <activity
-            android:name=".challengescreen.ShowTextActivity"/>
+        <activity android:name=".startscreen.CreateUserActivity"/>
+        <activity android:name=".mainscreen.MainActivity"/>
+        <activity android:name=".challengescreen.QuizActivity"/>
+        <activity android:name=".challengescreen.ShowTextActivity"/>
+        <activity android:name=".challengescreen.TestResultActivity"/>
 
     </application>
 

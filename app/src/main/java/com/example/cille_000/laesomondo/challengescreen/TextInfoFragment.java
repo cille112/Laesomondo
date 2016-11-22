@@ -7,24 +7,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.logic.TestLogic;
 
 public class TextInfoFragment extends Fragment {
 
-    private int text;
+    private int textID;
     private Button button;
+    private TestLogic logic;
+    private TextView textInfo;
+    private String info = "";
+    private TextView textInfoname;
 
     public static TextInfoFragment newInstance(int text) {
         TextInfoFragment fragment = new TextInfoFragment();
         fragment.setTextId(text);
-
         return fragment;
     }
 
     public void setTextId(int text) {
-        this.text = text;
+        this.textID = text;
     }
 
     @Override
@@ -32,12 +37,20 @@ public class TextInfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_textinfo, container, false);
 
         button = (Button) view.findViewById(R.id.button3);
+        logic = new TestLogic(textID, getActivity());
+        textInfo = (TextView) view.findViewById(R.id.textInfo);
+        textInfoname = (TextView) view.findViewById(R.id.textInfoName);
+
+        info =  getString(R.string.Second) + " " + logic.getWriter() + "\n" +
+                getString(R.string.Third) + " " + logic.getInfo();
+        textInfo.setText(info);
+        textInfoname.setText(logic.getName());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ShowTextActivity.class);
-                intent.putExtra("intVariableName", 1);
+                intent.putExtra("textID", 1);
                 startActivity(intent);
             }
         });
