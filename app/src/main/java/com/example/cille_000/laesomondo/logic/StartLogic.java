@@ -47,6 +47,6 @@ public class StartLogic {
     }
 
     public boolean validInfo() {
-        return (username != null && password != null && date != null)
+        return (username != null && password != null && date != null);
     }
 }

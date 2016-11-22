@@ -25,14 +25,12 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
     private EditText username, password, age;
     private TextView login;
     private AvatarFragment avatarFragment;
-    private Validator validate;
     private StartLogic logic;
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createuser, container, false);
 
-        validate = new Validator();
         avatarFragment = new AvatarFragment();
         logic = new StartLogic();
 

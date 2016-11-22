@@ -9,7 +9,8 @@
         android:layout_height="105dp"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:background="@drawable/logo"/>
+        android:background="@drawable/logo"
+        android:contentDescription="@string/app_name"/>
 
     <com.example.cille_000.laesomondo.util.NoPopupEditText
         android:id="@+id/createuser_name"
@@ -47,7 +48,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp">
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="40dp">
 
     <TextView
         android:id="@+id/createuser_picture"

@@ -19,7 +19,6 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
     private Button btn;
     private TextView notnow;
     private TextInfoFragment textinfo;
-    private Intent mainscreen;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
         if(v == notnow)
         {
-            mainscreen = new Intent(getActivity(), MainActivity.class);
+            Intent mainscreen = new Intent(getActivity(), MainActivity.class);
             startActivity(mainscreen);
         }
     }

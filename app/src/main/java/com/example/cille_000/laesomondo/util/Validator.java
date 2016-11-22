@@ -21,17 +21,22 @@ public class Validator {
     }
 
     public boolean checkPassword(String password) {
-        return (password.length() < 3 || password.length() > 20);
+        return (password.length() > 3 || password.length() < 20);
     }
 
     public boolean checkDate(String date) {
-        if(date.length() == 10) {
-            int day = Integer.valueOf(date.substring(0, 2));
-            int month = Integer.valueOf(date.substring(3, 5));
-            int year = Integer.valueOf(date.substring(6, 10));
+        if(date.length() == 8) {
+            try{
+                int day = Integer.valueOf(date.substring(0, 2));
+                int month = Integer.valueOf(date.substring(2, 4));
+                int year = Integer.valueOf(date.substring(4, 8));
 
-            if(day < 31 && month < 12 && year > 1900 && year < 2010)
-                return true;
+                if(day < 32 && month < 13 && year > 1900 && year < 2010)
+                    return true;
+
+            }catch (Exception e) {
+                return false;
+            }
         }
 
         return false;

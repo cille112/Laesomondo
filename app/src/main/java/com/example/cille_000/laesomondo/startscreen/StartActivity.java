@@ -10,14 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button login;
     private EditText username, password;
     private TextView createuser;
-    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if(v == createuser) {
-            intent = new Intent(this, CreateUserActivity.class);
+            Intent intent = new Intent(this, CreateUserActivity.class);
             startActivity(intent);
         }
 
