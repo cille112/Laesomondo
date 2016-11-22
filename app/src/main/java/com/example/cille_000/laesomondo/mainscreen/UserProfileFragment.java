@@ -5,15 +5,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 
 
 public class UserProfileFragment extends Fragment implements View.OnClickListener {
 
-    private EditText lixvalue, wordMinValue;
+    private TextView lixvalue, wordMinValue;
     private ImageButton achievement, stats, pilTilbage;
 
     public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -21,8 +21,8 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_userprofile, container, false);
 
 
-        wordMinValue = (EditText) view.findViewById(R.id.userprofile_wordminvalue);
-        lixvalue = (EditText) view.findViewById(R.id.userprofile_lixvalue);
+        wordMinValue = (TextView) view.findViewById(R.id.userprofile_wordminvalue);
+        lixvalue = (TextView) view.findViewById(R.id.userprofile_lixvalue);
         achievement = (ImageButton) view.findViewById(R.id.userprofile_achievement);
         stats = (ImageButton) view.findViewById(R.id.userprofile_stats);
         pilTilbage = (ImageButton) view.findViewById(R.id.userprofile_piltilbage);

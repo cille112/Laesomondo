@@ -15,7 +15,7 @@ public class ReadingTest {
     private List<String> listInfo;
 
     public ReadingTest(int id, Context context){
-        String info = "";
+        String info;
         try {
             InputStream is = context.getAssets().open("text" + id + ".txt");
             int size = is.available();

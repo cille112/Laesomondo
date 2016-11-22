@@ -6,16 +6,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.RadioButton;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.StartLogic;
-import com.example.cille_000.laesomondo.util.TouchListener;
-import com.example.cille_000.laesomondo.util.Validator;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class CreateUserActivity extends AppCompatActivity {
@@ -71,7 +65,7 @@ public class CreateUserActivity extends AppCompatActivity {
             }
         };
 
-        viewPager.addOnPageChangeListener(PageListener);
+        viewPager.setOnPageChangeListener(PageListener);
     }
 
     private class PagerAdapter extends FragmentPagerAdapter {

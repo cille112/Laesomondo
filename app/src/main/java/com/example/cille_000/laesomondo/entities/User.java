@@ -1,6 +1,5 @@
 package com.example.cille_000.laesomondo.entities;
 
-import com.example.cille_000.laesomondo.R;
 
 public class  User {
 
