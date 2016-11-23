@@ -39,6 +39,17 @@
             android:id="@+id/burgerbutton"
             android:scaleType="centerCrop" />
 
+        <ImageButton
+            android:background="@null"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/usericon01"
+            android:id="@+id/userbutton"
+            android:scaleType="centerCrop" />
+
 
     </android.support.v7.widget.Toolbar>
 

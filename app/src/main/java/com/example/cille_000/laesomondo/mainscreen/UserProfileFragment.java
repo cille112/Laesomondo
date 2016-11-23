@@ -1,5 +1,6 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.startscreen.CreateUserActivity;
 
 
 public class UserProfileFragment extends Fragment implements View.OnClickListener {
@@ -44,6 +46,8 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
         }
 
         if(v == pilTilbage) {
+            Intent mainscreen = new Intent(getActivity(), MainActivity.class);
+            startActivity(mainscreen);
         }
     }
 }
