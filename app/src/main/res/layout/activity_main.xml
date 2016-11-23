@@ -32,8 +32,8 @@
             android:background="@null"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             app:srcCompat="@drawable/burgerbutton01"
             android:id="@+id/burgerbutton"
             android:scaleType="centerCrop" />
