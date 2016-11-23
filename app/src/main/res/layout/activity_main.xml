@@ -74,6 +74,9 @@
                     android:orientation="horizontal" >
 
                     <ImageButton
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="85dp"
                         android:layout_height="104dp"
                         app:srcCompat="@drawable/krimi01"
@@ -81,6 +84,9 @@
                         android:scaleType="centerCrop" />
 
                     <ImageButton
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="88dp"
                         android:layout_height="103dp"
                         app:srcCompat="@drawable/krimi02"
@@ -88,6 +94,9 @@
                         android:scaleType="centerCrop" />
 
                     <ImageButton
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="91dp"
                         android:layout_height="104dp"
                         app:srcCompat="@drawable/krimi03"
@@ -95,6 +104,9 @@
                         android:scaleType="centerCrop" />
 
                     <ImageButton
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="78dp"
                         android:layout_height="107dp"
                         app:srcCompat="@drawable/krimi04"
@@ -102,6 +114,9 @@
                         android:scaleType="centerCrop" />
 
                     <ImageButton
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_width="80dp"
                         android:layout_height="103dp"
                         app:srcCompat="@drawable/krimi05"
