@@ -26,7 +26,7 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
 
         btn = (Button) view.findViewById(R.id.testinfo_btn);
         btn.setOnClickListener(this);
-        textinfo = TextInfoFragment.newInstance(1);
+        textinfo = TextInfoFragment.newInstance(5);
 
         notnow = (TextView) view.findViewById(R.id.testinfo_notnow);
         notnow.setOnClickListener(this);
