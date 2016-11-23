@@ -2,11 +2,13 @@
 
     <string name="app_name">Læsomondo</string>
 
-    <!-- LOGIN FRAGMENT -->
+    <!-- START ACTIVITY -->
     <string name="LoginFragmentName">Brugernavn</string>
     <string name="LoginFragmentPassword">Kodeord</string>
     <string name="LoginFragmentLogin">Log ind</string>
     <string name="LoginFragmentCreateUser"><u>Opret dig som ny bruger her!</u></string>
+    <string name="LoginFragmentToastSuccess">Velkommen</string>
+    <string name="LoginFragmentToastNoSuccess">Fejl ved login</string>
 
     <!-- CREATE USER FRAGMENT -->
     <string name="CreateUserFragmentName">Brugernavn</string>
