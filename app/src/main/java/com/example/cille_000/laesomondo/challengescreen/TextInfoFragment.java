@@ -50,7 +50,7 @@ public class TextInfoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ShowTextActivity.class);
-                intent.putExtra("textID", 1);
+                intent.putExtra("textID", 5);
                 startActivity(intent);
             }
         });
