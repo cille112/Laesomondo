@@ -12,7 +12,7 @@ public class TestLogic {
 
     private ReadingTest readingTest;
     private Long startTime, stopTime, startPause, stopPause;
-    private ArrayList<Long> paused = new ArrayList<>();
+    private ArrayList<Long> pauses = new ArrayList<>();
     private Long totalTime;
     private int standardReadingSpeed = 3;
 
@@ -30,7 +30,7 @@ public class TestLogic {
 
     public String getName (){ return readingTest.getName(); }
 
-    public String getInfo (){ return readingTest.getinfo();}
+    public String getInfo (){ return readingTest.getInfo();}
 
     public List<String> getQuestion1() {return readingTest.getQuestion1();}
 
@@ -38,25 +38,25 @@ public class TestLogic {
 
     public List<String> getQuestion3() {return readingTest.getQuestion3();}
 
-    public int correctAnswer1 (){return readingTest.correctanswer1();}
-    public int correctAnswer2 (){return readingTest.correctanswer2();}
-    public int correctAnswer3 (){return readingTest.correctanswer3();}
+    public int correctAnswer1 (){return readingTest.getCorrectAnswer1();}
+    public int correctAnswer2 (){return readingTest.getCorrectAnswer2();}
+    public int correctAnswer3 (){return readingTest.getCorrectAnswer3();}
 
 
-    public void paused(){
+    public void beginPause(){
         startPause = System.currentTimeMillis();
     }
 
     public void stopPause(){
         stopPause = System.currentTimeMillis();
-        paused.add(stopPause-startPause);
+        pauses.add(stopPause-startPause);
     }
 
     public void stopTimer(){
         stopTime = System.currentTimeMillis();
         totalTime = stopTime-startTime;
-        for (int i = 0; i<paused.size(); i++){
-            totalTime = totalTime-paused.get(i);
+        for (int i = 0; i< pauses.size(); i++){
+            totalTime = totalTime- pauses.get(i);
         }
     }
 

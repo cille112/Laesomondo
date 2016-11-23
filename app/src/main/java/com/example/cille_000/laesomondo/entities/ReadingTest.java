@@ -13,11 +13,13 @@ public class ReadingTest {
 
     private String text = "";
     private List<String> listInfo;
+    private int textID;
 
     public ReadingTest(int id, Context context){
+        this.textID=id;
         String info;
         try {
-            InputStream is = context.getAssets().open("text" + id + ".txt");
+            InputStream is = context.getAssets().open("text" + textID + ".txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -27,7 +29,7 @@ public class ReadingTest {
             e.printStackTrace();
         }
         try {
-            InputStream is = context.getAssets().open("text" + id + "Info.txt");
+            InputStream is = context.getAssets().open("text" + textID + "Info.txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -49,7 +51,7 @@ public class ReadingTest {
 
     public String getName(){ return  listInfo.get(0);}
 
-    public String getinfo () { return listInfo.get(2);}
+    public String getInfo() { return listInfo.get(2);}
 
     public int getLix(){ return Integer.valueOf(listInfo.get(3));}
 
@@ -59,9 +61,9 @@ public class ReadingTest {
     public List<String> getQuestion2(){return listInfo.subList(10,15);}
     public List<String> getQuestion3(){return listInfo.subList(15,20);}
 
-    public int correctanswer1 (){return Integer.valueOf(listInfo.get(20));}
-    public int correctanswer2 (){return Integer.valueOf(listInfo.get(21));}
-    public int correctanswer3 (){return Integer.valueOf(listInfo.get(22));}
+    public int getCorrectAnswer1(){return Integer.valueOf(listInfo.get(20));}
+    public int getCorrectAnswer2(){return Integer.valueOf(listInfo.get(21));}
+    public int getCorrectAnswer3(){return Integer.valueOf(listInfo.get(22));}
 
 
 

@@ -55,7 +55,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             else{
                 paused=true;
                 scrol.setVisibility(View.INVISIBLE);
-                logic.paused();
+                logic.beginPause();
             }
         }
         if (v==stop){
