@@ -16,10 +16,9 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ImageButton imageButton;
-    private ImageButton BurgerButton;
+    private ImageButton imageButton, BurgerButton, Userbutton;
     private HorizontalScrollView scrollViewH01, scrollViewH02, scrollViewH03, scrollViewH04;
     private ScrollView scrollViewV01;
 
@@ -38,12 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageButton = (ImageButton) findViewById(R.id.imageButton3);
+        Userbutton = (ImageButton) findViewById(R.id.userbutton);
         BurgerButton = (ImageButton) findViewById(R.id.burgerbutton);
         scrollViewH01 = (HorizontalScrollView) findViewById(R.id.sch01);
         scrollViewH02 = (HorizontalScrollView) findViewById(R.id.sch02);
         scrollViewH03 = (HorizontalScrollView) findViewById(R.id.sch03);
         scrollViewH04 = (HorizontalScrollView) findViewById(R.id.sch04);
         scrollViewV01 = (ScrollView) findViewById(R.id.scv01);
+
+        Userbutton.setOnClickListener(this);
+        BurgerButton.setOnClickListener(this);
     }
 
     @Override
@@ -59,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (v == BurgerButton) {
+
+        }
+        if (v == Userbutton) {
 
         }
 
