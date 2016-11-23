@@ -17,6 +17,18 @@
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/white"
         android:background="?attr/colorPrimary">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Udfordringer"
+            android:layout_gravity= "center"
+            android:textColor="#ffffff"
+            android:textSize="32dp"
+            ></TextView>
+
+
     </android.support.v7.widget.Toolbar>
 
 

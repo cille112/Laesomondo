@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/miCompose"
+        android:id="@+id/burgerbutton"
         android:icon="@drawable/burgerbutton01"
         app:showAsAction="ifRoom"
         android:title="Compose">
     </item>
     <item
-        android:id="@+id/miProfile"
+        android:id="@+id/profile"
         android:icon="@drawable/usericon01"
         app:showAsAction="ifRoom|withText"
         android:title="Profile">

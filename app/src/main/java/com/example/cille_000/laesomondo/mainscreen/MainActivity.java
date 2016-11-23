@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         imageButton = (ImageButton) findViewById(R.id.imageButton3);
