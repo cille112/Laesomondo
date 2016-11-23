@@ -3,6 +3,8 @@ package com.example.cille_000.laesomondo.mainscreen;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
@@ -26,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
       //  requestWindowFeature(Window.FEATURE_NO_TITLE);
       //  this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         imageButton = (ImageButton) findViewById(R.id.imageButton3);
@@ -38,4 +42,10 @@ public class MainActivity extends AppCompatActivity {
         scrollViewV01 = (ScrollView) findViewById(R.id.scv01);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 }
