@@ -66,4 +66,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
     }
+
+    @Override
+    public void onBackPressed() { }
 }

@@ -46,4 +46,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() { }
 }
