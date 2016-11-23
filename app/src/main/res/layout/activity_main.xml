@@ -40,7 +40,7 @@
             />
 
         <ImageButton
-            app:srcCompat="@drawable/usericon"
+            app:srcCompat="@drawable/usericon01"
             android:id="@+id/imageButton10"
             android:scaleType="fitXY"
             android:background="@null"
@@ -59,9 +59,9 @@
         android:id="@+id/progressBar3" />
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:background="@drawable/shelfhalf03"
-        android:layout_height="500dp"
+        android:layout_height="fill_parent"
         android:id="@+id/scv01">
 
         <LinearLayout
@@ -70,7 +70,7 @@
             android:orientation="vertical" >
 
             <HorizontalScrollView
-                android:layout_width="464dp"
+                android:layout_width="fill_parent"
                 android:layout_height="125dp"
                 android:id="@+id/sch01">
 
@@ -117,7 +117,7 @@
             </HorizontalScrollView>
 
             <HorizontalScrollView
-                android:layout_width="468dp"
+                android:layout_width="fill_parent"
                 android:layout_height="125dp"
                 android:elevation="0dp"
                 android:id="@+id/sch02">
@@ -130,7 +130,7 @@
             </HorizontalScrollView>
 
             <HorizontalScrollView
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="125dp"
                 android:id="@+id/sch03">
 
@@ -141,7 +141,7 @@
             </HorizontalScrollView>
 
             <HorizontalScrollView
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="125dp"
                 android:id="@+id/sch04">
 
