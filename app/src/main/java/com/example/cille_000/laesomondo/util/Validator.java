@@ -9,19 +9,16 @@ public class Validator {
     };
 
     public boolean checkUsername(String username) {
-        if(username.length() < 3 || username.length() > 16)
-            return false;
-
         for (String x: illegalChars) {
             if(username.contains(x))
                 return false;
         }
 
-        return true;
+        return (username.length() > 3 && username.length() < 16);
     }
 
     public boolean checkPassword(String password) {
-        return (password.length() > 3 || password.length() < 20);
+        return (password.length() > 3 && password.length() < 20);
     }
 
     public boolean checkDate(String date) {

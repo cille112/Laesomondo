@@ -16,12 +16,15 @@
 
     <Button
         android:text="@string/StartText"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="360dp"
+        android:background="@color/colorComplimentary"
+        android:textColor="@color/colorWhite"
         android:id="@+id/button3" />
+
 
     <TextView
         android:text=""
