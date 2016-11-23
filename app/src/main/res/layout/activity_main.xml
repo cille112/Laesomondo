@@ -1,11 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:baselineAligned="false"
+    android:background="#8cc442"
+    android:orientation="vertical">
 
-    <TextView
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Main screen"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:background="#7fb13d"
+        android:layout_height="41dp">
+        <ImageButton
+            app:srcCompat="@drawable/burgerbutton01"
+            android:id="@+id/imageButton"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:textColor="#FFFFFF"
+            android:text="Udfordringer"
+            android:id="@+id/textView"
+            android:textSize="32sp"
+            android:textAlignment="center"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            />
+
+        <ImageButton
+            app:srcCompat="@drawable/usericon"
+            android:id="@+id/imageButton10"
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp" />
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar3" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="@drawable/shelfhalf03"
+        android:layout_height="500dp"
+        android:id="@+id/scv01">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <HorizontalScrollView
+                android:layout_width="464dp"
+                android:layout_height="125dp"
+                android:id="@+id/sch01">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:layout_width="85dp"
+                        android:layout_height="104dp"
+                        app:srcCompat="@drawable/krimi01"
+                        android:id="@+id/imageButton11"
+                        android:scaleType="centerCrop" />
+
+                    <ImageButton
+                        android:layout_width="88dp"
+                        android:layout_height="103dp"
+                        app:srcCompat="@drawable/krimi02"
+                        android:id="@+id/imageButton12"
+                        android:scaleType="centerCrop" />
+
+                    <ImageButton
+                        android:layout_width="91dp"
+                        android:layout_height="104dp"
+                        app:srcCompat="@drawable/krimi03"
+                        android:id="@+id/imageButton13"
+                        android:scaleType="centerCrop" />
+
+                    <ImageButton
+                        android:layout_width="78dp"
+                        android:layout_height="107dp"
+                        app:srcCompat="@drawable/krimi04"
+                        android:id="@+id/imageButton14"
+                        android:scaleType="centerCrop" />
+
+                    <ImageButton
+                        android:layout_width="80dp"
+                        android:layout_height="103dp"
+                        app:srcCompat="@drawable/krimi05"
+                        android:id="@+id/imageButton15"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="468dp"
+                android:layout_height="125dp"
+                android:elevation="0dp"
+                android:id="@+id/sch02">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:fillViewport="true" />
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:id="@+id/sch03">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:id="@+id/sch04">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
