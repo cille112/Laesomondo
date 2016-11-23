@@ -4,8 +4,8 @@
     <item
         android:id="@+id/burgerbutton"
         android:icon="@drawable/burgerbutton01"
-        app:showAsAction="ifRoom"
-        android:title="Compose">
+        app:showAsAction="always"
+        android:title="Burger">
     </item>
     <item
         android:id="@+id/profile"
