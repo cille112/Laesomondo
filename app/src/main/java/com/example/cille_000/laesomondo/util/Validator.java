@@ -21,6 +21,10 @@ public class Validator {
         return (password.length() > 3 && password.length() < 20);
     }
 
+    public boolean checkEmail(String email) {
+        return (email != null && email.contains("@"));
+    }
+
     public boolean checkDate(String date) {
         if(date.length() == 8) {
             try{

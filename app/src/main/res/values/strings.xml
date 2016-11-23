@@ -13,6 +13,7 @@
     <!-- CREATE USER FRAGMENT -->
     <string name="CreateUserFragmentName">Brugernavn</string>
     <string name="CreateUserFragmentAge">Fødselsdato: ddmmyyyy</string>
+    <string name="CreateUserFragmentEmail">Email adresse</string>
     <string name="CreateUserFragmentPicture">Vælg billede:</string>
     <string name="CreateUserFragmentAvatar">Avatar</string>
     <string name="CreateUserFragmentLogin"><u>Har du allerede en bruger?</u></string>

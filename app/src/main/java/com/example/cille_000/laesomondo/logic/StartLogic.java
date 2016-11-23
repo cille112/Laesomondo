@@ -9,6 +9,7 @@ public class StartLogic {
     private Validator validate;
     private String username;
     private String password;
+    private String email;
     private String date;
 
     public StartLogic() {
@@ -29,6 +30,16 @@ public class StartLogic {
     public boolean checkPassword(String s) {
         if(validate.checkPassword(s)) {
             password = s;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean checkEmail(String s) {
+        if(validate.checkEmail(s)) {
+            email = s;
 
             return true;
         }

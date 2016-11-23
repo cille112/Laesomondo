@@ -21,7 +21,7 @@ import com.example.cille_000.laesomondo.logic.StartLogic;
 public class CreateUserFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton avatar;
-    private EditText username, password, age;
+    private EditText username, password, email, age;
     private TextView login;
     private AvatarFragment avatarFragment;
     private StartLogic logic;
@@ -43,6 +43,7 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
         avatar = (ImageButton) view.findViewById(R.id.createuser_picturebtn);
         username = (EditText) view.findViewById(R.id.createuser_name);
         password = (EditText) view.findViewById(R.id.createuser_password);
+        email = (EditText) view.findViewById(R.id.createuser_email);
         age = (EditText) view.findViewById(R.id.createuser_age);
         login = (TextView) view.findViewById(R.id.createuser_login);
 
@@ -96,6 +97,30 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
                     Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
                     password.setError(null, icon);
                 }
+            }
+        });
+
+        email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(logic.checkEmail(s.toString())) {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
+                    email.setError(null, icon);
+                }
+                else {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
+                    email.setError(null, icon);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
