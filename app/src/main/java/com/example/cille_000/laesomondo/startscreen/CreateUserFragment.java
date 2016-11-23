@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -16,8 +17,6 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.StartLogic;
-import com.example.cille_000.laesomondo.util.Validator;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateUserFragment extends Fragment implements View.OnClickListener {
 
@@ -66,11 +65,11 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if(logic.checkUsername(s.toString())) {
-                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
                     username.setError(null, icon);
                 }
                 else {
-                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
                     username.setError(null, icon);
                 }
             }
@@ -90,11 +89,11 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if(logic.checkPassword(s.toString())) {
-                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
                     password.setError(null, icon);
                 }
                 else {
-                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
                     password.setError(null, icon);
                 }
             }
@@ -114,11 +113,11 @@ public class CreateUserFragment extends Fragment implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if(logic.checkAge(s.toString())) {
-                    Drawable icon = getResources().getDrawable(R.drawable.checkmark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
                     age.setError(null, icon);
                 }
                 else {
-                    Drawable icon = getResources().getDrawable(R.drawable.errormark);
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
                     age.setError(null, icon);
                 }
             }
