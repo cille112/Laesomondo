@@ -32,53 +32,13 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="0dp"
-        android:background="#7fb13d"
-        android:layout_height="41dp">
-        <ImageButton
-            app:srcCompat="@drawable/burgerbutton01"
-            android:id="@+id/imageButton"
-            android:background="@null"
-            android:scaleType="fitXY"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp" />
-
-        <TextView
-            android:textColor="#FFFFFF"
-            android:text="Udfordringer"
-            android:id="@+id/textView"
-            android:textSize="32sp"
-            android:textAlignment="center"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="260dp"
-            android:layout_height="40dp"
-            />
-
-        <ImageButton
-            app:srcCompat="@drawable/usericon01"
-            android:id="@+id/imageButton10"
-            android:scaleType="fitXY"
-            android:background="@null"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="3dp" />
-
-
-    </LinearLayout>
-
-    <ScrollView
+        <ScrollView
         android:layout_width="fill_parent"
         android:background="@drawable/shelfhalf03"
-        android:layout_height="fill_parent"
-        android:id="@+id/scv01">
+        android:tileMode="repeat"
+        android:dither="true"
+        android:id="@+id/scv01"
+            android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,19 +129,16 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" />
+                    android:orientation="vertical" >
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="295dp"
+                        app:srcCompat="@drawable/krimi05"
+                        android:id="@+id/imageButton10" />
+                </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
-
-    <ImageButton
-        android:background="@null"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="104dp"
-        app:srcCompat="@drawable/krimi01"
-        android:id="@+id/imageButton11"
-        android:scaleType="centerCrop" />
 
 </LinearLayout>

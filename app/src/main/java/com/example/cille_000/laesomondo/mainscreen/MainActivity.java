@@ -17,7 +17,6 @@ import com.example.cille_000.laesomondo.R;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton imageButton;
-    private TextView textView;
     private HorizontalScrollView scrollViewH01, scrollViewH02, scrollViewH03, scrollViewH04;
     private ScrollView scrollViewV01;
 
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         imageButton = (ImageButton) findViewById(R.id.imageButton3);
-        textView = (TextView) findViewById(R.id.textView);
         scrollViewH01 = (HorizontalScrollView) findViewById(R.id.sch01);
         scrollViewH02 = (HorizontalScrollView) findViewById(R.id.sch02);
         scrollViewH03 = (HorizontalScrollView) findViewById(R.id.sch03);
