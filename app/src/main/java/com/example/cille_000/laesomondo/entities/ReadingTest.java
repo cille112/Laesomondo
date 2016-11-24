@@ -14,9 +14,14 @@ public class ReadingTest {
     private String text = "";
     private List<String> listInfo;
     private int textID;
+    private Context context;
 
-    public ReadingTest(int id, Context context){
-        this.textID=id;
+    public ReadingTest(Context context){
+        this.context = context;
+    }
+
+    public void setTextID(int id){
+        textID = id;
         String info;
         try {
             InputStream is = context.getAssets().open("text" + textID + ".txt");
@@ -40,7 +45,6 @@ public class ReadingTest {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     public String getText() {
@@ -61,10 +65,19 @@ public class ReadingTest {
     public List<String> getQuestion2(){return listInfo.subList(10,15);}
     public List<String> getQuestion3(){return listInfo.subList(15,20);}
 
-    public int getCorrectAnswer1(){return Integer.valueOf(listInfo.get(20));}
-    public int getCorrectAnswer2(){return Integer.valueOf(listInfo.get(21));}
-    public int getCorrectAnswer3(){return Integer.valueOf(listInfo.get(22));}
+    public int getCorrectAnswer(int question){
+        if (question == 1){
+        return Integer.valueOf(listInfo.get(20));
+        }
+        else if (question == 2){
+            return Integer.valueOf(listInfo.get(21));
+        }
+        else {
+            return Integer.valueOf(listInfo.get(22));
+        }
+
+    }
 
 
 
-}
+    }

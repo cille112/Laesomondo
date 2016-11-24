@@ -23,7 +23,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Button first, second, third, fourth;
     private TextView question;
     private int questionNumber = 1;
-    private int correct = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
         time = intent.getLongExtra("time", 0);
-        logic = new TestLogic(textID, this);
+        logic = new TestLogic(this);
+        logic.setText(textID);
 
         first = (Button) findViewById(R.id.firstAnswer);
         second = (Button) findViewById(R.id.secondAnswer);
@@ -79,58 +79,51 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (questionNumber == 1){
-            int correctanswer = logic.correctAnswer1();
-            if(v==first && correctanswer==1){
-                correct++;
+            if(v==first){
+            logic.checkAnswer(1,1);
             }
-            if(v==second && correctanswer==2){
-                correct++;
+            if(v==second){
+                logic.checkAnswer(1,2);
             }
-            if(v==third && correctanswer==3){
-                correct++;
+            if (v==third){
+                logic.checkAnswer(1,3);
             }
-            if(v==fourth && correctanswer==4){
-                correct++;
+            if (v==fourth){
+                logic.checkAnswer(1,4);
             }
             secondQuestion();
             questionNumber++;
         }
         else if (questionNumber==2){
-            int correctanswer = logic.correctAnswer2();
-            if(v==first && correctanswer==1){
-                correct++;
+            if(v==first){
+                logic.checkAnswer(2,1);
             }
-            if(v==second && correctanswer==2){
-                correct++;
+            if(v==second){
+                logic.checkAnswer(2,2);
             }
-            if(v==third && correctanswer==3){
-                correct++;
+            if (v==third){
+                logic.checkAnswer(2,3);
             }
-            if(v==fourth && correctanswer==4){
-                correct++;
+            if (v==fourth){
+                logic.checkAnswer(2,4);
             }
             thirdQuestion();
             questionNumber++;
         }
         else{
-            int correctanswer = logic.correctAnswer3();
-            if(v==first && correctanswer==1){
-                correct++;
+            if(v==first){
+                logic.checkAnswer(3,1);
             }
-            if(v==second && correctanswer==2){
-                correct++;
+            if(v==second){
+                logic.checkAnswer(3,2);
             }
-            if(v==third && correctanswer==3){
-                correct++;
+            if (v==third){
+                logic.checkAnswer(3,3);
             }
-            if(v==fourth && correctanswer==4){
-                correct++;
+            if (v==fourth){
+                logic.checkAnswer(3,4);
             }
-            Intent intent = new Intent(this, TestResultActivity.class);
-            intent.putExtra("textID", textID);
-            intent.putExtra("time", time);
-            intent.putExtra("correct", correct);
-            startActivity(intent);
+            logic.getResult(textID, time);
         }
     }
 

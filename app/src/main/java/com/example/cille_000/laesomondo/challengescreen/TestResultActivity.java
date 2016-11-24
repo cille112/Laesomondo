@@ -13,13 +13,13 @@ import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 
 public class TestResultActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private int textID;
     private long time;
     private int correct;
     private TestLogic logic;
     private int xp;
     private TextView info;
     private Button ok;
+    private int textID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,13 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_testresult);
 
         Intent intent = getIntent();
-        textID = intent.getIntExtra("textID", 1);
         time = intent.getLongExtra("time", 0);
+        System.out.println("in on create testresult" + time);
         correct = intent.getIntExtra("correct", 0);
-        logic = new TestLogic(textID, this);
-        xp = logic.calculateXP(time, correct);
+        textID = intent.getIntExtra("textID", 1);
+        xp = intent.getIntExtra("xp", 0);
+        logic = new TestLogic(this);
+        logic.setText(textID);
 
         info = (TextView) findViewById(R.id.resultInfo);
         ok = (Button) findViewById(R.id.TestButton);

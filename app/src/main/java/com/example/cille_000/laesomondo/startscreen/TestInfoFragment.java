@@ -3,7 +3,6 @@ package com.example.cille_000.laesomondo.startscreen;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.challengescreen.TestResultActivity;
 import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 

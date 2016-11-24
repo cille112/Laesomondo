@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.challengescreen.ShowTextActivity;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 
 public class TextInfoActivity extends AppCompatActivity implements View.OnClickListener{
@@ -29,7 +30,8 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         textID = intent.getIntExtra("textID", 1);
 
         button = (Button) findViewById(R.id.button3);
-        logic = new TestLogic(textID, this);
+        logic = new TestLogic(this);
+        logic.setText(textID);
         textInfo = (TextView) findViewById(R.id.textInfo);
         textInfoname = (TextView) findViewById(R.id.textInfoName);
 

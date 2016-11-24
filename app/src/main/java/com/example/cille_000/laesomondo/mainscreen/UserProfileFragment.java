@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.startscreen.CreateUserActivity;
 
 
 public class UserProfileFragment extends Fragment implements View.OnClickListener {

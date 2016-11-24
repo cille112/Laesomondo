@@ -46,7 +46,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v == login) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
         if(v == createuser) {

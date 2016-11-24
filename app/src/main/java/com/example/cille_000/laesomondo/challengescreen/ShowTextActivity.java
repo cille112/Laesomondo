@@ -20,7 +20,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
     private ImageButton pause;
     private Button stop;
     private boolean paused = false;
-    private ScrollView scrol;
+    private ScrollView scrool;
     private int textID;
 
     @Override
@@ -31,12 +31,13 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
 
-        logic = new TestLogic(textID, this);
+        logic = new TestLogic(this);
+        logic.beginTest(textID);
 
         pdf = (TextView) findViewById(R.id.PDF);
         pause = (ImageButton) findViewById(R.id.pauseButton);
         stop = (Button) findViewById(R.id.stopButton);
-        scrol = (ScrollView) findViewById(R.id.scrollView);
+        scrool = (ScrollView) findViewById(R.id.scrollView);
 
         pdf.setText(logic.getText());
 
@@ -49,12 +50,12 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         if (v==pause){
             if (paused){
                 paused=false;
-                scrol.setVisibility(View.VISIBLE);
+                scrool.setVisibility(View.VISIBLE);
                 logic.stopPause();
             }
             else{
                 paused=true;
-                scrol.setVisibility(View.INVISIBLE);
+                scrool.setVisibility(View.INVISIBLE);
                 logic.beginPause();
             }
         }
@@ -62,6 +63,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             logic.stopTimer();
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("textID", textID);
+            System.out.println(logic.getTime());
             intent.putExtra("time", logic.getTime());
             startActivity(intent);
         }
