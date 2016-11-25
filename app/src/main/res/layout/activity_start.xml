@@ -19,7 +19,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:hint="@string/CreateUserFragmentName"
+        android:hint="@string/CreateUserName"
         android:textSize="18sp"/>
 
     <EditText
@@ -29,7 +29,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:hint="@string/LoginFragmentPassword"
+        android:hint="@string/StartPassword"
         android:textSize="18sp"/>
 
     <Button
@@ -39,7 +39,7 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:background="@color/colorComplimentary"
-        android:text="@string/LoginFragmentLogin"
+        android:text="@string/StartLogin"
         android:textColor="@color/colorWhite" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="@string/LoginFragmentCreateUser"
+        android:text="@string/StartCreateUser"
         android:clickable="true"/>
 
 </LinearLayout>

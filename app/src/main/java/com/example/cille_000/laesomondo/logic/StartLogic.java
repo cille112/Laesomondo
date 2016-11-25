@@ -2,7 +2,6 @@ package com.example.cille_000.laesomondo.logic;
 
 import com.example.cille_000.laesomondo.util.Validator;
 
-
 public class StartLogic {
 
     private Validator validate;
@@ -59,4 +58,5 @@ public class StartLogic {
     public boolean validateInfo() {
         return (username != null && password != null && email != null && date != null);
     }
+
 }

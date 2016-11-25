@@ -1,22 +1,31 @@
 package com.example.cille_000.laesomondo.startscreen;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.RadioButton;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.StartLogic;
 
 
-public class CreateUserActivity extends AppCompatActivity {
+public class CreateUserActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private RadioButton r1, r2;
-    private CreateUserFragment createUser;
-    private TestInfoFragment testInfo;
+    private ImageButton avatar;
+    private Button signup;
+    private EditText username, password, age;
+    private TextView login;
+    private AvatarFragment avatarFragment;
     private StartLogic logic;
 
     @Override
@@ -24,75 +33,122 @@ public class CreateUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createuser);
 
-        logic =  new StartLogic();
-        createUser = new CreateUserFragment();
-        testInfo = new TestInfoFragment();
+        avatar = (ImageButton) findViewById(R.id.createuser_picturebtn);
+        username = (EditText) findViewById(R.id.createuser_name);
+        password = (EditText) findViewById(R.id.createuser_password);
+        age = (EditText) findViewById(R.id.createuser_age);
+        signup = (Button) findViewById(R.id.createuser_signup);
+        login = (TextView) findViewById(R.id.createuser_login);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new CreateUserActivity.PagerAdapter(getSupportFragmentManager()));
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-        r1 = (RadioButton) findViewById(R.id.createuser_radio1);
-        r2 = (RadioButton) findViewById(R.id.testinfo_radio2);
+        avatarFragment = new AvatarFragment();
+        logic = new StartLogic();
 
-        ViewPager.OnPageChangeListener PageListener = new ViewPager.OnPageChangeListener() {
-
+        avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onDone() {
+                setAvatar(avatarFragment.getCurrent());
+            }
+        });
+
+        avatar.setOnClickListener(this);
+        signup.setOnClickListener(this);
+        login.setOnClickListener(this);
+
+        username.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
 
             @Override
-            public void onPageSelected(int position) {
-                switch(position)
-                {
-                    case 0:
-                        r1.setChecked(true);
-                        break;
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                    case 1:
-                        r2.setChecked(true);
-                        break;
+            }
 
-                    default:
-                        r1.setChecked(true);
-                        break;
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(logic.checkUsername(s.toString())) {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
+                    username.setError(null, icon);
+                }
+                else {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
+                    username.setError(null, icon);
                 }
             }
+        });
+
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
-        };
 
-        viewPager.setOnPageChangeListener(PageListener);
-    }
-
-    private class PagerAdapter extends FragmentPagerAdapter {
-
-        private PagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int pos) {
-            switch(pos)
-            {
-                case 0: return createUser;
-
-                case 1: return testInfo;
-
-                default: return createUser;
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(logic.checkPassword(s.toString())) {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
+                    password.setError(null, icon);
+                }
+                else {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
+                    password.setError(null, icon);
+                }
             }
-        }
+        });
 
-        @Override
-        public int getCount() {
-            return 2;
-        }
+
+        age.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(logic.checkAge(s.toString())) {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
+                    age.setError(null, icon);
+                }
+                else {
+                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
+                    age.setError(null, icon);
+                }
+            }
+        });
+
+        setAvatar(avatarFragment.getCurrent());
     }
 
-    public void close() {
-        finish();
+    public void setAvatar(int index) {
+        avatar.setTag(index);
+        avatar.setBackgroundResource(index);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == avatar) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.activity_createuser, avatarFragment );
+            transaction.commit();
+        }
+        else if(v == signup) {
+            // Kald til login createuser()
+        }
+        else if(v == login) {
+            this.finish();
+        }
     }
 }

@@ -3,20 +3,21 @@
     <string name="app_name">Læsomondo</string>
 
     <!-- START ACTIVITY -->
-    <string name="LoginFragmentName">Brugernavn</string>
-    <string name="LoginFragmentPassword">Kodeord</string>
-    <string name="LoginFragmentLogin">Log ind</string>
-    <string name="LoginFragmentCreateUser"><u>Opret dig som ny bruger her!</u></string>
-    <string name="LoginFragmentToastSuccess">Velkommen</string>
-    <string name="LoginFragmentToastNoSuccess">Fejl ved login</string>
+    <string name="StartName">Brugernavn</string>
+    <string name="StartPassword">Kodeord</string>
+    <string name="StartLogin">Log ind</string>
+    <string name="StartCreateUser"><u>Opret dig som ny bruger her!</u></string>
+    <string name="StartToastSuccess">Velkommen</string>
+    <string name="StartToastNoSuccess">Fejl ved login</string>
 
-    <!-- CREATE USER FRAGMENT -->
-    <string name="CreateUserFragmentName">Brugernavn</string>
-    <string name="CreateUserFragmentAge">Fødselsdato: ddmmyyyy</string>
-    <string name="CreateUserFragmentEmail">Email adresse</string>
-    <string name="CreateUserFragmentPicture">Vælg billede:</string>
-    <string name="CreateUserFragmentAvatar">Avatar</string>
-    <string name="CreateUserFragmentLogin"><u>Har du allerede en bruger?</u></string>
+    <!-- CREATE USER ACTIVITY -->
+    <string name="CreateUserName">Brugernavn</string>
+    <string name="CreateUserAge">Fødselsdato: ddmmyyyy</string>
+    <string name="CreateUserEmail">Email adresse</string>
+    <string name="CreateUserPicture">Vælg billede:</string>
+    <string name="CreateUserAvatar">Avatar</string>
+    <string name="CreateUserLogin"><u>Har du allerede en bruger?</u></string>
+    <string name="CreateUserSignup">Opret bruger</string>
 
     <!-- TEST INFO FRAGMENT -->
     <string name="TestInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
