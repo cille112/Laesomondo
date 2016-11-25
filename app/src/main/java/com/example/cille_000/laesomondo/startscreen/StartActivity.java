@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,8 +37,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v == login) {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            startActivity(intent);
+            Intent mainscreen = new Intent(this, MainActivity.class);
+            startActivity(mainscreen);
         }
         else if(v == createuser) {
             Intent intent = new Intent(this, CreateUserActivity.class);

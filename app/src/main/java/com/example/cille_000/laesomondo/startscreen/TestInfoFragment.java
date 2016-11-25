@@ -40,8 +40,7 @@ public class TestInfoFragment extends Fragment implements View.OnClickListener {
             intent.putExtra("textID",5);
             startActivity(intent);
         }
-
-        if(v == notnow)
+        else if(v == notnow)
         {
             Intent mainscreen = new Intent(getActivity(), MainActivity.class);
             startActivity(mainscreen);
