@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start"
+        android:background="@drawable/backarrow"
+        android:id="@+id/backArrow"
+        android:contentDescription="@string/UserProfileFragmentPilTilbage"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Users name"
+            android:gravity="center"
+            android:layout_marginEnd="60dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="32sp"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/av1"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25dp">
+
+
+        <TextView
+            android:id="@+id/userprofile_wordmin"
+            android:text="@string/UserProfileFragmentWordMin"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/userprofile_wordminvalue"
+            android:text="@string/UserProfileFragmentWordMinValue"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/userprofile_lix"
+            android:text="@string/UserProfileFragmentLix"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/userprofile_lixvalue"
+            android:text="@string/UserProfileFragmentLixValue"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/userprofile_achievement"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@string/UserProfileFragmentAchievement"/>
+
+        <ImageButton
+            android:id="@+id/userprofile_stats"
+            android:background="@drawable/chart"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="30dp"
+            android:contentDescription="@string/UserProfileFragmentStats"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

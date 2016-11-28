@@ -1,26 +1,26 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ImageButton imageButton, BurgerButton, Userbutton;
-    private HorizontalScrollView scrollViewH01, scrollViewH02, scrollViewH03, scrollViewH04;
-    private ScrollView scrollViewV01;
+    private ImageButton burgerButton, userButton;
+    private ArrayList<ImageButton> coverList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +35,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        coverList = new ArrayList<>();
 
-        imageButton = (ImageButton) findViewById(R.id.imageButton3);
-        Userbutton = (ImageButton) findViewById(R.id.userbutton);
-        BurgerButton = (ImageButton) findViewById(R.id.burgerbutton);
-        scrollViewH01 = (HorizontalScrollView) findViewById(R.id.sch01);
-        scrollViewH02 = (HorizontalScrollView) findViewById(R.id.sch02);
-        scrollViewH03 = (HorizontalScrollView) findViewById(R.id.sch03);
-        scrollViewH04 = (HorizontalScrollView) findViewById(R.id.sch04);
-        scrollViewV01 = (ScrollView) findViewById(R.id.scv01);
 
-        Userbutton.setOnClickListener(this);
-        BurgerButton.setOnClickListener(this);
+
+        userButton = (ImageButton) findViewById(R.id.userbutton);
+        burgerButton = (ImageButton) findViewById(R.id.burgerbutton);
+        coverList.add((ImageButton) findViewById(R.id.imageButtonCover1));
+        coverList.add((ImageButton) findViewById(R.id.imageButtonCover2));
+        coverList.add((ImageButton) findViewById(R.id.imageButtonCover3));
+        coverList.add((ImageButton) findViewById(R.id.imageButtonCover4));
+
+
+        userButton.setOnClickListener(this);
+        burgerButton.setOnClickListener(this);
+        for (ImageButton i: coverList) {
+            i.setOnClickListener(this);
+        }
     }
 
     @Override
@@ -58,15 +63,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == imageButton) {
+        for(int i = 0; i < coverList.size(); i++) {
+            if(v == coverList.get(i)) {
+                Intent intent = new Intent(this,TextInfoActivity.class);
+                intent.putExtra("textID",++i);
+                startActivity(intent);
+            }
         }
-
-        if (v == BurgerButton) {
-
+//        if (v == burgerButton) {
+//
+//        }
+        if (v == userButton) {
+            Intent intent = new Intent(this, UserProfileActivity.class);
+            startActivity(intent);
         }
-        if (v == Userbutton) {
-
-        }
-
     }
 }
