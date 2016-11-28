@@ -47,8 +47,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         fourth.setOnClickListener(this);
 
         firstQuestion = logic.getQuestion1();
-        secondQuestion = logic.getQuestion2();
-        thirdQuestion = logic.getQuestion3();
 
         firstQuestion();
 
@@ -62,6 +60,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         fourth.setText(firstQuestion.get(4));
     }
     private void secondQuestion(){
+        secondQuestion = logic.getQuestion2();
         question.setText(secondQuestion.get(0));
         first.setText(secondQuestion.get(1));
         second.setText(secondQuestion.get(2));
@@ -69,6 +68,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         fourth.setText(secondQuestion.get(4));
     }
     private void thirdQuestion(){
+        thirdQuestion = logic.getQuestion3();
         question.setText(thirdQuestion.get(0));
         first.setText(thirdQuestion.get(1));
         second.setText(thirdQuestion.get(2));

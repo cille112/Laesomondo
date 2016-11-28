@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import com.example.cille_000.laesomondo.challengescreen.TestResultActivity;
 import com.example.cille_000.laesomondo.entities.ReadingTest;
+import com.example.cille_000.laesomondo.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +14,28 @@ import java.util.List;
 public class TestLogic {
 
     private ReadingTest readingTest;
+    private User user;
     private Long startTime, stopTime, startPause, stopPause;
     private ArrayList<Long> pauses = new ArrayList<>();
     private Long totalTime;
-    private int standardReadingSpeed = 3;
     private int correct = 0;
     private Context context;
 
 
+
+    // Skal tage imod en user!!
     public TestLogic(Context context){
         this.context = context;
+        //this.user = user;
         readingTest = new ReadingTest(context);
+    }
+
+    public void setText(int textID){
+        readingTest.setTextID(textID);
     }
 
     public void beginTest(int id){
         startTime = System.currentTimeMillis();
-        readingTest.setTextID(id);
-    }
-
-    public void setText(int id){
         readingTest.setTextID(id);
     }
 
@@ -73,7 +77,8 @@ public class TestLogic {
         return totalTime;
     }
 
-    public int calculateXP(long time){
+    private int calculateXP(long time){
+        int standardReadingSpeed = 3;
         int seconds = (int) time/1000%60;
         int readingspeed = readingTest.getWordCount()/standardReadingSpeed;
         int xp = (readingTest.getLix()*correct)+readingspeed-seconds+50;
@@ -89,12 +94,15 @@ public class TestLogic {
 
     }
 
+    // add xp to user
     public void getResult(int textID, Long time){
+        int xp = calculateXP(time);
+        //user.addXp(xp);
         Intent intent = new Intent(context, TestResultActivity.class);
         intent.putExtra("time", time);
         intent.putExtra("correct", correct);
         intent.putExtra("textID", textID);
-        intent.putExtra("xp", calculateXP(time));
+        intent.putExtra("xp", xp);
         context.startActivity(intent);
     }
 }

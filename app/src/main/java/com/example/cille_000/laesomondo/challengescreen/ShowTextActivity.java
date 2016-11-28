@@ -32,7 +32,6 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         textID = intent.getIntExtra("textID", 1);
 
         logic = new TestLogic(this);
-        logic.beginTest(textID);
 
         pdf = (TextView) findViewById(R.id.PDF);
         pause = (ImageButton) findViewById(R.id.pauseButton);
@@ -40,6 +39,8 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         scrool = (ScrollView) findViewById(R.id.scrollView);
 
         pdf.setText(logic.getText());
+
+        logic.beginTest(textID);
 
         pause.setOnClickListener(this);
         stop.setOnClickListener(this);
@@ -63,7 +64,6 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             logic.stopTimer();
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("textID", textID);
-            System.out.println(logic.getTime());
             intent.putExtra("time", logic.getTime());
             startActivity(intent);
         }
@@ -71,4 +71,5 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onBackPressed() { }
+
 }
