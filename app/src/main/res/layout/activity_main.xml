@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
@@ -13,43 +12,41 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary">
-
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Udfordringer"
-            android:layout_gravity= "center"
-            android:textColor="#ffffff"
-            android:textSize="32dp"
-            ></TextView>
+        android:layout_height="wrap_content">
 
         <ImageButton
-            android:background="@null"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            app:srcCompat="@drawable/burgerbutton01"
+            android:layout_gravity="start"
+            android:background="@drawable/burgerbutton01"
             android:id="@+id/burgerbutton"
-            android:scaleType="centerCrop" />
+            android:contentDescription="@string/MainScreenBurgermenu"/>
 
         <ImageButton
-            android:background="@null"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
+            android:background="@drawable/usericon01"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_gravity="right"
-            app:srcCompat="@drawable/usericon01"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="end"
             android:id="@+id/userbutton"
-            android:scaleType="centerCrop" />
+            android:contentDescription="@string/MainScreenUserProfile"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/MainScreenTitle"
+                android:textColor="@color/colorWhite"
+                android:textSize="32sp"/>
+
+        </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
 

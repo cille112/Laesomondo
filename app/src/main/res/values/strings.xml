@@ -44,4 +44,9 @@
     <string name="UserProfileFragmentStats">Stats</string>
     <string name="UserProfileFragmentPilTilbage">Tilbage</string>
 
+    <!-- MAIN SCREEN -->
+    <string name="MainScreenTitle">Udfordringer</string>
+    <string name="MainScreenBurgermenu">Burgermenu</string>
+    <string name="MainScreenUserProfile">Brugerprofil</string>
+
 </resources>
