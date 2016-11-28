@@ -1,8 +1,10 @@
 package com.example.cille_000.laesomondo.startscreen;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,36 +15,34 @@ import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 
-public class TestInfoFragment extends Fragment implements View.OnClickListener {
+public class TestInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn;
     private TextView notnow;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_testinfo, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        btn = (Button) view.findViewById(R.id.testinfo_btn);
+        btn = (Button) findViewById(R.id.testinfo_button);
         btn.setOnClickListener(this);
 
-
-        notnow = (TextView) view.findViewById(R.id.testinfo_notnow);
+        notnow = (TextView) findViewById(R.id.testinfo_later);
         notnow.setOnClickListener(this);
-
-        return view;
     }
+
 
     @Override
     public void onClick(View v) {
         if(v == btn)
         {
-            Intent intent = new Intent(getActivity(), TextInfoActivity.class);
-            intent.putExtra("textID",5);
+            Intent intent = new Intent(this, TextInfoActivity.class);
+            intent.putExtra("textID", 5);
             startActivity(intent);
         }
         else if(v == notnow)
         {
-            Intent mainscreen = new Intent(getActivity(), MainActivity.class);
+            Intent mainscreen = new Intent(this, MainActivity.class);
             startActivity(mainscreen);
         }
     }

@@ -32,6 +32,7 @@
         <activity android:name=".challengescreen.ShowTextActivity"/>
         <activity android:name=".challengescreen.TestResultActivity"/>
         <activity android:name=".challengescreen.TextInfoActivity"/>
+        <activity android:name=".startscreen.TestInfoActivity"/>
 
     </application>
 
