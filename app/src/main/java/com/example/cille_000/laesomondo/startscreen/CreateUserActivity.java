@@ -146,7 +146,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             transaction.commit();
         }
         else if(v == signup) {
-            Intent intent = new Intent(this, TextInfoActivity.class);
+            Intent intent = new Intent(this, ChallengeInfoActivity.class);
             startActivity(intent);
         }
         else if(v == login) {

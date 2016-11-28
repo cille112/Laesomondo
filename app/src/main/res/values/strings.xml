@@ -19,12 +19,12 @@
     <string name="CreateUserLogin"><u>Har du allerede en bruger?</u></string>
     <string name="CreateUserSignup">Opret bruger</string>
 
-    <!-- TEST INFO FRAGMENT -->
-    <string name="TestInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
+    <!-- CHALLENGE INFO FRAGMENT -->
+    <string name="ChallengeInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
     Denne test består af en tekst, som du skal læse så hurtigt og grundigt som muligt. Her efter kommer der 3 spørgsmål om den tekst du lige har læst.
         Ud fra denne test bliver du så placeret i et level, som passer til dit start niveau.</string>
-    <string name="TestInfoFragmentButton">Tag test nu</string>
-    <string name="TestInfoFragmentNotNow"><u>Senere</u></string>
+    <string name="ChallengeInfoFragmentButton">Tag test nu</string>
+    <string name="ChallengeInfoFragmentNotNow"><u>Senere</u></string>
 
     <!-- TEXT INFO FRAGMENT -->
     <string name="Second">Skrevet af:  </string>
