@@ -32,6 +32,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         textID = intent.getIntExtra("textID", 1);
 
         logic = new TestLogic(this);
+        logic.beginTest(textID);
 
         pdf = (TextView) findViewById(R.id.PDF);
         pause = (ImageButton) findViewById(R.id.pauseButton);
@@ -40,7 +41,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
 
         pdf.setText(logic.getText());
 
-        logic.beginTest(textID);
+
 
         pause.setOnClickListener(this);
         stop.setOnClickListener(this);
