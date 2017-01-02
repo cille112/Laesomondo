@@ -97,7 +97,6 @@ public class TestLogic {
     // add xp to user
     public void getResult(int textID, Long time){
         int xp = calculateXP(time);
-        user.addXp(xp);
         Intent intent = new Intent(context, TestResultActivity.class);
         intent.putExtra("time", time);
         intent.putExtra("correct", correct);

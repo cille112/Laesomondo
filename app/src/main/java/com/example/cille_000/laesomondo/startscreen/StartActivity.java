@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.startscreen;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -23,7 +24,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        boolean EMULATOR = Build.PRODUCT.contains("sdk")|| Build.MODEL.contains("Emulator");
+        if(!EMULATOR){
+        Fabric.with(this, new Crashlytics());}
         setContentView(R.layout.activity_start);
 
         login = (Button) findViewById(R.id.login_btnlogin);
