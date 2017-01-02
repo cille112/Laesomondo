@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
+import io.fabric.sdk.android.Fabric;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,6 +23,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_start);
 
         login = (Button) findViewById(R.id.login_btnlogin);

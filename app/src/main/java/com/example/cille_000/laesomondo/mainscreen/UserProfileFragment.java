@@ -18,7 +18,7 @@ import com.example.cille_000.laesomondo.R;
 public class UserProfileFragment extends Fragment implements View.OnClickListener {
 
     private TextView lixvalue, wordMinValue;
-    private ImageButton achievement, stats, backArrow;
+    private ImageButton achievement, stats;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

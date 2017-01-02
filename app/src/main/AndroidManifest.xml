@@ -35,6 +35,9 @@
         <activity android:name=".startscreen.ChallengeInfoActivity"/>
         <activity android:name=".mainscreen.UserProfileFragment"/>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="441932610e14d5f2b00b3537ea19e2216945650a" />
     </application>
 
 </manifest>
