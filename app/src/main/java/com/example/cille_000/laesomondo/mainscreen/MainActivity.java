@@ -23,7 +23,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageButton burgerButton, userButton;
-    private ArrayList<ImageButton> coverList, adventureList;
+    private ArrayList<ImageButton> coverList, adventureList, krimiList;
     private UserProfileFragment userprofile;
     private MenuFragment menu;
     private TextView title;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu = new MenuFragment();
         coverList = new ArrayList<>();
         adventureList = new ArrayList<>();
+        krimiList = new ArrayList<>();
 
         userButton = (ImageButton) findViewById(R.id.userbutton);
         title = (TextView) findViewById(R.id.toolbar_title);
@@ -60,17 +61,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         adventureList.add((ImageButton) findViewById(R.id.imageButtonAdventure01));
 
-        bool = true;
+        krimiList.add((ImageButton) findViewById(R.id.imageButtonKrimi1));
+
+        bool = false;
         if (bool){
             for (ImageButton i: adventureList) {
                 i.setOnClickListener(this);
             }
+            for (int i = 0; i < krimiList.size(); i++) {
+                krimiList.get(i).setVisibility(View.GONE);
+            }
+
         }
         if (!bool) {
             for (int i = 0; i < adventureList.size(); i++) {
-                adventureList.get(i).setVisibility(View.INVISIBLE);
+                adventureList.get(i).setVisibility(View.GONE);
+            }
+            for (ImageButton i: krimiList) {
+                i.setOnClickListener(this);
             }
         }
+
+
+
     }
 
     @Override
@@ -93,6 +106,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(v == adventureList.get(i)) {
                 Intent intent = new Intent(this,TextInfoActivity.class);
                 intent.putExtra("textID",++i+5);
+                startActivity(intent);
+            }
+        }
+
+        for(int i = 0; i < krimiList.size(); i++) {
+            if(v == krimiList.get(i)) {
+                Intent intent = new Intent(this,TextInfoActivity.class);
+                intent.putExtra("textID",++i+6);
                 startActivity(intent);
             }
         }

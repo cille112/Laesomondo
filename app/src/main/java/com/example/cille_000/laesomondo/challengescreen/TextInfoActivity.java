@@ -74,6 +74,9 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         if (textID == 6){
             return R.drawable.text1adventure;
         }
+        if (textID == 7){
+            return R.drawable.text1krimi;
+        }
 
         return 0;
     }
