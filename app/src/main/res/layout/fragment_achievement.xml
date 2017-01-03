@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:clickable="true">
+
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="80dp"
+    android:layout_marginBottom="15dp"
+    android:layout_gravity="center">
+
+    <ImageButton
+        android:id="@+id/achievement_a"
+        android:background="@drawable/trophy"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/AchievementFragmentA"/>
+
+    <ImageButton
+        android:id="@+id/achievement_b"
+        android:background="@drawable/trophy"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/AchievementFragmentB"/>
+
+    <ImageButton
+        android:id="@+id/achievement_c"
+        android:background="@drawable/trophy"
+        android:layout_width="70dip"
+        android:layout_height="70dip"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/AchievementFragmentC"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/achievement_d"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentD"/>
+
+        <ImageButton
+            android:id="@+id/achievement_e"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentE"/>
+
+        <ImageButton
+            android:id="@+id/achievement_f"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentF"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/achievement_g"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentG"/>
+
+        <ImageButton
+            android:id="@+id/achievement_h"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentH"/>
+
+        <ImageButton
+            android:id="@+id/achievement_i"
+            android:background="@drawable/trophy"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/AchievementFragmentI"/>
+
+    </LinearLayout>
+
+</LinearLayout>
