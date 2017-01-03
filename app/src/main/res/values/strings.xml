@@ -3,7 +3,7 @@
     <string name="app_name">Læsomondo</string>
 
     <!-- START ACTIVITY -->
-    <string name="StartName">Brugernavn</string>
+    <string name="StartName">E-mail</string>
     <string name="StartPassword">Kodeord</string>
     <string name="StartLogin">Log ind</string>
     <string name="StartCreateUser"><u>Opret dig som ny bruger her!</u></string>
@@ -19,6 +19,7 @@
     <string name="CreateUserAvatar">Avatar</string>
     <string name="CreateUserLogin"><u>Har du allerede en bruger?</u></string>
     <string name="CreateUserSignup">Opret bruger</string>
+    <string name="reg_failed">Noget gik galt</string>
 
     <!-- CHALLENGE INFO FRAGMENT -->
     <string name="ChallengeInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
