@@ -72,6 +72,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         if (textID == 5){
             return R.drawable.text5cover;
         }
+
         return 0;
     }
 }
