@@ -53,7 +53,7 @@
             android:text="@string/SettingsLogOut"
             android:textColor="@color/colorWhite"
             android:textSize="18sp"
-            android:id="@+id/menuLogout"
+            android:id="@+id/menulogout"
             android:clickable="true"/>
 
     </LinearLayout>
