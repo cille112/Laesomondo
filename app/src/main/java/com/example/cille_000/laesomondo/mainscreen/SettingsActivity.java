@@ -2,15 +2,13 @@ package com.example.cille_000.laesomondo.mainscreen;
 
 
 import android.os.Bundle;
-import android.support.annotation.DimenRes;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 
-public class SettingsActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
+public class SettingsActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
     private SeekBar textSize;
     private TextView currentText;
@@ -21,9 +19,8 @@ public class SettingsActivity extends AppCompatActivity implements SeekBar.OnSee
         setContentView(R.layout.activity_settings);
 
         textSize = (SeekBar) findViewById(R.id.textsizebar);
-        textSize.setOnSeekBarChangeListener(this);
-
         currentText = (TextView) findViewById(R.id.currenttextsize);
+        textSize.setOnSeekBarChangeListener(this);
     }
 
     @Override
