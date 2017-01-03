@@ -23,10 +23,11 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageButton burgerButton, userButton;
-    private ArrayList<ImageButton> coverList;
+    private ArrayList<ImageButton> coverList, adventureList;
     private UserProfileFragment userprofile;
     private MenuFragment menu;
     private TextView title;
+    private Boolean bool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         userprofile = new UserProfileFragment();
         menu = new MenuFragment();
         coverList = new ArrayList<>();
+        adventureList = new ArrayList<>();
 
         userButton = (ImageButton) findViewById(R.id.userbutton);
         title = (TextView) findViewById(R.id.toolbar_title);
@@ -53,6 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         for (ImageButton i: coverList) {
             i.setOnClickListener(this);
+        }
+
+        bool = true;
+        if (!bool) {
+            for (int i = 0; i < adventureList.size(); i++) {
+                adventureList.get(i).setVisibility(View.INVISIBLE);
+            }
         }
     }
 
@@ -71,6 +80,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         }
+
+        for(int i = 0; i < adventureList.size(); i++) {
+            if(v == adventureList.get(i)) {
+                Intent intent = new Intent(this,TextInfoActivity.class);
+                intent.putExtra("textID",++i);
+                startActivity(intent);
+            }
+        }
+
         if(v == burgerButton) {
             if(userprofile != null && userprofile.isVisible()) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
