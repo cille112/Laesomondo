@@ -33,7 +33,6 @@
         <activity android:name=".challengescreen.TestResultActivity"/>
         <activity android:name=".challengescreen.TextInfoActivity"/>
         <activity android:name=".startscreen.ChallengeInfoActivity"/>
-        <activity android:name=".mainscreen.UserProfileFragment"/>
         <activity android:name=".mainscreen.SettingsActivity"/>
 
         <meta-data

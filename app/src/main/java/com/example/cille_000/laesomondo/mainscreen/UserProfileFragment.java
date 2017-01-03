@@ -21,13 +21,13 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private TextView lixvalue, wordMinValue;
     private ImageButton achievement, stats;
     private AchievementFragment achievementscreen;
-   // private StatsFragment Statsscreen;
+    private StatsFragment statsscreen;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_userprofile, container, false);
         achievementscreen = new AchievementFragment();
-       // statsscreen = new StatsFragment();
+        statsscreen = new StatsFragment();
 
         wordMinValue = (TextView) view.findViewById(R.id.userprofile_wordminvalue);
         lixvalue = (TextView) view.findViewById(R.id.userprofile_lixvalue);
@@ -49,10 +49,10 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             transaction.commit();
         }
 
-//        if(v == stats) {
-//            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//            transaction.replace(R.id.main_framelayout, statsscreen);
-//            transaction.commit();
-//        }
+        if(v == stats) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.main_framelayout, statsscreen);
+            transaction.commit();
+        }
     }
 }
