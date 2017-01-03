@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.challengescreen.ShowTextActivity;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 
 public class TextInfoActivity extends AppCompatActivity implements View.OnClickListener{
@@ -71,6 +70,9 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         }
         if (textID == 5){
             return R.drawable.text5cover;
+        }
+        if (textID == 6){
+            return R.drawable.text1adventure;
         }
 
         return 0;

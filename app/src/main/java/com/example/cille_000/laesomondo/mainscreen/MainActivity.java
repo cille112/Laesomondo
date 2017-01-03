@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         coverList.add((ImageButton) findViewById(R.id.imageButtonCover2));
         coverList.add((ImageButton) findViewById(R.id.imageButtonCover3));
         coverList.add((ImageButton) findViewById(R.id.imageButtonCover4));
+        coverList.add((ImageButton) findViewById(R.id.imageButtonCover5));
 
         userButton.setOnClickListener(this);
         burgerButton.setOnClickListener(this);
@@ -57,7 +58,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             i.setOnClickListener(this);
         }
 
+        adventureList.add((ImageButton) findViewById(R.id.imageButtonAdventure01));
+
         bool = true;
+        if (bool){
+            for (ImageButton i: adventureList) {
+                i.setOnClickListener(this);
+            }
+        }
         if (!bool) {
             for (int i = 0; i < adventureList.size(); i++) {
                 adventureList.get(i).setVisibility(View.INVISIBLE);
@@ -84,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int i = 0; i < adventureList.size(); i++) {
             if(v == adventureList.get(i)) {
                 Intent intent = new Intent(this,TextInfoActivity.class);
-                intent.putExtra("textID",++i);
+                intent.putExtra("textID",++i+5);
                 startActivity(intent);
             }
         }
