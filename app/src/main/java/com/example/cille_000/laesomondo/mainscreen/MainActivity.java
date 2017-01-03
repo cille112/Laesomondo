@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton burgerButton, userButton;
     private ArrayList<ImageButton> coverList;
     private UserProfileFragment userprofile;
+    private MenuFragment menu;
     private TextView title;
 
     @Override
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         userprofile = new UserProfileFragment();
+        menu = new MenuFragment();
         coverList = new ArrayList<>();
 
         userButton = (ImageButton) findViewById(R.id.userbutton);
@@ -77,8 +79,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
                 userButton.setVisibility(View.VISIBLE);
                 title.setText(getResources().getString(R.string.MainScreenTitle));
-            }
+            } else if(menu != null && menu.isVisible()){
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.remove(menu).commit();
 
+                burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
+                userButton.setVisibility(View.VISIBLE);
+                title.setText(getResources().getString(R.string.MainScreenTitle));
+            } else {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_framelayout, menu);
+                transaction.commit();
+
+                burgerButton.setBackground(getResources().getDrawable(R.drawable.backarrow));
+                userButton.setVisibility(View.INVISIBLE);
+                title.setText(getResources().getString(R.string.MainScreenBurgermenu));
+            }
         }
         else if (v == userButton) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

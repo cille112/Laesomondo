@@ -50,4 +50,9 @@
     <string name="MainScreenBurgermenu">Burgermenu</string>
     <string name="MainScreenUserProfile">Din profil</string>
 
+    <!-- MENU FRAGMENT -->
+    <string name="MenuFragmentSettings">Indstillinger</string>
+    <string name="MenuFragmentHelp">Hjælp</string>
+    <string name="MenuFragmentContact">Kontakt</string>
+
 </resources>
