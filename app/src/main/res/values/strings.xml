@@ -69,7 +69,10 @@
     <!-- SETTINGS -->
     <string name="SettingsChangeTextSize">Justér skriftstørrelsen</string>
     <string name="SettingsCurrentTextSize">16</string>
-    <string name="SettingsChangeTheme">Skift tema</string>
+    <string name="SettingsChangeTheme">Night mode</string>
+    <string name="SettingsThemeOn">Slå fra</string>
+    <string name="SettingsThemeOff">Slå til</string>
+    <string name="SettingsLogOut">Log ud</string>
 
     <!-- STATS FRAGMENT -->
     <string name="StatsFragment">Stats</string>
