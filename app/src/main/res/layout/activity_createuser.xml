@@ -74,33 +74,24 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/createuser_signup"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:text="@string/CreateUserSignup"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorComplimentary"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            android:layout_marginBottom="35dp">
-
-            <Button
-                android:id="@+id/createuser_signup"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/CreateUserSignup"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorComplimentary"/>
-
-            <TextView
-                android:id="@+id/createuser_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/CreateUserLogin"
-                android:clickable="true"/>
-
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/createuser_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/CreateUserLogin"
+            android:clickable="true"/>
 
     </LinearLayout>
 

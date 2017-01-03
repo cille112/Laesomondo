@@ -40,7 +40,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
         ok.setOnClickListener(this);
         int seconds = (int) (time / 1000) % 60 ;
-        info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp" + );
+        info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
     }
 
     @Override

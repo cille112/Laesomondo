@@ -42,26 +42,27 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
         pdf.setText(logic.getText());
 
 
-
         pause.setOnClickListener(this);
         stop.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v==pause){
+        if (v == pause){
             if (paused){
-                paused=false;
+                paused = false;
                 scrool.setVisibility(View.VISIBLE);
+                pause.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_media_pause));
                 logic.stopPause();
             }
             else{
-                paused=true;
+                paused = true;
                 scrool.setVisibility(View.INVISIBLE);
+                pause.setImageDrawable(getResources().getDrawable(android.R.drawable.ic_media_play));
                 logic.beginPause();
             }
         }
-        if (v==stop){
+        if (v == stop){
             logic.stopTimer();
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("textID", textID);

@@ -5,30 +5,14 @@
     android:layout_height="match_parent"
     android:id="@+id/activity_challengeinfo">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
-
         <TextView
             android:text="@string/ChallengeInfoFragmentTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp"
+            android:layout_marginTop="10dp"
             android:padding="10dp"/>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
-        android:orientation="vertical"
-        android:layout_marginBottom="35dp">
 
         <Button
             android:id="@+id/challengeinfo_button"
@@ -37,6 +21,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/colorWhite"
             android:background="@color/colorComplimentary"/>
 
@@ -48,7 +33,5 @@
             android:layout_height="wrap_content"
             android:clickable="true"/>
 
-
-    </LinearLayout>
 
 </LinearLayout>
