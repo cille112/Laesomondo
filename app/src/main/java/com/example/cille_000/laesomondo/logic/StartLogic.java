@@ -15,8 +15,8 @@ public class StartLogic {
     }
 
     public boolean checkUsername(String s) {
-        // Tjek om brugernavnet er optaget
-        if(validate.checkUsername(s)) {
+        // Tjek email
+        if(validate.checkEmail(s)) {
             username = s;
 
             return true;
