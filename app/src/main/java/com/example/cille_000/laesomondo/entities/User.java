@@ -9,11 +9,13 @@ public class  User {
     private int lix;
     private int speed;
     private int xp;
+    private int textSize;
 
-    public User(String name, String date, int avatar){
+    public User(String name, String date, int avatar, int textSize){
         this.name = name;
         this.date = date;
         this.avatar = avatar;
+        this.textSize = textSize;
     }
 
     public String getName() {
@@ -62,5 +64,13 @@ public class  User {
 
     public void addXp(int xp) {
         this.xp = this.xp+xp;
+    }
+
+    public int getTextSize() {
+        return this.textSize;
+    }
+
+    public void setTextSize(int textSize) {
+        this.textSize = textSize;
     }
 }

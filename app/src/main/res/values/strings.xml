@@ -55,4 +55,9 @@
     <string name="MenuFragmentHelp">Hjælp</string>
     <string name="MenuFragmentContact">Kontakt</string>
 
+    <!-- SETTINGS -->
+    <string name="SettingsChangeTextSize">Justér skriftstørrelsen</string>
+    <string name="SettingsCurrentTextSize">16</string>
+    <string name="SettingsChangeTheme">Skift tema</string>
+
 </resources>

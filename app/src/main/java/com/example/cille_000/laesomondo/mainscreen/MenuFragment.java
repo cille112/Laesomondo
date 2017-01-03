@@ -35,9 +35,11 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
             Intent intent = new Intent(getActivity(), SettingsActivity.class);
             startActivity(intent);
         } else if(v == help) {
-
+            Intent intent = new Intent(getActivity(), HelpActivity.class);
+            startActivity(intent);
         } else if(v == contact) {
-
+            Intent intent = new Intent(getActivity(), ContactActivity.class);
+            startActivity(intent);
         }
 
     }
