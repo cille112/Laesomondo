@@ -121,22 +121,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == burgerButton) {
             if(userprofile != null && userprofile.isVisible()) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.remove(userprofile).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
+                transaction.remove(userprofile);
+                transaction.commit();
 
                 burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
                 userButton.setVisibility(View.VISIBLE);
                 title.setText(getResources().getString(R.string.MainScreenTitle));
             } else if(menu != null && menu.isVisible()){
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.remove(menu).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
+                transaction.remove(menu);
+                transaction.commit();
 
                 burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
                 userButton.setVisibility(View.VISIBLE);
                 title.setText(getResources().getString(R.string.MainScreenTitle));
             } else {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left);
                 transaction.replace(R.id.main_framelayout, menu);
                 transaction.commit();
+
 
                 burgerButton.setBackground(getResources().getDrawable(R.drawable.backarrow));
                 userButton.setVisibility(View.INVISIBLE);
@@ -145,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (v == userButton) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
             transaction.replace(R.id.main_framelayout, userprofile);
             transaction.commit();
 

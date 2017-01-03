@@ -4,24 +4,23 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100" >
+    android:background="#99000000"
+    android:weightSum="100">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="60"
-        android:background="@color/colorPrimary"
+        android:layout_weight="80"
+        android:background="@color/colorWhite"
         android:clickable="true"
-        android:paddingTop="20dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MenuFragmentSettings"
-            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:id="@+id/menuSettings"
             android:layout_marginBottom="10dp"
@@ -31,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MenuFragmentHelp"
-            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:id="@+id/menuHelp"
             android:layout_marginBottom="10dp"
@@ -42,7 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="@string/MenuFragmentContact"
-            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:id="@+id/menuContact"
             android:clickable="true" />
@@ -51,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/SettingsLogOut"
-            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:id="@+id/menulogout"
             android:clickable="true"/>
