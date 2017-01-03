@@ -71,4 +71,7 @@
     <string name="SettingsCurrentTextSize">16</string>
     <string name="SettingsChangeTheme">Skift tema</string>
 
+    <!-- STATS FRAGMENT -->
+    <string name="StatsFragment">Stats</string>
+
 </resources>
