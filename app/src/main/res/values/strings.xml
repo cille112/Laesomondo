@@ -55,4 +55,15 @@
     <string name="MenuFragmentHelp">Hjælp</string>
     <string name="MenuFragmentContact">Kontakt</string>
 
+    <!-- ACHIEVEMENT FRAGMENT -->
+    <string name="AchievementFragmentA">AchivementA</string>
+    <string name="AchievementFragmentB">AchivementB</string>
+    <string name="AchievementFragmentC">AchivementC</string>
+    <string name="AchievementFragmentD">AchivementD</string>
+    <string name="AchievementFragmentE">AchivementE</string>
+    <string name="AchievementFragmentF">AchivementF</string>
+    <string name="AchievementFragmentG">AchivementG</string>
+    <string name="AchievementFragmentH">AchivementH</string>
+    <string name="AchievementFragmentI">AchivementI</string>
+
 </resources>
