@@ -11,20 +11,23 @@
         android:text="@string/result"
         android:textSize="30sp"
         android:gravity="center"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/resultInfo"
-        android:padding="20dp"/>
+        android:padding="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/TestButton"
         android:text="@string/ButtonTest"
+        android:layout_width="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="300dp"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorComplimentary"
+        android:textColor="@color/colorWhite"/>
 
 </LinearLayout>

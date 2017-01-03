@@ -52,7 +52,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this, ShowTextActivity.class);
-        intent.putExtra("textID", 1);
+        intent.putExtra("textID", textID);
         startActivity(intent);
     }
 

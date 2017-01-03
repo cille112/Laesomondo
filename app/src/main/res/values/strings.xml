@@ -30,6 +30,7 @@
     <string name="Second">Skrevet af:  </string>
     <string name="Third">Historien handler om  </string>
     <string name="StartText">Start test  </string>
+    <string name="TextCover">Text Cover</string>
 
     <!-- Test Result Activity-->
     <string name="result">Tillykke</string>
