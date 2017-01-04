@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
+import com.example.cille_000.laesomondo.entities.User;
 import com.example.cille_000.laesomondo.logic.StartLogic;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +28,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class CreateUserActivity extends AppCompatActivity implements View.OnClickListener {
@@ -40,14 +45,10 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private TextView login;
     private AvatarFragment avatarFragment;
     private StartLogic logic;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authListener;
+    private DatabaseReference database;
 
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
-
-    // [START declare_auth_listener]
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    // [END declare_auth_listener]
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +126,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-
         age.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -152,17 +152,17 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
         setAvatar(avatarFragment.getCurrent());
 
-        // [START initialize_auth]
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+        //Get firebase authentication
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        if (mAuth.getCurrentUser() != null){
+        //Check if there already is a user logged in
+        if (firebaseAuth.getCurrentUser() != null){
             finish();
             startActivity(new Intent(this, MainActivity.class));
         }
 
-        // [START auth_state_listener]
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        // Authentication listener, listen when something changes is authentication
+        authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -173,32 +173,28 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // [START_EXCLUDE]
+                //update screen after autehntication
                 updateUI(user);
-                // [END_EXCLUDE]
             }
         };
-        // [END auth_state_listener]
+
+        database = FirebaseDatabase.getInstance().getReference();
+
     }
 
-    // [START on_start_add_listener]
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        firebaseAuth.addAuthStateListener(authListener);
     }
-    // [END on_start_add_listener]
 
-    // [START on_stop_remove_listener]
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+        if (authListener != null) {
+            firebaseAuth.removeAuthStateListener(authListener);
         }
     }
-    // [END on_stop_remove_listener]
-
 
     public void setAvatar(int index) {
         avatar.setTag(index);
@@ -228,7 +224,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
 
         // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email, password)
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -271,12 +267,18 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
+            writeNewUser(username.getText().toString(), age.getText().toString(), avatarFragment.getCurrent(), 16);
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);
             startActivity(mainscreen);
         } else {
 
         }
+    }
+
+    private void writeNewUser(String email, String date, int avatar, int textsize) {
+        User user = new User(email, date, avatar, textsize);
+        database.child("users").child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
     }
 
 

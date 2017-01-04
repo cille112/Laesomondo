@@ -1,9 +1,11 @@
 package com.example.cille_000.laesomondo.startscreen;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -33,13 +35,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     private static final String TAG = "EmailPassword";
 
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
-    // [START declare_auth_listener]
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    // [END declare_auth_listener]
 
 
     @Override
@@ -60,12 +58,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-        // [START initialize_auth]
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+        firebaseAuth = FirebaseAuth.getInstance();
 
-        // [START auth_state_listener]
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -88,7 +83,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        firebaseAuth.addAuthStateListener(authStateListener);
     }
     // [END on_start_add_listener]
 
@@ -96,8 +91,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+        if (authStateListener != null) {
+            firebaseAuth.removeAuthStateListener(authStateListener);
         }
     }
     // [END on_stop_remove_listener]
@@ -111,9 +106,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
-
-        // [START sign_in_with_email]
-        mAuth.signInWithEmailAndPassword(email, passwordString)
+        firebaseAuth.signInWithEmailAndPassword(email, passwordString)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -126,10 +119,39 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                             Log.w(TAG, "signInWithEmail:failed", task.getException());
                             Toast.makeText(StartActivity.this, R.string.auth_failed,
                                     Toast.LENGTH_SHORT).show();
+
+                            AlertDialog.Builder alert = new AlertDialog.Builder(StartActivity.this);
+
+                            alert.setTitle("Forkerte login oplysninger");
+                            alert.setMessage("Har du glemt dit password, så skriv den mail:");
+
+                            // Set an EditText view to get user input
+                            final EditText input = new EditText(StartActivity.this);
+                            alert.setView(input);
+
+                            alert.setPositiveButton("Send mail", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    if(input.getText().toString()!=""){
+                                        firebaseAuth.sendPasswordResetEmail(input.getText().toString());
+                                        Toast.makeText(StartActivity.this, "Mail sendt",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        input.setError("Skriv din email");
+                                    }
+                                }
+                            });
+
+                            alert.setNegativeButton("Annuller", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    // Canceled.
+                                }
+                            });
+
+                            alert.show();
                         }
-                    }
+                   }
                 });
-        // [END sign_in_with_email]
     }
 
     private boolean validateForm() {
@@ -166,6 +188,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         @Override
     public void onClick(View v) {
         if(v == login) {
+            System.out.println("drshadrh");
             signIn(username.getText().toString(), password.getText().toString());
         }
         else if(v == createuser) {
