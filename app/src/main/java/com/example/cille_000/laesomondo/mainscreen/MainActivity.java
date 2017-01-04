@@ -1,89 +1,43 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
-
-
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
 
-import org.w3c.dom.Text;
+public class MainActivity extends ActionBarActivity implements DrawerFragment.DrawerFragmentListener {
 
+    private static String TAG = MainActivity.class.getSimpleName();
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    private ImageButton burgerButton, userButton;
-    private ArrayList<ImageButton> coverList, adventureList, krimiList;
-    private UserProfileFragment userprofile;
-    private MenuFragment menu;
-    private TextView title;
-    private Boolean bool;
+    private Toolbar mToolbar;
+    private DrawerFragment drawerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        userprofile = new UserProfileFragment();
-        menu = new MenuFragment();
-        coverList = new ArrayList<>();
-        adventureList = new ArrayList<>();
-        krimiList = new ArrayList<>();
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        userButton = (ImageButton) findViewById(R.id.userbutton);
-        title = (TextView) findViewById(R.id.toolbar_title);
-        burgerButton = (ImageButton) findViewById(R.id.burgerbutton);
-        coverList.add((ImageButton) findViewById(R.id.imageButtonCover1));
-        coverList.add((ImageButton) findViewById(R.id.imageButtonCover2));
-        coverList.add((ImageButton) findViewById(R.id.imageButtonCover3));
-        coverList.add((ImageButton) findViewById(R.id.imageButtonCover4));
-        coverList.add((ImageButton) findViewById(R.id.imageButtonCover5));
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        userButton.setOnClickListener(this);
-        burgerButton.setOnClickListener(this);
+        drawerFragment = (DrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
+        drawerFragment.setDrawerListener(this);
 
-        for (ImageButton i: coverList) {
-            i.setOnClickListener(this);
-        }
-
-        adventureList.add((ImageButton) findViewById(R.id.imageButtonAdventure01));
-
-        krimiList.add((ImageButton) findViewById(R.id.imageButtonKrimi1));
-
-        bool = false;
-        if (bool){
-            for (ImageButton i: adventureList) {
-                i.setOnClickListener(this);
-            }
-            for (int i = 0; i < krimiList.size(); i++) {
-                krimiList.get(i).setVisibility(View.GONE);
-            }
-
-        }
-        if (!bool) {
-            for (int i = 0; i < adventureList.size(); i++) {
-                adventureList.get(i).setVisibility(View.GONE);
-            }
-            for (ImageButton i: krimiList) {
-                i.setOnClickListener(this);
-            }
-        }
-
-
-
+        // Det første, der skal vises
+        displayView(0);
     }
 
     @Override
@@ -93,71 +47,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
-        for(int i = 0; i < coverList.size(); i++) {
-            if(v == coverList.get(i)) {
-                Intent intent = new Intent(this,TextInfoActivity.class);
-                intent.putExtra("textID",++i);
-                startActivity(intent);
-            }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
         }
 
-        for(int i = 0; i < adventureList.size(); i++) {
-            if(v == adventureList.get(i)) {
-                Intent intent = new Intent(this,TextInfoActivity.class);
-                intent.putExtra("textID",++i+5);
-                startActivity(intent);
-            }
+        if(id == R.id.action_search){
+            Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
+            return true;
         }
 
-        for(int i = 0; i < krimiList.size(); i++) {
-            if(v == krimiList.get(i)) {
-                Intent intent = new Intent(this,TextInfoActivity.class);
-                intent.putExtra("textID",++i+6);
-                startActivity(intent);
-            }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDrawerItemSelected(View view, int position) {
+        displayView(position);
+    }
+
+    private void displayView(int position) {
+        Fragment fragment = null;
+        String title = getString(R.string.app_name);
+        switch (position) {
+            case 0:
+                fragment = new BookFragment();
+                title = getString(R.string.title_books);
+                break;
+            default:
+                break;
         }
 
-        if(v == burgerButton) {
-            if(userprofile != null && userprofile.isVisible()) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
-                transaction.remove(userprofile);
-                transaction.commit();
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
 
-                burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
-                userButton.setVisibility(View.VISIBLE);
-                title.setText(getResources().getString(R.string.MainScreenTitle));
-            } else if(menu != null && menu.isVisible()){
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
-                transaction.remove(menu);
-                transaction.commit();
-
-                burgerButton.setBackground(getResources().getDrawable(R.drawable.burgerbutton01));
-                userButton.setVisibility(View.VISIBLE);
-                title.setText(getResources().getString(R.string.MainScreenTitle));
-            } else {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left);
-                transaction.replace(R.id.main_framelayout, menu);
-                transaction.commit();
-
-
-                burgerButton.setBackground(getResources().getDrawable(R.drawable.backarrow));
-                userButton.setVisibility(View.INVISIBLE);
-                title.setText(getResources().getString(R.string.MainScreenBurgermenu));
-            }
-        }
-        else if (v == userButton) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
-            transaction.replace(R.id.main_framelayout, userprofile);
-            transaction.commit();
-
-            burgerButton.setBackground(getResources().getDrawable(R.drawable.backarrow));
-            userButton.setVisibility(View.INVISIBLE);
-            title.setText(getResources().getString(R.string.MainScreenUserProfile));
+            // Toolbar title
+            getSupportActionBar().setTitle(title);
         }
     }
 }

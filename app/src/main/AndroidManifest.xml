@@ -27,13 +27,14 @@
         </activity>
 
         <activity android:name=".startscreen.CreateUserActivity"/>
-        <activity android:name=".mainscreen.MainActivity"/>
+        <activity android:name=".mainscreen.MainActivityOld"/>
         <activity android:name=".challengescreen.QuizActivity"/>
         <activity android:name=".challengescreen.ShowTextActivity"/>
         <activity android:name=".challengescreen.TestResultActivity"/>
         <activity android:name=".challengescreen.TextInfoActivity"/>
         <activity android:name=".startscreen.ChallengeInfoActivity"/>
         <activity android:name=".mainscreen.SettingsActivity"/>
+        <activity android:name=".mainscreen.MainActivity"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"
