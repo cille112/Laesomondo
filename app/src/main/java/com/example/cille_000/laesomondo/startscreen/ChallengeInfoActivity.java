@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
 import com.example.cille_000.laesomondo.mainscreen.MainActivityOld;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ChallengeInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +28,14 @@ public class ChallengeInfoActivity extends AppCompatActivity implements View.OnC
 
         challenge.setOnClickListener(this);
         later.setOnClickListener(this);
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
+        }
     }
 
     @Override

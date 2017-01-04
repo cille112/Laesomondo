@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
+import com.example.cille_000.laesomondo.startscreen.CreateUserActivity;
+import com.example.cille_000.laesomondo.startscreen.StartActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -49,6 +52,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         firstQuestion = logic.getQuestion1();
 
         firstQuestion();
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
+        }
 
     }
 
