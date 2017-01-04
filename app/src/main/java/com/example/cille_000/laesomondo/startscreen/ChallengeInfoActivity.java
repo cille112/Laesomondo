@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
-import com.example.cille_000.laesomondo.mainscreen.MainActivity;
+import com.example.cille_000.laesomondo.mainscreen.MainActivityOld;
 
 public class ChallengeInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,7 +37,7 @@ public class ChallengeInfoActivity extends AppCompatActivity implements View.OnC
             startActivity(intent);
         }
         else if(v == later) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, MainActivityOld.class);
             startActivity(intent);
         }
 

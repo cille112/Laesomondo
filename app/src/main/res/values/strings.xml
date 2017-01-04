@@ -85,16 +85,21 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
-    <string name="nav_item_home">Home</string>
-    <string name="nav_item_friends">Friends</string>
-    <string name="nav_item_notifications">Messages</string>
+    <string name="nav_item_books">Bøger</string>
+    <string name="nav_item_settings">Indstillinger</string>
+    <string name="nav_item_help">Hjælp</string>
+    <string name="nav_item_contact">Kontakt</string>
 
     <string name="title_books">Bøger</string>
+    <string name="title_settings">Indstillinger</string>
+    <string name="title_help">Hjælp</string>
+    <string name="title_contact">Kontakt</string>
 
     <string-array name="nav_drawer_labels">
-        <item>@string/nav_item_home</item>
-        <item>@string/nav_item_friends</item>
-        <item>@string/nav_item_notifications</item>
+        <item>@string/nav_item_books</item>
+        <item>@string/nav_item_settings</item>
+        <item>@string/nav_item_help</item>
+        <item>@string/nav_item_contact</item>
     </string-array>
 
 
