@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 
@@ -55,7 +54,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         }
 
         if(id == R.id.action_search){
-            Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
+            displayView(4);
             return true;
         }
 
@@ -82,6 +81,10 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             case 3:
                 fragment = new ContactFragment();
                 title = getString(R.string.title_contact);
+                break;
+            case 4:
+                fragment = new UserProfileFragment();
+                title = getString(R.string.title_userprofile);
             default:
                 break;
         }
