@@ -37,6 +37,13 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
+        }
+
         database = FirebaseDatabase.getInstance().getReference();
 
         profilePicture = (ImageView) findViewById(R.id.menuprofilepic);

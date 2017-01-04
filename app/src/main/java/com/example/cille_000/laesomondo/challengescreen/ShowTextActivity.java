@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
+import com.example.cille_000.laesomondo.startscreen.StartActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ShowTextActivity extends AppCompatActivity implements View.OnClickListener {
@@ -68,6 +70,14 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             intent.putExtra("textID", textID);
             intent.putExtra("time", logic.getTime());
             startActivity(intent);
+        }
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
         }
     }
 

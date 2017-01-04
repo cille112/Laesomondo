@@ -12,7 +12,7 @@
     <string name="auth_failed">Fejl ved login</string>
 
     <!-- CREATE USER ACTIVITY -->
-    <string name="CreateUserName">Brugernavn</string>
+    <string name="CreateUserName">E-mail</string>
     <string name="CreateUserAge">Fødselsdato: ddmmyyyy</string>
     <string name="CreateUserEmail">Email adresse</string>
     <string name="CreateUserPicture">Vælg billede:</string>

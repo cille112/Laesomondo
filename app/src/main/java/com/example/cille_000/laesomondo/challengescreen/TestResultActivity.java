@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
+import com.example.cille_000.laesomondo.startscreen.StartActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,6 +54,13 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
+        }
+
         database = FirebaseDatabase.getInstance().getReference();
         userId = firebaseAuth.getCurrentUser().getUid();
 
