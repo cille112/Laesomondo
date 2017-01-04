@@ -10,7 +10,12 @@ import android.widget.TextView;
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
-import com.example.cille_000.laesomondo.mainscreen.MainActivityOld;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class TestResultActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -21,6 +26,10 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private TextView info;
     private Button ok;
     private int textID;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference database;
+    private String userId;
+    private int oldXp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,28 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         ok.setOnClickListener(this);
         int seconds = (int) (time / 1000) % 60 ;
         info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
+        userId = firebaseAuth.getCurrentUser().getUid();
+
+
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                System.out.println(snap.child("users").child(userId).child("xp").getValue());
+                oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
+                database.child("users").child(userId).child("xp").setValue(oldXp+xp);
+                update();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Override
@@ -52,4 +83,19 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() { }
+
+    private void update(){
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                System.out.println("efter " + snap.child("users").child(userId).child("xp").getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

@@ -11,6 +11,10 @@ public class  User {
     private int xp;
     private int textSize;
 
+    public User(){
+
+    }
+
     public User(String name, String date, int avatar, int textSize){
         this.name = name;
         this.date = date;
