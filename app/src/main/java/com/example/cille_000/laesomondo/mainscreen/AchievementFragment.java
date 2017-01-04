@@ -19,7 +19,6 @@ public class AchievementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_achievement, container, false);
 
-
         achievementa = (ImageButton) view.findViewById(R.id.achievement_a);
         achievementb = (ImageButton) view.findViewById(R.id.achievement_b);
         achievementc = (ImageButton) view.findViewById(R.id.achievement_c);
@@ -29,6 +28,36 @@ public class AchievementFragment extends Fragment {
         achievementg = (ImageButton) view.findViewById(R.id.achievement_g);
         achievementh = (ImageButton) view.findViewById(R.id.achievement_h);
         achievementi = (ImageButton) view.findViewById(R.id.achievement_i);
+
+
+        //    if(joiningTheTeam <= true)
+        //    achievementa.setImageResource(R.drawable.fff); //der skal laves iconer til alle achievements
+
+        //    if(userlevel <= 5)
+        //    achievementb.setImageResource(R.drawable.fff);
+
+        //    if(userlevel <= 10)
+        //    achievementc.setImageResource(R.drawable.fff);
+
+        //    if(userlevel <= 15)
+        //    achievementd.setImageResource(R.drawable.fff);
+
+        //    if(wordMin <= 20)
+        //    achievemente.setImageResource(R.drawable.fff);
+
+        //    if(wordMin <= 40)
+        //    achievementf.setImageResource(R.drawable.fff);
+
+        //    if(Lix <= 10)
+        //    achievementg.setImageResource(R.drawable.fff);
+
+        //    if(Lix <= 20)
+        //    achievementh.setImageResource(R.drawable.fff);
+
+        //    if(Lix <= 30)
+        //    achievementi.setImageResource(R.drawable.fff);
+
+
 
         return view;
     }
