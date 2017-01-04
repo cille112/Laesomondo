@@ -89,6 +89,7 @@
     <string name="nav_item_settings">Indstillinger</string>
     <string name="nav_item_help">Hjælp</string>
     <string name="nav_item_contact">Kontakt</string>
+    <string name="nav_item_logout">Log ud</string>
 
     <string name="title_books">Bøger</string>
     <string name="title_settings">Indstillinger</string>
@@ -101,6 +102,7 @@
         <item>@string/nav_item_settings</item>
         <item>@string/nav_item_help</item>
         <item>@string/nav_item_contact</item>
+        <item>@string/nav_item_logout</item>
     </string-array>
 
 

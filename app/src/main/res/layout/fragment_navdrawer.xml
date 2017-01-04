@@ -15,7 +15,6 @@
             android:id="@+id/menuprofilepic"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/av1"
             android:scaleType="fitCenter"
             android:layout_centerInParent="true" />
 

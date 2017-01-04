@@ -44,15 +44,11 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if(v == achievement) {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.main_framelayout, achievementscreen);
-            transaction.commit();
+            ((MainActivity) this.getActivity()).displayView(5);
         }
 
         if(v == stats) {
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.main_framelayout, statsscreen);
-            transaction.commit();
+            ((MainActivity) this.getActivity()).displayView(6);
         }
     }
 }
