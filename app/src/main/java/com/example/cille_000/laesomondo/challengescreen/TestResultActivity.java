@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
+import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 import com.example.cille_000.laesomondo.mainscreen.MainActivityOld;
 
 public class TestResultActivity extends AppCompatActivity implements View.OnClickListener{
@@ -45,7 +46,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, MainActivityOld.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
