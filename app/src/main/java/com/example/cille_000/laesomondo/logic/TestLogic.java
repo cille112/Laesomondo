@@ -86,12 +86,15 @@ public class TestLogic {
         else {return xp;}
     }
 
-    public void checkAnswer(int question, int answer){
+    public boolean checkAnswer(int question, int answer){
         int correctAnswer = readingTest.getCorrectAnswer(question);
         if(answer == correctAnswer){
             correct++;
+
+            return true;
         }
 
+        return false;
     }
 
     // add xp to user

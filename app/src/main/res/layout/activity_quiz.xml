@@ -24,23 +24,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/firstAnswer"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorGrey"
+        android:layout_margin="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/secondAnswer"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorGrey"
+        android:layout_margin="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/thirdAnswer"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorGrey"
+        android:layout_margin="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fourthAnswer"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorGrey"
+        android:layout_margin="10dp"/>
 </LinearLayout>

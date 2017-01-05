@@ -11,4 +11,6 @@
     <color name="colorInputNotApproved">#e26563</color>
     <color name="Black">#000</color>
     <color name="transparent">#00000000</color>
+    <color name="colorAnswerCorrect">#4caa47</color>
+    <color name="colorAnswerIncorrect">#EE3333</color>
 </resources>
