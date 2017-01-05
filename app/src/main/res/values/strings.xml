@@ -104,7 +104,7 @@
 
     <string name="nav_item_books">Udfordringer</string>
     <string name="nav_item_settings">Indstillinger</string>
-    <string name="nav_item_help">Hjælp</string>
+    <string name="nav_item_help">Hjælp / FAQ</string>
     <string name="nav_item_contact">Kontakt</string>
     <string name="nav_item_logout">Log ud</string>
 
