@@ -29,13 +29,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:id="@+id/PDF"
-                android:textSize="24sp"
+                android:textSize="@dimen/textsize_reading"
                 android:padding="20dp"/>
 
             <Button
                 android:text="Stop"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:id="@+id/stopButton"
                 android:background="@color/RED"
                 android:textColor="@color/colorWhite"/>

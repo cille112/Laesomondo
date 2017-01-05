@@ -83,7 +83,7 @@
             android:layout_gravity="center"
             android:text="@string/CreateUserSignup"
             android:textColor="@color/colorWhite"
-            android:background="@color/colorComplimentary"/>
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
         <TextView
             android:id="@+id/createuser_login"

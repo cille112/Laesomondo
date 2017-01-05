@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:background="@color/colorComplimentary"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/StartLogin"
         android:textColor="@color/colorWhite" />
 

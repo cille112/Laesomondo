@@ -9,9 +9,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/congrats"
         android:text="@string/result"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:gravity="center"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:layout_marginTop="10dp"
-        android:background="@color/colorComplimentary"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:textColor="@color/colorWhite"/>
 
 </LinearLayout>

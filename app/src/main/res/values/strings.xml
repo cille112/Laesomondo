@@ -23,7 +23,7 @@
 
     <!-- CHALLENGE INFO FRAGMENT -->
     <string name="ChallengeInfoFragmentTitle">Din første udfordring</string>
-    <string name="ChallengeInfoFragmentDes">For at kunne placere dig i det rigtige niveau fra start af, skal du igennem en såkaldt læseudfordring.
+    <string name="ChallengeInfoFragmentDes">For at vi kan placere dig i det rigtige niveau fra start af, skal du igennem en såkaldt læseudfordring.
         Denne udfordring består af en tekst, som du skal læse, efterfulgt af tre spørgsmål om denne tekst. Du vil blive målt på din læsehastighed samt antal korrekte svar.
         Ud fra denne, og alle andre udfordringer, vil du modtage nogle points, kaldt "experience points". Du kan til enhver tid gå ind på din profil og se dine resultater og udvikling. God læselyst.</string>
     <string name="ChallengeInfoFragmentButton">Tag udfordringen</string>
@@ -32,7 +32,7 @@
     <!-- TEXT INFO FRAGMENT -->
     <string name="Second">Skrevet af:  </string>
     <string name="Third">Bogen handler om  </string>
-    <string name="StartText">Start test  </string>
+    <string name="StartText">Start udfordring  </string>
     <string name="TextCover">Text Cover</string>
 
     <!-- Test Result Activity-->
@@ -86,13 +86,13 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
-    <string name="nav_item_books">Bøger</string>
+    <string name="nav_item_books">Udfordringer</string>
     <string name="nav_item_settings">Indstillinger</string>
     <string name="nav_item_help">Hjælp</string>
     <string name="nav_item_contact">Kontakt</string>
     <string name="nav_item_logout">Log ud</string>
 
-    <string name="title_books">Bøger</string>
+    <string name="title_books">Udfordringer</string>
     <string name="title_settings">Indstillinger</string>
     <string name="title_help">Hjælp</string>
     <string name="title_contact">Kontakt</string>
