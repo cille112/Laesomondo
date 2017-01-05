@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryold">#8dc442</color>
+    <color name="colorPrimaryDarkold">#4ca947</color>
+    <color name="colorAccentold">#4ABAEF</color>
+    <color name="colorComplimentaryold">#DF8128</color>
+    <color name="colorWhiteold">#FFF</color>
+    <color name="colorGreyold">#999</color>
+    <color name="REDold">#FF0000</color>
+    <color name="colorInputApprovedold">#9fe263</color>
+    <color name="colorInputNotApprovedold">#e26563</color>
+    <color name="Blackold">#000</color>
+    <color name="transparentold">#00000000</color>
+    <color name="colorAnswerCorrectold">#4caa47</color>
+    <color name="colorAnswerIncorrectold">#EE3333</color>
+</resources>

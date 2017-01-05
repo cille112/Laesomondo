@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:textSize="17dp"
         android:padding="15dp"
-        android:textColor="@color/colorGrey"/>
+        android:textColor="@color/colorGreyDark"/>
 
     <TextView
         android:text="@string/A1"
@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         android:textSize="17dp"
         android:padding="15dp"
-        android:textColor="@color/colorGrey"/>
+        android:textColor="@color/colorGreyDark"/>
 
     <TextView
         android:text="@string/A2"
@@ -45,7 +45,7 @@
         android:layout_gravity="center"
         android:textSize="17dp"
         android:padding="15dp"
-        android:textColor="@color/colorGrey"/>
+        android:textColor="@color/colorGreyDark"/>
 
     <TextView
         android:text="@string/A3"
@@ -61,7 +61,7 @@
         android:layout_gravity="center"
         android:textSize="17dp"
         android:padding="15dp"
-        android:textColor="@color/colorGrey"/>
+        android:textColor="@color/colorGreyDark"/>
 
     <TextView
         android:text="@string/A4"

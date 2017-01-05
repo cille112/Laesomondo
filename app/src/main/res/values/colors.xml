@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#8dc442</color>
-    <color name="colorPrimaryDark">#4ca947</color>
-    <color name="colorAccent">#4ABAEF</color>
-    <color name="colorComplimentary">#DF8128</color>
-    <color name="colorWhite">#FFF</color>
-    <color name="colorGrey">#999</color>
-    <color name="RED">#FF0000</color>
-    <color name="colorInputApproved">#9fe263</color>
-    <color name="colorInputNotApproved">#e26563</color>
-    <color name="Black">#000</color>
+    <color name="colorPrimary">#8bc34a</color>
+    <color name="colorPrimaryDark">#558b2f </color>
+    <color name="colorAccent">#4fc3f7</color>
+    <color name="colorComplimentary">#ff9800</color>
+    <color name="colorWhite">#fafafa</color>
+    <color name="colorGrey">#9e9e9e</color>
+    <color name="colorGreyDark">#424242</color>
+    <color name="RED">#ef5350</color>
+    <color name="colorInputApproved">#9ccc65</color>
+    <color name="colorInputNotApproved">#ef5350</color>
+    <color name="Black">#212121</color>
     <color name="transparent">#00000000</color>
-    <color name="colorAnswerCorrect">#4caa47</color>
-    <color name="colorAnswerIncorrect">#EE3333</color>
+    <color name="colorAnswerCorrect">#9ccc65</color>
+    <color name="colorAnswerIncorrect">#ef5350</color>
 </resources>
