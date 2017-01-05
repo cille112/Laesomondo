@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
@@ -26,53 +27,66 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
     private static String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference database;
-    private Toolbar mToolbar;
-    private DrawerFragment drawerFragment;
     private ImageView profilePicture;
+    private UserProfileFragment userProfileFragment;
+    private SettingsFragment settingsFragment;
+    private HelpFragment helpFragment;
+    private ContactFragment contactFragment;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() == null){
-            finish();
-            Intent intent1 = new Intent(this, StartActivity.class);
-            startActivity(intent1);
+            close();
+        } else {
+            userId = firebaseAuth.getCurrentUser().getUid();
         }
-
-        database = FirebaseDatabase.getInstance().getReference();
 
         profilePicture = (ImageView) findViewById(R.id.menuprofilepic);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot snap) {
-                if(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()) != null) {
-                    profilePicture.setImageDrawable(getDrawable(Integer.parseInt(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("avatar").getValue().toString())));
+                if (snap.child("users").child(userId).hasChild("avatar")) {
+                    profilePicture.setImageDrawable(getResources().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString())));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Der skete en fejl i indlæsning af billeder", Toast.LENGTH_SHORT).show();
+                    close();
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        userProfileFragment = new UserProfileFragment();
+        settingsFragment = new SettingsFragment();
+        helpFragment = new HelpFragment();
+        contactFragment = new ContactFragment();
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        drawerFragment = (DrawerFragment)
+        DrawerFragment drawerFragment = (DrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
         // Det første, der skal vises
         displayView(0);
+    }
+
+    private void close() {
+        finish();
+        Intent intent1 = new Intent(this, StartActivity.class);
+        startActivity(intent1);
     }
 
     @Override
@@ -107,15 +121,15 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 title = getString(R.string.title_books);
                 break;
             case 1:
-                fragment = new SettingsFragment();
+                fragment = settingsFragment;
                 title = getString(R.string.title_settings);
                 break;
             case 2:
-                fragment = new HelpFragment();
+                fragment = helpFragment;
                 title = getString(R.string.title_help);
                 break;
             case 3:
-                fragment = new ContactFragment();
+                fragment = contactFragment;
                 title = getString(R.string.title_contact);
                 break;
             case 4:
@@ -130,7 +144,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 title = "Stats";
                 break;
             case 7:
-                fragment = new UserProfileFragment();
+                fragment = userProfileFragment;
                 title = getString(R.string.title_userprofile);
                 break;
             default:

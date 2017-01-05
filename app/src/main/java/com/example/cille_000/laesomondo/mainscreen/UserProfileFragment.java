@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
@@ -31,6 +32,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private ImageView profilePicture;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
+    private String userId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,21 +47,30 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
         stats.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
-
         database = FirebaseDatabase.getInstance().getReference();
+
+        if(firebaseAuth.getCurrentUser() == null){
+            Intent intent1 = new Intent(getActivity(), StartActivity.class);
+            startActivity(intent1);
+        }
+        else {
+            userId = firebaseAuth.getCurrentUser().getUid();
+        }
 
         profilePicture = (ImageView) view.findViewById(R.id.avatar);
         database.addListenerForSingleValueEvent(new ValueEventListener() {
-            String userId = firebaseAuth.getCurrentUser().getUid();
+
 
             @Override
             public void onDataChange(DataSnapshot snap) {
-
-                if(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()) != null) {
+                if (snap.child("users").child(userId).hasChild("avatar")) {
                     profilePicture.setImageDrawable(getResources().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString())));
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Der skete en fejl i indlæsning af profil", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(getActivity(), StartActivity.class);
+                    startActivity(intent1);
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
