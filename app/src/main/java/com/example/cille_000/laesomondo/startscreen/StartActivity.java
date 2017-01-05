@@ -31,7 +31,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     private Button login;
     private EditText username, password;
-    private TextView createuser;
+    private TextView createuser, forgotPassword;
 
     private static final String TAG = "EmailPassword";
 
@@ -52,9 +52,11 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         username = (EditText) findViewById(R.id.login_username);
         password = (EditText) findViewById(R.id.login_password);
         createuser = (TextView) findViewById(R.id.login_createuser);
+        forgotPassword = (TextView) findViewById(R.id.login_forgotPassword);
 
         login.setOnClickListener(this);
         createuser.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
 
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
@@ -193,6 +195,37 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         else if(v == createuser) {
             Intent intent = new Intent(this, CreateUserActivity.class);
             startActivity(intent);
+        }
+        else if (v==forgotPassword){
+            AlertDialog.Builder alert = new AlertDialog.Builder(StartActivity.this);
+
+            alert.setTitle("Forkerte login oplysninger");
+            alert.setMessage("Har du glemt dit password, så skriv den mail:");
+
+            // Set an EditText view to get user input
+            final EditText input = new EditText(StartActivity.this);
+            alert.setView(input);
+
+            alert.setPositiveButton("Send mail", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    if(input.getText().toString()!=""){
+                        firebaseAuth.sendPasswordResetEmail(input.getText().toString());
+                        Toast.makeText(StartActivity.this, "Mail sendt",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        input.setError("Skriv din email");
+                    }
+                }
+            });
+
+            alert.setNegativeButton("Annuller", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    // Canceled.
+                }
+            });
+
+            alert.show();
         }
     }
 }

@@ -7,6 +7,7 @@
     <string name="StartPassword">Kodeord</string>
     <string name="StartLogin">Log ind</string>
     <string name="StartCreateUser"><u>Opret dig som ny bruger her!</u></string>
+    <string name="StartForgotPassword"><u>Glemt password</u></string>
     <string name="StartToastSuccess">Velkommen</string>
     <string name="StartToastNoSuccess">Fejl ved login</string>
     <string name="auth_failed">Fejl ved login</string>
@@ -79,6 +80,10 @@
 
     <!-- STATS FRAGMENT -->
     <string name="StatsFragment">Stats</string>
+
+    <!-- Contact FRAGMENT -->
+    <string name="Contact">Skriv en mail til os</string>
+    <string name="Call">Ring til os</string>
 
     <!-- NAVDRAWER -->
     <string name="action_settings">Settings</string>
