@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser()==null){
+        if(firebaseAuth.getCurrentUser() == null){
             finish();
             Intent intent1 = new Intent(this, StartActivity.class);
             startActivity(intent1);
@@ -84,10 +84,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         if(id == R.id.action_search){
             displayView(7);

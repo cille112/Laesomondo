@@ -188,7 +188,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         @Override
     public void onClick(View v) {
         if(v == login) {
-            System.out.println("drshadrh");
             signIn(username.getText().toString(), password.getText().toString());
         }
         else if(v == createuser) {
