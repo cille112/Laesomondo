@@ -105,6 +105,8 @@ public class TestLogic {
         intent.putExtra("correct", correct);
         intent.putExtra("textID", textID);
         intent.putExtra("xp", xp);
+        intent.putExtra("lix", readingTest.getLix());
+        intent.putExtra("wordCount", readingTest.getWordCount());
         context.startActivity(intent);
     }
 }

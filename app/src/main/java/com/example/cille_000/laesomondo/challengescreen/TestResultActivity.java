@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import java.math.*;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
@@ -31,6 +32,12 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private DatabaseReference database;
     private String userId;
     private int oldXp;
+    private int oldLix;
+    private int lix;
+    private int wordCount;
+    private int booksRead = 1;
+    private String s;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         xp = intent.getIntExtra("xp", 0);
         logic = new TestLogic(this);
         logic.setText(textID);
+        lix = intent.getIntExtra("lix", 0);
+        wordCount = intent.getIntExtra("wordCount", 0);
 
         info = (TextView) findViewById(R.id.resultInfo);
         ok = (Button) findViewById(R.id.TestButton);
@@ -70,16 +79,55 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onDataChange(DataSnapshot snap) {
                 System.out.println(snap.child("users").child(userId).child("xp").getValue());
-                oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
-                database.child("users").child(userId).child("xp").setValue(oldXp+xp);
-                update();
-                if (snap.child("users").child(userId).child("textRead").exists()) {
-                    String oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
-                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
+                if (snap.child("users").child(userId).child("xp").getValue() != null) {
+                    oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
+                    database.child("users").child(userId).child("xp").setValue(oldXp + xp);
+                    System.out.println("xp is set");
+                    System.out.println("xp is set");
                 }
                 else
+                    database.child("users").child(userId).child("xp").setValue(xp);
+
+                if (!snap.child("users").child(userId).child("textRead").exists()) {
                     database.child("users").child(userId).child("textRead").setValue(textID);
-            }
+                    //booksRead = 1;
+                    System.out.println("textRead is set");
+                    System.out.println("textRead is set");
+                    //System.out.println(booksRead);
+                    //System.out.println(booksRead);
+                }
+                else {
+                    //double length = Integer.parseInt(snap.child("users").child(userId).child("textRead").getKey());
+
+                    System.out.println("textRead is set22");
+                    String oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
+                    booksRead = (oldTextRead + " " + textID).length()/2+1;
+                    System.out.println("textRead is set22");
+                }
+
+                if (!snap.child("users").child(userId).child("lix").exists()){
+                    database.child("users").child(userId).child("lix").setValue(lix);
+                    System.out.println("Lix value is set");
+                }
+
+                else {
+                    System.out.println("Im in here");
+                    System.out.println(lix);
+                    oldLix = Integer.parseInt(snap.child("users").child(userId).child("lix").getValue().toString());
+                    System.out.println("Old Lix: " + oldLix);
+                    System.out.println("Lix: " + lix);
+                    System.out.println("BooksRead: " + booksRead);
+                    double temp1 = ((oldLix*(booksRead-1)) + lix)/booksRead;
+                    System.out.println(temp1);
+                    int temp = (int) temp1;
+                    System.out.println(temp);
+                    database.child("users").child(userId).child("lix").setValue(temp);
+                    System.out.println("Im in here");
+                    System.out.println("Lix value is set02");
+                    System.out.println("Lix value is set02");
+                }
+    }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -98,18 +146,5 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onBackPressed() { }
 
-    private void update(){
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
 
-            @Override
-            public void onDataChange(DataSnapshot snap) {
-                System.out.println("efter " + snap.child("users").child(userId).child("xp").getValue());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 }
