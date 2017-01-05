@@ -34,7 +34,6 @@
         <activity android:name=".challengescreen.TestResultActivity"/>
         <activity android:name=".challengescreen.TextInfoActivity"/>
         <activity android:name=".startscreen.ChallengeInfoActivity"/>
-        <activity android:name=".mainscreen.SettingsActivity"/>
         <activity android:name=".mainscreen.MainActivity"/>
 
         <meta-data
