@@ -5,11 +5,14 @@
 
     <TextView
         android:text="@string/Contact"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/contact"
-        android:textSize="20dp"
-        android:padding="5dp"/>
+        android:textSize="22dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:paddingTop="20dp"
+        android:textColor="@color/colorGrey"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -17,13 +20,12 @@
         android:inputType="textPersonName"
         android:hint="Emne"
         android:ems="10"
-        android:id="@+id/subjectEmail"
-        android:padding="10dp"/>
+        android:id="@+id/subjectEmail"/>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="120dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,22 +34,22 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:inputType="textMultiLine"
                 android:hint="Email"
                 android:ems="10"
-                android:id="@+id/Email"
-                android:padding="10dp" />
+                android:id="@+id/Email" />
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:text="Send mail"
+        android:text="Send Besked"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
         android:background="@color/colorComplimentary"
         android:textColor="@color/colorWhite"
         android:id="@+id/sendMail" />
@@ -55,16 +57,19 @@
 
     <TextView
         android:text="@string/Call"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorGrey"
         android:id="@+id/call"
-        android:textSize="20dp"
-        android:padding="5dp"/>
+        android:textSize="22dp"
+        android:paddingTop="130dp"/>
 
     <TextView
         android:text="+4512345678"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:id="@+id/number"
         android:textSize="17dp"
         android:padding="5dp"

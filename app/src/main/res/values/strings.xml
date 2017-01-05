@@ -82,8 +82,8 @@
     <string name="StatsFragment">Stats</string>
 
     <!-- Contact FRAGMENT -->
-    <string name="Contact">Skriv en mail til os</string>
-    <string name="Call">Ring til os</string>
+    <string name="Contact">Skriv en mail til os:</string>
+    <string name="Call">Ring til os på:</string>
 
     <!-- NAVDRAWER -->
     <string name="action_settings">Settings</string>
