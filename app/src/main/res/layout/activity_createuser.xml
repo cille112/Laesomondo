@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"/>
+            android:layout_marginRight="40dp"
+            android:inputType="textEmailAddress"/>
 
         <com.example.cille_000.laesomondo.util.NoPopupEditText
             android:id="@+id/createuser_password"
