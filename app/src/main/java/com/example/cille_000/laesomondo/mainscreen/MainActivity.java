@@ -106,6 +106,10 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 fragment = new BookFragment();
                 title = getString(R.string.title_books);
                 break;
+            case 1:
+                fragment = new SettingsFragment();
+                title = getString(R.string.title_settings);
+                break;
             case 2:
                 fragment = new HelpFragment();
                 title = getString(R.string.title_help);
