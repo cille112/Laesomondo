@@ -28,11 +28,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 public class CreateUserActivity extends AppCompatActivity implements View.OnClickListener {
@@ -235,7 +232,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
                         if (!task.isSuccessful()) {
                             Toast.makeText(CreateUserActivity.this, R.string.reg_failed,
                                     Toast.LENGTH_SHORT).show();
-                            System.out.println(task.getException().getMessage());
                         }
 
                     }
@@ -248,18 +244,12 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
         String email = username.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            //username.setError("Required.");
             valid = false;
-        } else {
-            // username.setError(null);
         }
 
         String passwordString = password.getText().toString();
         if (TextUtils.isEmpty(passwordString)) {
-            //password.setError("Required.");
             valid = false;
-        } else {
-           // password.setError(null);
         }
 
         return valid;
@@ -271,14 +261,14 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);
             startActivity(mainscreen);
-        } else {
-
         }
     }
 
     private void writeNewUser(String email, String date, int avatar, int textsize) {
         User user = new User(email, date, avatar, textsize);
-        database.child("users").child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+        if(firebaseAuth.getCurrentUser()!=null) {
+            database.child("users").child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+        }
     }
 
 
