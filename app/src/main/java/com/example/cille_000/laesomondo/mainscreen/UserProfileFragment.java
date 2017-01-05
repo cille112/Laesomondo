@@ -72,7 +72,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                 }
 
                 if (!snap.child("users").child(userId).child("lix").exists()){
-                    lixvalue.setText("0");
+                    lixvalue.setText("0 Lix");
                 }else{
                     lixvalue.setText(snap.child("users").child(userId).child("lix").getValue().toString()+ " Lix");
                 }
