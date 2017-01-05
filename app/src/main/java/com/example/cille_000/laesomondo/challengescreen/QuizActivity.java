@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.ContextThemeWrapper;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.os.Handler;
 
@@ -27,6 +29,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private Button first, second, third, fourth;
     private TextView question;
     private int questionNumber = 1;
+    private boolean busy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         time = intent.getLongExtra("time", 0);
         logic = new TestLogic(this);
         logic.setText(textID);
+        busy = false;
 
         first = (Button) findViewById(R.id.firstAnswer);
         second = (Button) findViewById(R.id.secondAnswer);
@@ -92,7 +96,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         boolean answer = false;
         Button button = first;
 
+        if(busy) {
+            return;
+        }
+
         if (questionNumber == 1){
+            busy = true;
+
             if(v == first){
                 answer = logic.checkAnswer(1, 1);
             }
@@ -113,6 +123,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             questionDone(button, answer);
         }
         else if (questionNumber == 2){
+            busy = true;
+
             if(v == first){
                 answer = logic.checkAnswer(2, 1);
             }
@@ -132,6 +144,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             questionNumber++;
             questionDone(button, answer);
         } else {
+            busy = true;
+
             if(v == first){
                 answer = logic.checkAnswer(3, 1);
             }
@@ -163,7 +177,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
+                busy = false;
                 button.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+
                 switch (questionNumber) {
                     case 2:
                         secondQuestion();

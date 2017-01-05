@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:layout_marginTop="20dp"
         android:id="@+id/Question"
         android:textSize="@dimen/textsize_heading"
         android:textColor="@color/colorPrimary"/>
@@ -27,7 +28,8 @@
         android:layout_weight="1"
         android:textColor="@color/colorWhite"
         android:background="@color/colorGrey"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
@@ -36,7 +38,8 @@
         android:layout_weight="1"
         android:textColor="@color/colorWhite"
         android:background="@color/colorGrey"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
@@ -45,7 +48,8 @@
         android:layout_weight="1"
         android:textColor="@color/colorWhite"
         android:background="@color/colorGrey"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textAllCaps="false"/>
 
     <Button
         android:layout_width="match_parent"
@@ -54,5 +58,6 @@
         android:layout_weight="1"
         android:textColor="@color/colorWhite"
         android:background="@color/colorGrey"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textAllCaps="false"/>
 </LinearLayout>
