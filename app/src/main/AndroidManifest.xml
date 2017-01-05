@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cille_000.laesomondo">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21"/>
 
 
@@ -10,6 +12,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
