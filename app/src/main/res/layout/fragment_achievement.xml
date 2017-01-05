@@ -16,29 +16,29 @@
 
     <ImageButton
         android:id="@+id/achievement_a"
-        android:background="@drawable/trophy"
         android:layout_width="70dip"
         android:layout_height="70dip"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorWhite"
         android:contentDescription="@string/AchievementFragmentA"/>
 
     <ImageButton
         android:id="@+id/achievement_b"
-        android:background="@drawable/trophy"
         android:layout_width="70dip"
         android:layout_height="70dip"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorWhite"
         android:contentDescription="@string/AchievementFragmentB"/>
 
     <ImageButton
         android:id="@+id/achievement_c"
-        android:background="@drawable/trophy"
         android:layout_width="70dip"
         android:layout_height="70dip"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@color/colorWhite"
         android:contentDescription="@string/AchievementFragmentC"/>
 
     </LinearLayout>
@@ -53,29 +53,29 @@
 
         <ImageButton
             android:id="@+id/achievement_d"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentD"/>
 
         <ImageButton
             android:id="@+id/achievement_e"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentE"/>
 
         <ImageButton
             android:id="@+id/achievement_f"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentF"/>
 
     </LinearLayout>
@@ -90,29 +90,29 @@
 
         <ImageButton
             android:id="@+id/achievement_g"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentG"/>
 
         <ImageButton
             android:id="@+id/achievement_h"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentH"/>
 
         <ImageButton
             android:id="@+id/achievement_i"
-            android:background="@drawable/trophy"
             android:layout_width="70dip"
             android:layout_height="70dip"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
+            android:background="@color/colorWhite"
             android:contentDescription="@string/AchievementFragmentI"/>
 
     </LinearLayout>
