@@ -70,7 +70,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
     private void sendEmail(){
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setData(Uri.parse("mailto:" + "cille112@yahoo.dk"));
+        emailIntent.setData(Uri.parse("mailto:" + "x@x.dk"));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject.getText().toString());
         emailIntent.putExtra(Intent.EXTRA_TEXT, mail.getText().toString());
 
