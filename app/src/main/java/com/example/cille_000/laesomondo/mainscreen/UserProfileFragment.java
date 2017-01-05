@@ -70,6 +70,12 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                     Intent intent1 = new Intent(getActivity(), StartActivity.class);
                     startActivity(intent1);
                 }
+
+                if (!snap.child("users").child(userId).child("lix").exists()){
+                    lixvalue.setText("0");
+                }else{
+                    lixvalue.setText(snap.child("users").child(userId).child("lix").getValue().toString()+ " Lix");
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
