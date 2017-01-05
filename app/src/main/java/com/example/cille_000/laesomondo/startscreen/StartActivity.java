@@ -48,6 +48,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         Fabric.with(this, new Crashlytics());}
         setContentView(R.layout.activity_start);
 
+
         login = (Button) findViewById(R.id.login_btnlogin);
         username = (EditText) findViewById(R.id.login_username);
         password = (EditText) findViewById(R.id.login_password);
