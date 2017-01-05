@@ -22,20 +22,21 @@
     <string name="reg_failed">Noget gik galt</string>
 
     <!-- CHALLENGE INFO FRAGMENT -->
-    <string name="ChallengeInfoFragmentTitle">For at kunne placere dig i det rigtige level fra start, skal du nu igennem en læsetest.
-    Denne test består af en tekst, som du skal læse så hurtigt og grundigt som muligt. Her efter kommer der 3 spørgsmål om den tekst du lige har læst.
-        Ud fra denne test bliver du så placeret i et level, som passer til dit start niveau.</string>
-    <string name="ChallengeInfoFragmentButton">Tag test nu</string>
+    <string name="ChallengeInfoFragmentTitle">Din første udfordring</string>
+    <string name="ChallengeInfoFragmentDes">For at kunne placere dig i det rigtige niveau fra start af, skal du igennem en såkaldt læseudfordring.
+        Denne udfordring består af en tekst, som du skal læse, efterfulgt af tre spørgsmål om denne tekst. Du vil blive målt på din læsehastighed samt antal korrekte svar.
+        Ud fra denne, og alle andre udfordringer, vil du modtage nogle points, kaldt "experience points". Du kan til enhver tid gå ind på din profil og se dine resultater og udvikling. God læselyst.</string>
+    <string name="ChallengeInfoFragmentButton">Tag udfordringen</string>
     <string name="ChallengeInfoFragmentNotNow"><u>Senere</u></string>
 
     <!-- TEXT INFO FRAGMENT -->
     <string name="Second">Skrevet af:  </string>
-    <string name="Third">Historien handler om  </string>
+    <string name="Third">Bogen handler om  </string>
     <string name="StartText">Start test  </string>
     <string name="TextCover">Text Cover</string>
 
     <!-- Test Result Activity-->
-    <string name="result">Tillykke</string>
+    <string name="result">Udfordring klaret!</string>
     <string name="ButtonTest">OK</string>
 
     <!-- USERPROFILE FRAGMENT -->

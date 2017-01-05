@@ -209,7 +209,11 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             transaction.commit();
         }
         else if(v == signup) {
-            createAccount(username.getText().toString(), password.getText().toString());
+            if (!validateForm()) {
+                Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
+            } else {
+                createAccount(username.getText().toString(), password.getText().toString());
+            }
         }
         else if(v == login) {
             this.finish();
@@ -218,10 +222,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
-        if (!validateForm()) {
-            return;
-        }
-
 
         // [START create_user_with_email]
         firebaseAuth.createUserWithEmailAndPassword(email, password)
