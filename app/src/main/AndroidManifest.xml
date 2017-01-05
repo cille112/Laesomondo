@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cille_000.laesomondo">
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21"/>
 
@@ -30,7 +29,6 @@
         </activity>
 
         <activity android:name=".startscreen.CreateUserActivity"/>
-        <activity android:name=".mainscreen.MainActivityOld"/>
         <activity android:name=".challengescreen.QuizActivity"/>
         <activity android:name=".challengescreen.ShowTextActivity"/>
         <activity android:name=".challengescreen.TestResultActivity"/>

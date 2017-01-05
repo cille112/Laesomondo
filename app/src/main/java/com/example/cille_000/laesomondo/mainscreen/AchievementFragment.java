@@ -6,12 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 
 
 
-public class AchievementFragment extends Fragment {
+public class AchievementFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton achievementa, achievementb, achievementc, achievementd, achievemente, achievementf, achievementg, achievementh, achievementi;
 
@@ -29,38 +30,132 @@ public class AchievementFragment extends Fragment {
         achievementh = (ImageButton) view.findViewById(R.id.achievement_h);
         achievementi = (ImageButton) view.findViewById(R.id.achievement_i);
 
+        achievementa.setOnClickListener(this);
+        achievementb.setOnClickListener(this);
+        achievementc.setOnClickListener(this);
+        achievementd.setOnClickListener(this);
+        achievemente.setOnClickListener(this);
+        achievementf.setOnClickListener(this);
+        achievementg.setOnClickListener(this);
+        achievementh.setOnClickListener(this);
+        achievementi.setOnClickListener(this);
 
-        //    if(joiningTheTeam <= true)
-        //    achievementa.setImageResource(R.drawable.fff); //der skal laves iconer til alle achievements
-
-        //    if(userlevel <= 5)
-        //    achievementb.setImageResource(R.drawable.fff);
-
-        //    if(userlevel <= 10)
-        //    achievementc.setImageResource(R.drawable.fff);
-
-        //    if(userlevel <= 15)
-        //    achievementd.setImageResource(R.drawable.fff);
-
-        //    if(wordMin <= 20)
-        //    achievemente.setImageResource(R.drawable.fff);
-
-        //    if(wordMin <= 40)
-        //    achievementf.setImageResource(R.drawable.fff);
-
-        //    if(Lix <= 10)
-        //    achievementg.setImageResource(R.drawable.fff);
-
-        //    if(Lix <= 20)
-        //    achievementh.setImageResource(R.drawable.fff);
-
-        //    if(Lix <= 30)
-        //    achievementi.setImageResource(R.drawable.fff);
-
-
+            if(true == true) { // first test taken
+                achievementa.setImageResource(R.drawable.achievement1);
+            } else{
+                achievementa.setImageResource(R.drawable.trophy);
+            }
+            if(5 <= 5) { //userlevel
+                achievementb.setImageResource(R.drawable.achievement2);
+            } else{
+                achievementb.setImageResource(R.drawable.trophy);
+            }
+            if(10 <= 10) { //userlevel
+                achievementc.setImageResource(R.drawable.achievement3);
+            } else{
+                achievementc.setImageResource(R.drawable.trophy);
+            }
+            if(15 <= 15) { //userlevel
+                achievementd.setImageResource(R.drawable.achievement4);
+            } else{
+                achievementd.setImageResource(R.drawable.trophy);
+            }
+            if(20 <= 20) { //wordMin
+                achievemente.setImageResource(R.drawable.achievement5);
+            } else{
+                achievemente.setImageResource(R.drawable.trophy);
+            }
+            if(40 <= 40) { //wordMin
+                achievementf.setImageResource(R.drawable.achievement6);
+            } else{
+                achievementf.setImageResource(R.drawable.trophy);
+            }
+            if(10 <= 10) { //LIX
+                achievementg.setImageResource(R.drawable.achievement7);
+            } else{
+                achievementh.setImageResource(R.drawable.trophy);
+            }
+            if(20 <= 20) { //LIX
+                achievementh.setImageResource(R.drawable.achievement8);
+            } else{
+                achievementh.setImageResource(R.drawable.trophy);
+            }
+            if(30 <= 30) { //LIX
+                achievementi.setImageResource(R.drawable.achievement9);
+            } else{
+                achievementi.setImageResource(R.drawable.trophy);
+            }
 
         return view;
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+        if(v == achievementa){
+              //  if(joiningTheTeam <= true) {
+                    Toast.makeText(getActivity(), "Hurra.. Du gennemførte din første test",
+                            Toast.LENGTH_LONG).show();
+             //   }
+        }
+
+        if(v == achievementb) {
+             //   if(userlevel <= 5){
+                    Toast.makeText(getActivity(), "Du er blevet level Fem",
+                            Toast.LENGTH_LONG).show();
+              //  }
+        }
+
+        if(v == achievementc){
+             //  if(userlevel <= 10){
+                   Toast.makeText(getActivity(), "Du er blevet level Ti",
+                           Toast.LENGTH_LONG).show();
+             //  }
+        }
+
+        if(v == achievementd){
+              //  if(userlevel <= 15){
+                    Toast.makeText(getActivity(), "Du er blevet level Femten",
+                            Toast.LENGTH_LONG).show();
+              //  }
+        }
+
+        if(v == achievemente){
+              //  if(wordMin <= 20){
+                    Toast.makeText(getActivity(), "20 ord i minuttet",
+                            Toast.LENGTH_LONG).show();
+              //  }
+        }
+
+        if(v == achievementf){
+              //  if(wordMin <= 40){
+                    Toast.makeText(getActivity(), "40 ord i minuttet",
+                            Toast.LENGTH_LONG).show();
+               // }
+        }
+
+        if(v == achievementg){
+              //  if(Lix <= 10){
+                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 10",
+                            Toast.LENGTH_LONG).show();
+             //   }
+        }
+
+        if(v == achievementh){
+              //  if(Lix <= 20){
+                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 20",
+                            Toast.LENGTH_LONG).show();
+             //   }
+        }
+
+        if(v == achievementi){
+             //  if(Lix <= 30){
+                   Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 30",
+                           Toast.LENGTH_LONG).show();
+             //  }
+        }
+
+
+    }
 }
