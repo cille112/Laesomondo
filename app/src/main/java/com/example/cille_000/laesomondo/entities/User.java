@@ -10,6 +10,7 @@ public class  User {
     private int speed;
     private int xp;
     private int textSize;
+    private String textRead;
 
     public User(){
 
@@ -77,4 +78,8 @@ public class  User {
     public void setTextSize(int textSize) {
         this.textSize = textSize;
     }
+
+    public String getTextRead() { return  this.textRead;}
+
+    public void setTextRead(String s){ this.textRead = textRead;}
 }

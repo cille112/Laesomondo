@@ -73,6 +73,12 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                 database.child("users").child(userId).child("xp").setValue(oldXp+xp);
                 update();
+                if (snap.child("users").child(userId).child("textRead").exists()) {
+                    String oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
+                }
+                else
+                    database.child("users").child(userId).child("textRead").setValue(textID);
             }
 
             @Override
