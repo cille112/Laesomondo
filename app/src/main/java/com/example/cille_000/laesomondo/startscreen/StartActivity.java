@@ -125,7 +125,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                             AlertDialog.Builder alert = new AlertDialog.Builder(StartActivity.this);
 
                             alert.setTitle("Forkerte login oplysninger");
-                            alert.setMessage("Har du glemt dit password, så skriv den mail:");
+                            alert.setMessage("Har du glemt dit password, så skriv din mail:");
 
                             // Set an EditText view to get user input
                             final EditText input = new EditText(StartActivity.this);
@@ -199,8 +199,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         else if (v==forgotPassword){
             AlertDialog.Builder alert = new AlertDialog.Builder(StartActivity.this);
 
-            alert.setTitle("Forkerte login oplysninger");
-            alert.setMessage("Har du glemt dit password, så skriv den mail:");
+            alert.setTitle("Glemt password");
+            alert.setMessage("Har du glemt dit password, så skriv din mail:");
 
             // Set an EditText view to get user input
             final EditText input = new EditText(StartActivity.this);

@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Emne"
+        android:hint="Emne"
         android:ems="10"
         android:id="@+id/subjectEmail"
         android:padding="10dp"/>
@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
-                android:text="Email"
+                android:hint="Email"
                 android:ems="10"
                 android:id="@+id/Email"
                 android:padding="10dp" />
