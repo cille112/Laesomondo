@@ -43,47 +43,47 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
             if(true == true) { // first test taken
                 achievementa.setImageResource(R.drawable.achievement1);
             } else{
-                achievementa.setImageResource(R.drawable.trophy);
+                achievementa.setImageResource(R.drawable.achievementlocked);
             }
-            if(5 <= 5) { //userlevel
+            if(5 >= 5) { //userlevel
                 achievementb.setImageResource(R.drawable.achievement2);
             } else{
-                achievementb.setImageResource(R.drawable.trophy);
+                achievementb.setImageResource(R.drawable.achievementlocked);
             }
-            if(10 <= 10) { //userlevel
+            if(10 >= 10) { //userlevel
                 achievementc.setImageResource(R.drawable.achievement3);
             } else{
-                achievementc.setImageResource(R.drawable.trophy);
+                achievementc.setImageResource(R.drawable.achievementlocked);
             }
-            if(15 <= 15) { //userlevel
+            if(15 >= 15) { //userlevel
                 achievementd.setImageResource(R.drawable.achievement4);
             } else{
-                achievementd.setImageResource(R.drawable.trophy);
+                achievementd.setImageResource(R.drawable.achievementlocked);
             }
-            if(20 <= 20) { //wordMin
+            if(0 >= 20) { //wordMin
                 achievemente.setImageResource(R.drawable.achievement5);
             } else{
-                achievemente.setImageResource(R.drawable.trophy);
+                achievemente.setImageResource(R.drawable.achievementlocked);
             }
-            if(40 <= 40) { //wordMin
+            if(0 >= 40) { //wordMin
                 achievementf.setImageResource(R.drawable.achievement6);
             } else{
-                achievementf.setImageResource(R.drawable.trophy);
+                achievementf.setImageResource(R.drawable.achievementlocked);
             }
-            if(10 <= 10) { //LIX
+            if(0 >= 10) { //LIX
                 achievementg.setImageResource(R.drawable.achievement7);
             } else{
-                achievementh.setImageResource(R.drawable.trophy);
+                achievementg.setImageResource(R.drawable.achievementlocked);
             }
-            if(20 <= 20) { //LIX
+            if(0 >= 20) { //LIX
                 achievementh.setImageResource(R.drawable.achievement8);
             } else{
-                achievementh.setImageResource(R.drawable.trophy);
+                achievementh.setImageResource(R.drawable.achievementlocked);
             }
-            if(30 <= 30) { //LIX
+            if(0 >= 30) { //LIX
                 achievementi.setImageResource(R.drawable.achievement9);
             } else{
-                achievementi.setImageResource(R.drawable.trophy);
+                achievementi.setImageResource(R.drawable.achievementlocked);
             }
 
         return view;
@@ -94,66 +94,66 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
 
         if(v == achievementa){
-              //  if(joiningTheTeam <= true) {
+                if(true == true) {
                     Toast.makeText(getActivity(), "Hurra.. Du gennemførte din første test",
                             Toast.LENGTH_LONG).show();
-             //   }
+                }
         }
 
         if(v == achievementb) {
-             //   if(userlevel <= 5){
+                if(5 >= 5){
                     Toast.makeText(getActivity(), "Du er blevet level Fem",
                             Toast.LENGTH_LONG).show();
-              //  }
+                }
         }
 
         if(v == achievementc){
-             //  if(userlevel <= 10){
+               if(10 >= 10){
                    Toast.makeText(getActivity(), "Du er blevet level Ti",
                            Toast.LENGTH_LONG).show();
-             //  }
+               }
         }
 
         if(v == achievementd){
-              //  if(userlevel <= 15){
+                if(15 >= 15){
                     Toast.makeText(getActivity(), "Du er blevet level Femten",
                             Toast.LENGTH_LONG).show();
-              //  }
+                }
         }
 
         if(v == achievemente){
-              //  if(wordMin <= 20){
+                if(0 >= 20){
                     Toast.makeText(getActivity(), "20 ord i minuttet",
                             Toast.LENGTH_LONG).show();
-              //  }
+                }
         }
 
         if(v == achievementf){
-              //  if(wordMin <= 40){
+                if(0 >= 40){
                     Toast.makeText(getActivity(), "40 ord i minuttet",
                             Toast.LENGTH_LONG).show();
-               // }
+                }
         }
 
         if(v == achievementg){
-              //  if(Lix <= 10){
+                if(0 >= 10){
                     Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 10",
                             Toast.LENGTH_LONG).show();
-             //   }
+                }
         }
 
         if(v == achievementh){
-              //  if(Lix <= 20){
+                if(0 >= 20){
                     Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 20",
                             Toast.LENGTH_LONG).show();
-             //   }
+                }
         }
 
         if(v == achievementi){
-             //  if(Lix <= 30){
+               if(0 >= 30){
                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 30",
                            Toast.LENGTH_LONG).show();
-             //  }
+               }
         }
 
 
