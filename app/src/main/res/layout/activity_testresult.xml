@@ -10,7 +10,7 @@
         android:id="@+id/congrats"
         android:text="@string/result"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="@dimen/textsize_heading"
         android:gravity="center"
         android:layout_marginTop="20dp" />
 

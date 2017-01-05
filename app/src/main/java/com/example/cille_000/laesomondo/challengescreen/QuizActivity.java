@@ -3,19 +3,20 @@ package com.example.cille_000.laesomondo.challengescreen;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.os.Handler;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
-import com.example.cille_000.laesomondo.startscreen.CreateUserActivity;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
+public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int textID;
     private long time;
@@ -55,12 +56,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser()==null){
+        if(firebaseAuth.getCurrentUser() == null){
             finish();
             Intent intent1 = new Intent(this, StartActivity.class);
             startActivity(intent1);
         }
-
     }
 
     private void firstQuestion(){
@@ -89,55 +89,95 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        boolean answer = false;
+        Button button = first;
+
         if (questionNumber == 1){
-            if(v==first){
-            logic.checkAnswer(1,1);
+            if(v == first){
+                answer = logic.checkAnswer(1, 1);
             }
-            if(v==second){
-                logic.checkAnswer(1,2);
+            else if(v == second){
+                answer = logic.checkAnswer(1, 2);
+                button = second;
             }
-            if (v==third){
-                logic.checkAnswer(1,3);
+            else if (v == third){
+                answer = logic.checkAnswer(1, 3);
+                button = third;
             }
-            if (v==fourth){
-                logic.checkAnswer(1,4);
+            else if (v == fourth){
+                answer = logic.checkAnswer(1, 4);
+                button = fourth;
             }
-            secondQuestion();
+
             questionNumber++;
+            questionDone(button, answer);
         }
-        else if (questionNumber==2){
-            if(v==first){
-                logic.checkAnswer(2,1);
+        else if (questionNumber == 2){
+            if(v == first){
+                answer = logic.checkAnswer(2, 1);
             }
-            if(v==second){
-                logic.checkAnswer(2,2);
+            else if(v == second){
+                answer = logic.checkAnswer(2, 2);
+                button = second;
             }
-            if (v==third){
-                logic.checkAnswer(2,3);
+            else if (v == third){
+                answer = logic.checkAnswer(2, 3);
+                button = third;
             }
-            if (v==fourth){
-                logic.checkAnswer(2,4);
+            else if (v == fourth){
+                answer = logic.checkAnswer(2, 4);
+                button = fourth;
             }
-            thirdQuestion();
+
             questionNumber++;
-        }
-        else{
-            if(v==first){
-                logic.checkAnswer(3,1);
+            questionDone(button, answer);
+        } else {
+            if(v == first){
+                answer = logic.checkAnswer(3, 1);
             }
-            if(v==second){
-                logic.checkAnswer(3,2);
+            else if(v == second){
+                answer = logic.checkAnswer(3, 2);
+                button = second;
             }
-            if (v==third){
-                logic.checkAnswer(3,3);
+            else if (v == third){
+                answer = logic.checkAnswer(3, 3);
+                button = third;
             }
-            if (v==fourth){
-                logic.checkAnswer(3,4);
+            else if (v == fourth){
+                answer = logic.checkAnswer(3, 4);
+                button = fourth;
             }
-            logic.getResult(textID, time);
+
+            questionNumber++;
+            questionDone(button, answer);
         }
     }
 
-    @Override
-    public void onBackPressed() { }
+    private void questionDone(final Button button, final boolean answer) {
+        if(answer) {
+            button.setBackgroundColor(getResources().getColor(R.color.colorAnswerCorrect));
+        } else {
+            button.setBackgroundColor(getResources().getColor(R.color.colorAnswerIncorrect));
+        }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                button.setBackgroundColor(getResources().getColor(R.color.colorGrey));
+                switch (questionNumber) {
+                    case 2:
+                        secondQuestion();
+                        break;
+                    case 3:
+                        thirdQuestion();
+                        break;
+                    case 4:
+                        logic.getResult(textID, time);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }, 2000);
+    }
 }
