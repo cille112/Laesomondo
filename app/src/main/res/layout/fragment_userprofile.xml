@@ -15,10 +15,11 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/avatar"
             android:layout_width="100dip"
             android:layout_height="100dip"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/av1"/>
+            android:background="@color/colorWhite"></ImageView>
 
         <LinearLayout
             android:orientation="vertical"
@@ -56,7 +57,6 @@
 
         <TextView
             android:id="@+id/userprofile_lixvalue"
-            android:text="@string/UserProfileFragmentLixValue"
             android:textSize="18sp"
             android:padding="10dp"
             android:layout_width="wrap_content"
