@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.math.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
@@ -38,30 +41,17 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private int booksRead = 1;
     private int oldSpeed;
     private double oldCorrectness;
+    private String texts;
+    private List<String> textReadArray = new ArrayList<>();
+    private int seconds;
+    private String oldTextRead;
+    private Intent intent;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testresult);
-
-        Intent intent = getIntent();
-        time = intent.getLongExtra("time", 0);
-        System.out.println("in on create testresult" + time);
-        correct = intent.getIntExtra("correct", 0);
-        textID = intent.getIntExtra("textID", 1);
-        xp = intent.getIntExtra("xp", 0);
-        logic = new TestLogic(this);
-        logic.setText(textID);
-        lix = intent.getIntExtra("lix", 0);
-        wordCount = intent.getIntExtra("wordCount", 0);
-
-        info = (TextView) findViewById(R.id.resultInfo);
-        ok = (Button) findViewById(R.id.TestButton);
-
-        ok.setOnClickListener(this);
-        final int seconds = (int) (time / 1000) % 60 ;
-        info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -74,11 +64,107 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         database = FirebaseDatabase.getInstance().getReference();
         userId = firebaseAuth.getCurrentUser().getUid();
 
+        intent = getIntent();
+
+        ok = (Button) findViewById(R.id.TestButton);
+
+        ok.setOnClickListener(this);
+
+        update();
+
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void update(){
+
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (!snap.child("users").child(userId).child("textRead").exists()) {
+                    oldTextRead = "";
+                }
+                else
+                    oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                char c;
+                char c2;
+                String s = "";
+                System.out.println("OldTextRead " + oldTextRead);
+                oldTextRead = oldTextRead + " ";
+                int i = 0;
+                int trim = 0;
+                while (i<oldTextRead.length()-1) {
+                    c = oldTextRead.charAt(i);
+                    c2 = oldTextRead.charAt(i + 1);
+
+                    if (c2 == ' ') {
+                        s = s + Character.toString(c);
+                        textReadArray.add(s);
+                        s = "";
+                        i=i+2;
+                    }
+
+                    else {s = s + c;}
+                    System.out.println(Arrays.toString(textReadArray.toArray()));
+                }
+                oldTextRead = oldTextRead.substring(0, oldTextRead.length()-1);
+                textID = intent.getIntExtra("textID", 1);
+                System.out.println("textID " + textID);
+                String string = Integer.toString(textID);
+                System.out.println("String textID " + string);
+                if (!textReadArray.contains(string)){
+                    updateDBStats();
+                }
+                else{
+                    info = (TextView) findViewById(R.id.resultInfo);
+                    info.setText("Du har allerede gennemført denne test");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
+    }
+
+    public void updateDBStats(){
+
+        time = intent.getLongExtra("time", 0);
+        System.out.println("in on create testresult" + time);
+        correct = intent.getIntExtra("correct", 0);
+        xp = intent.getIntExtra("xp", 0);
+        logic = new TestLogic(this);
+        logic.setText(textID);
+        lix = intent.getIntExtra("lix", 0);
+        wordCount = intent.getIntExtra("wordCount", 0);
+
+        info = (TextView) findViewById(R.id.resultInfo);
+
+        seconds = (int) (time / 1000) % 60 ;
+        info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
+
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot snap) {
+
+                //texts that has been read
+                if (!snap.child("users").child(userId).child("textRead").exists()) {
+                    database.child("users").child(userId).child("textRead").setValue(textID);
+                }
+                else {
+                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
+                    texts = oldTextRead + " " + textID;
+                    booksRead = texts.length()/2+1;
+                }
                 //xp
                 if (!snap.child("users").child(userId).child("xp").exists()) {
                     database.child("users").child(userId).child("xp").setValue(xp);
@@ -86,16 +172,6 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 else{
                     oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                     database.child("users").child(userId).child("xp").setValue(oldXp + xp);
-                }
-
-                //texts that has been read
-                if (!snap.child("users").child(userId).child("textRead").exists()) {
-                    database.child("users").child(userId).child("textRead").setValue(textID);
-                }
-                else {
-                    String oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
-                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
-                    booksRead = (oldTextRead + " " + textID).length()/2+1;
                 }
                 //lix
                 if (!snap.child("users").child(userId).child("lix").exists()){
@@ -129,29 +205,22 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 else {
                     oldCorrectness = Double.parseDouble(snap.child("users").child(userId).child("correctness").getValue().toString());
                     double bR = booksRead;
-                    double c = correct;
-                    double temp1 = ((oldCorrectness*(bR-1)) + c)/bR;
+                    double crr = correct;
+                    double temp1 = ((oldCorrectness*(bR-1)) + crr)/bR;
                     database.child("users").child(userId).child("correctness").setValue(temp1);
                 }
 
-    }
+            }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
     }
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public void onBackPressed() { }
+
 
 
 }

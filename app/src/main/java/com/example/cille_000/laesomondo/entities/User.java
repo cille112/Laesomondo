@@ -1,6 +1,9 @@
 package com.example.cille_000.laesomondo.entities;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class  User {
 
     private String name;
@@ -10,7 +13,7 @@ public class  User {
     private int speed;
     private int xp;
     private int textSize;
-    private String textRead;
+    private List<String> textRead = new ArrayList<>();
     private  double correctness;
 
     public User(){
@@ -80,9 +83,9 @@ public class  User {
         this.textSize = textSize;
     }
 
-    public String getTextRead() { return  this.textRead;}
+    public List getTextRead() { return  this.textRead;}
 
-    public void setTextRead(String s){ this.textRead = s;}
+    public void setTextRead(List l){ this.textRead = l;}
 
     public double getCorrectness() { return  this.correctness;}
 
