@@ -80,13 +80,15 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onDataChange(DataSnapshot snap) {
                 //xp
-                if (snap.child("users").child(userId).child("xp").getValue() != null) {
+                if (!snap.child("users").child(userId).child("xp").exists()) {
+                    database.child("users").child(userId).child("xp").setValue(xp);
+                }
+                else{
                     oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                     database.child("users").child(userId).child("xp").setValue(oldXp + xp);
                 }
-                else
-                    database.child("users").child(userId).child("xp").setValue(xp);
-                //text that has been read
+
+                //texts that has been read
                 if (!snap.child("users").child(userId).child("textRead").exists()) {
                     database.child("users").child(userId).child("textRead").setValue(textID);
                 }
