@@ -68,6 +68,15 @@
     <string name="AchievementFragmentG">AchivementG</string>
     <string name="AchievementFragmentH">AchivementH</string>
     <string name="AchievementFragmentI">AchivementI</string>
+    <string name="AchievementFragmentAInfo">Hurra.. Du gennemførte din første test</string>
+    <string name="AchievementFragmentBInfo">Du er blevet level 5</string>
+    <string name="AchievementFragmentCInfo">Du er blevet level 10</string>
+    <string name="AchievementFragmentDInfo">Du er blevet level 15</string>
+    <string name="AchievementFragmentEInfo">20 ord i minuttet</string>
+    <string name="AchievementFragmentFInfo">40 ord i minuttet</string>
+    <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 10</string>
+    <string name="AchievementFragmentHInfo">Du læser med sværhedsgraden Lix 20</string>
+    <string name="AchievementFragmentIInfo">Du læser med sværhedsgraden Lix 30</string>
 
     <!-- SETTINGS -->
     <string name="SettingsChangeTextSize">Justér skriftstørrelsen</string>

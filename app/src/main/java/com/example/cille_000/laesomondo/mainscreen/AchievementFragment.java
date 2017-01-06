@@ -137,63 +137,63 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
 
         if(v == achievementa){
                 if(XPValue >= 1) {
-                    Toast.makeText(getActivity(), "Hurra.. Du gennemførte din første test",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentAInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementb) {
                 if(0 >= 5){
-                    Toast.makeText(getActivity(), "Du er blevet level 5",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentBInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementc){
                if(0 >= 10){
-                   Toast.makeText(getActivity(), "Du er blevet level 10",
+                   Toast.makeText(getActivity(), getString(R.string.AchievementFragmentCInfo),
                            Toast.LENGTH_LONG).show();
                }
         }
 
         if(v == achievementd){
                 if(0 >= 15){
-                    Toast.makeText(getActivity(), "Du er blevet level 15",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentDInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievemente){
                 if(0 >= 20){
-                    Toast.makeText(getActivity(), "20 ord i minuttet",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentEInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementf){
                 if(0 >= 40){
-                    Toast.makeText(getActivity(), "40 ord i minuttet",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentFInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementg){
                 if(lixValue >= 10){
-                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 10",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentGInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementh){
                 if(lixValue >= 20){
-                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 20",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentHInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementi){
                if(lixValue >= 30){
-                   Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 30",
+                   Toast.makeText(getActivity(), getString(R.string.AchievementFragmentIInfo),
                            Toast.LENGTH_LONG).show();
                }
         }
