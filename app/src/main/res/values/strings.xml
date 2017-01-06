@@ -42,7 +42,7 @@
 
     <!-- USERPROFILE FRAGMENT -->
     <string name="UserProfileFragmentWordMin"><b>Ord i minuttet:</b></string>
-    <string name="UserProfileFragmentXP"><b>Experience:</b></string>
+    <string name="UserProfileFragmentXP"><b>Points:</b></string>
     <string name="UserProfileFragmentLix"><b>Sværhedsgrad:</b></string>
     <string name="UserProfileFragmentAchievement">Trofæer</string>
     <string name="UserProfileFragmentStats">Statistik</string>
@@ -68,10 +68,10 @@
     <string name="AchievementFragmentG">AchivementG</string>
     <string name="AchievementFragmentH">AchivementH</string>
     <string name="AchievementFragmentI">AchivementI</string>
-    <string name="AchievementFragmentAInfo">Hurra.. Du gennemførte din første test</string>
-    <string name="AchievementFragmentBInfo">Du er blevet level 5</string>
-    <string name="AchievementFragmentCInfo">Du er blevet level 10</string>
-    <string name="AchievementFragmentDInfo">Du er blevet level 15</string>
+    <string name="AchievementFragmentAInfo">Hurra! Du gennemførte din første udfordring</string>
+    <string name="AchievementFragmentBInfo">Du kom i level 5</string>
+    <string name="AchievementFragmentCInfo">Du kom i level 10</string>
+    <string name="AchievementFragmentDInfo">Du kom i level 15</string>
     <string name="AchievementFragmentEInfo">20 ord i minuttet</string>
     <string name="AchievementFragmentFInfo">40 ord i minuttet</string>
     <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 10</string>
@@ -121,6 +121,8 @@
     <string name="title_help">Hjælp / FAQ</string>
     <string name="title_contact">Kontakt</string>
     <string name="title_userprofile">Din profil</string>
+    <string name="title_achievements">Trofæer</string>
+    <string name="title_stats">Statistik</string>
 
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_books</item>
@@ -129,7 +131,6 @@
         <item>@string/nav_item_contact</item>
         <item>@string/nav_item_logout</item>
     </string-array>
-
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
