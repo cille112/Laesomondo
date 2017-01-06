@@ -80,9 +80,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        // Det første, der skal vises
+        // Det view der skal vises
         displayView(current);
-        System.out.println(current);
     }
 
     private void close() {
@@ -180,6 +179,10 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
     @Override
     public void onBackPressed() {
-        displayView(0);
+        if(current == 6 || current == 5){
+            displayView(7);
+        }else {
+            displayView(0);
+        }
     }
 }

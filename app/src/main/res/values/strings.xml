@@ -35,6 +35,7 @@
     <string name="Third">Bogen handler om  </string>
     <string name="StartText">Start udfordring  </string>
     <string name="TextCover">Text Cover</string>
+    <string name="CancelTest"><u>Anuller</u></string>
 
     <!-- Test Result Activity-->
     <string name="result">Udfordring klaret!</string>

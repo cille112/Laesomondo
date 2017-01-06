@@ -23,6 +23,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
     private String info = "";
     private TextView textInfoname;
     private ImageView cover;
+    private TextView cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         textInfo = (TextView) findViewById(R.id.textInfo);
         textInfoname = (TextView) findViewById(R.id.textInfoName);
         cover = (ImageView) findViewById(R.id.textCover);
+        cancel = (TextView) findViewById(R.id.cancel_test);
 
         cover.setImageResource(findDrawable());
 
@@ -47,6 +49,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         textInfoname.setText(logic.getName());
 
         button.setOnClickListener(this);
+        cancel.setOnClickListener(this);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -60,9 +63,14 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this, ShowTextActivity.class);
-        intent.putExtra("textID", textID);
-        startActivity(intent);
+        if(v==button) {
+            Intent intent = new Intent(this, ShowTextActivity.class);
+            intent.putExtra("textID", textID);
+            startActivity(intent);
+        }
+        else if(v==cancel){
+            finish();
+        }
     }
 
     private int findDrawable(){
