@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.util.NavDrawerAdapter;
@@ -30,6 +32,7 @@ public class DrawerFragment extends Fragment {
     private NavDrawerAdapter adapter;
     private View containerView;
     private static String[] titles = null;
+    private static Drawable[] icons = null;
     private DrawerFragmentListener drawerListener;
 
     public DrawerFragment() {
@@ -45,6 +48,7 @@ public class DrawerFragment extends Fragment {
 
         for (int i = 0; i < titles.length; i++) {
             NavDrawerItem navItem = new NavDrawerItem();
+            navItem.setIcon(icons[i]);
             navItem.setTitle(titles[i]);
             data.add(navItem);
         }
@@ -54,6 +58,14 @@ public class DrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        icons = new Drawable[] {
+                getActivity().getResources().getDrawable(R.drawable.ic_action_home),
+                getActivity().getResources().getDrawable(R.drawable.ic_action_settings),
+                getActivity().getResources().getDrawable(R.drawable.ic_action_help),
+                getActivity().getResources().getDrawable(R.drawable.ic_action_contact),
+                getActivity().getResources().getDrawable(R.drawable.ic_action_logout)
+        };
 
         titles = getActivity().getResources().getStringArray(R.array.nav_drawer_labels);
     }

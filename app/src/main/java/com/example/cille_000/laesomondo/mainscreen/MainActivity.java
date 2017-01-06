@@ -143,12 +143,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 break;
             case 5:
                 fragment = new AchievementFragment();
-                title = "Achievements";
+                title = getString(R.string.title_achievements);
                 current = 5;
                 break;
             case 6:
                 fragment = new StatsFragment();
-                title = "Stats";
+                title = getString(R.string.title_stats);
                 current = 6;
                 break;
             case 7:

@@ -1,10 +1,13 @@
 package com.example.cille_000.laesomondo.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
@@ -38,6 +41,8 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NavDrawerItem current = data.get(position);
+
+        holder.icon.setImageDrawable(current.getIcon());
         holder.title.setText(current.getTitle());
     }
 
@@ -47,10 +52,12 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.MyVi
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView icon;
         TextView title;
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            icon = (ImageView) itemView.findViewById(R.id.icon);
             title = (TextView) itemView.findViewById(R.id.title);
         }
     }

@@ -1,14 +1,19 @@
 package com.example.cille_000.laesomondo.util;
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 public class NavDrawerItem {
     private boolean showNotify;
+    private Drawable icon;
     private String title;
 
     public NavDrawerItem() {
     }
 
-    public NavDrawerItem(boolean showNotify, String title) {
+    public NavDrawerItem(boolean showNotify, Drawable icon, String title) {
         this.showNotify = showNotify;
+        this.icon = icon;
         this.title = title;
     }
 
@@ -18,6 +23,14 @@ public class NavDrawerItem {
 
     public void setShowNotify(boolean showNotify) {
         this.showNotify = showNotify;
+    }
+
+    public Drawable getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Drawable icon) {
+        this.icon = icon;
     }
 
     public String getTitle() {
