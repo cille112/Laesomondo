@@ -33,6 +33,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private HelpFragment helpFragment;
     private ContactFragment contactFragment;
     private String userId;
+    private static int current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +81,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         drawerFragment.setDrawerListener(this);
 
         // Det første, der skal vises
-        displayView(0);
+        displayView(current);
+        System.out.println(current);
     }
 
     private void close() {
@@ -119,18 +121,22 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             case 0:
                 fragment = new BookFragment();
                 title = getString(R.string.title_books);
+                current = 0;
                 break;
             case 1:
                 fragment = settingsFragment;
                 title = getString(R.string.title_settings);
+                current = 1;
                 break;
             case 2:
                 fragment = helpFragment;
                 title = getString(R.string.title_help);
+                current = 2;
                 break;
             case 3:
                 fragment = contactFragment;
                 title = getString(R.string.title_contact);
+                current = 3;
                 break;
             case 4:
                 logout();
@@ -138,14 +144,17 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             case 5:
                 fragment = new AchievementFragment();
                 title = "Achievements";
+                current = 5;
                 break;
             case 6:
                 fragment = new StatsFragment();
                 title = "Stats";
+                current = 6;
                 break;
             case 7:
                 fragment = userProfileFragment;
                 title = getString(R.string.title_userprofile);
+                current = 7;
                 break;
             default:
                 break;

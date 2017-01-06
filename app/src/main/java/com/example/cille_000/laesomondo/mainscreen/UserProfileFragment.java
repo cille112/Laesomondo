@@ -1,12 +1,9 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +30,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
     private String userId;
+    private Drawable avatar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,6 +43,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
 
         achievement.setOnClickListener(this);
         stats.setOnClickListener(this);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference();
@@ -64,7 +63,13 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
             @Override
             public void onDataChange(DataSnapshot snap) {
                 if (snap.child("users").child(userId).hasChild("avatar")) {
-                    profilePicture.setImageDrawable(getResources().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString())));
+                    if(isAdded()){
+                        if(getActivity() !=null) {
+                            avatar = getActivity().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString()));
+                            System.out.println(avatar.toString());
+                            profilePicture.setImageDrawable(avatar);
+                        }
+                    }
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(), "Der skete en fejl i indlæsning af profil", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(getActivity(), StartActivity.class);
