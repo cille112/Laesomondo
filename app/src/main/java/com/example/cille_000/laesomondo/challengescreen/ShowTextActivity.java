@@ -8,11 +8,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ShowTextActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +30,8 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
     private boolean paused = false;
     private ScrollView scrool;
     private int textID;
+    private DatabaseReference database;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,33 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
 
         pause.setOnClickListener(this);
         stop.setOnClickListener(this);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent1 = new Intent(this, StartActivity.class);
+            startActivity(intent1);
+        }
+
+        database = FirebaseDatabase.getInstance().getReference();
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).hasChild("textSize")) {
+                    float size = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
+                   pdf.setTextSize(size);
+                } else {
+                }
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
     @Override
@@ -72,13 +107,6 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent);
         }
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
-        if(firebaseAuth.getCurrentUser()==null){
-            finish();
-            Intent intent1 = new Intent(this, StartActivity.class);
-            startActivity(intent1);
-        }
     }
 
     @Override

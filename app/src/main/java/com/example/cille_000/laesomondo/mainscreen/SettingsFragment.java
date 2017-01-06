@@ -10,12 +10,22 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class SettingsFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener{
 
     private SeekBar textSize;
     private TextView currentText;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference database;
+    private String userId;
+    private float currentSize;
 
     public SettingsFragment() {
     }
@@ -26,6 +36,35 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         textSize = (SeekBar) view.findViewById(R.id.textsizebar);
         currentText = (TextView) view.findViewById(R.id.currenttextsize);
         textSize.setOnSeekBarChangeListener(this);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        userId = firebaseAuth.getCurrentUser().getUid();
+
+        database = FirebaseDatabase.getInstance().getReference();
+
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).hasChild("textSize")) {
+                    currentSize = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
+                    currentText.setTextSize(currentSize);
+                    currentText.setText("" + currentSize);
+                    textSize.refreshDrawableState();
+                    textSize.setProgress((int) currentSize/36*100);
+                } else {
+                }
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
 
         return view;
     }
@@ -63,6 +102,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
         currentText.setTextSize(size);
         currentText.setText("" + size);
+
+        database.child("users").child(userId).child("textSize").setValue(size);
     }
 
     @Override
