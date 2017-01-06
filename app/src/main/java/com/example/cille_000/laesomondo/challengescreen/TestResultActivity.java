@@ -37,6 +37,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private int wordCount;
     private int booksRead = 1;
     private String s;
+    private int oldSpeed;
 
 
     @Override
@@ -59,7 +60,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         ok = (Button) findViewById(R.id.TestButton);
 
         ok.setOnClickListener(this);
-        int seconds = (int) (time / 1000) % 60 ;
+        final int seconds = (int) (time / 1000) % 60 ;
         info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -105,6 +106,19 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     int temp = (int) temp1;
                     database.child("users").child(userId).child("lix").setValue(temp);
                 }
+                if (!snap.child("users").child(userId).child("speed").exists()){
+                    double speed = wordCount/seconds*60;
+                    int temp = (int) speed;
+                    database.child("users").child(userId).child("speed").setValue(temp);
+                }
+                else {
+                    oldSpeed = Integer.parseInt(snap.child("users").child(userId).child("speed").getValue().toString());
+                    double speed = wordCount/seconds*60;
+                    double temp1 = ((oldSpeed*(booksRead-1)) + speed)/booksRead;
+                    int temp = (int) temp1;
+                    database.child("users").child(userId).child("speed").setValue(temp);
+                }
+
     }
 
             @Override
