@@ -194,6 +194,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                 }
             }
-        }, 2000);
+        }, 1000);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
