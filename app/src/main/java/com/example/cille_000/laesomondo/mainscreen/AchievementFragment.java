@@ -9,12 +9,22 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class AchievementFragment extends Fragment implements View.OnClickListener {
 
     private ImageButton achievementa, achievementb, achievementc, achievementd, achievemente, achievementf, achievementg, achievementh, achievementi;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference database;
+    private int lixValue;
+    private int XPValue;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,51 +50,83 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
         achievementh.setOnClickListener(this);
         achievementi.setOnClickListener(this);
 
-            if(true == true) { // first test taken
-                achievementa.setImageResource(R.drawable.achievement1);
-            } else{
-                achievementa.setImageResource(R.drawable.achievementlocked);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        database = FirebaseDatabase.getInstance().getReference();
+
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            String userId = firebaseAuth.getCurrentUser().getUid();
+
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+
+                if (!snap.child("users").child(userId).child("lix").exists()){
+                    lixValue = 0;
+                }else{
+                    lixValue = Integer.parseInt(snap.child("users").child(userId).child("lix").getValue().toString());
+                }
+
+                if(!snap.child("users").child(userId).child("xp").exists()){
+                    XPValue = 0;
+                }else{
+                    XPValue = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
+                }
+
+
+                if(XPValue >= 1) { // first test taken
+                    achievementa.setImageResource(R.drawable.achievement1);
+                } else{
+                    achievementa.setImageResource(R.drawable.achievementlocked);
+                }
+                if(0 >= 5) { //userlevel
+                    achievementb.setImageResource(R.drawable.achievement2);
+                } else{
+                    achievementb.setImageResource(R.drawable.achievementlocked);
+                }
+                if(0 >= 10) { //userlevel
+                    achievementc.setImageResource(R.drawable.achievement3);
+                } else{
+                    achievementc.setImageResource(R.drawable.achievementlocked);
+                }
+                if(0 >= 15) { //userlevel
+                    achievementd.setImageResource(R.drawable.achievement4);
+                } else{
+                    achievementd.setImageResource(R.drawable.achievementlocked);
+                }
+                if(0 >= 20) { //wordMin
+                    achievemente.setImageResource(R.drawable.achievement5);
+                } else{
+                    achievemente.setImageResource(R.drawable.achievementlocked);
+                }
+                if(0 >= 40) { //wordMin
+                    achievementf.setImageResource(R.drawable.achievement6);
+                } else{
+                    achievementf.setImageResource(R.drawable.achievementlocked);
+                }
+                if(lixValue >= 10) { //LIX
+                    achievementg.setImageResource(R.drawable.achievement7);
+                } else{
+                    achievementg.setImageResource(R.drawable.achievementlocked);
+                }
+                if(lixValue >= 20) { //LIX
+                    achievementh.setImageResource(R.drawable.achievement8);
+                } else{
+                    achievementh.setImageResource(R.drawable.achievementlocked);
+                }
+                if(lixValue >= 30) { //LIX
+                    achievementi.setImageResource(R.drawable.achievement9);
+                } else{
+                    achievementi.setImageResource(R.drawable.achievementlocked);
+                }
+
             }
-            if(5 >= 5) { //userlevel
-                achievementb.setImageResource(R.drawable.achievement2);
-            } else{
-                achievementb.setImageResource(R.drawable.achievementlocked);
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
             }
-            if(10 >= 10) { //userlevel
-                achievementc.setImageResource(R.drawable.achievement3);
-            } else{
-                achievementc.setImageResource(R.drawable.achievementlocked);
-            }
-            if(15 >= 15) { //userlevel
-                achievementd.setImageResource(R.drawable.achievement4);
-            } else{
-                achievementd.setImageResource(R.drawable.achievementlocked);
-            }
-            if(0 >= 20) { //wordMin
-                achievemente.setImageResource(R.drawable.achievement5);
-            } else{
-                achievemente.setImageResource(R.drawable.achievementlocked);
-            }
-            if(0 >= 40) { //wordMin
-                achievementf.setImageResource(R.drawable.achievement6);
-            } else{
-                achievementf.setImageResource(R.drawable.achievementlocked);
-            }
-            if(0 >= 10) { //LIX
-                achievementg.setImageResource(R.drawable.achievement7);
-            } else{
-                achievementg.setImageResource(R.drawable.achievementlocked);
-            }
-            if(0 >= 20) { //LIX
-                achievementh.setImageResource(R.drawable.achievement8);
-            } else{
-                achievementh.setImageResource(R.drawable.achievementlocked);
-            }
-            if(0 >= 30) { //LIX
-                achievementi.setImageResource(R.drawable.achievement9);
-            } else{
-                achievementi.setImageResource(R.drawable.achievementlocked);
-            }
+        });
+
+
 
         return view;
     }
@@ -94,64 +136,64 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
 
         if(v == achievementa){
-                if(true == true) {
-                    Toast.makeText(getActivity(), "Hurra.. Du gennemførte din første test",
+                if(XPValue >= 1) {
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentAInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementb) {
-                if(5 >= 5){
-                    Toast.makeText(getActivity(), "Du er blevet level Fem",
+                if(0 >= 5){
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentBInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementc){
-               if(10 >= 10){
-                   Toast.makeText(getActivity(), "Du er blevet level Ti",
+               if(0 >= 10){
+                   Toast.makeText(getActivity(), getString(R.string.AchievementFragmentCInfo),
                            Toast.LENGTH_LONG).show();
                }
         }
 
         if(v == achievementd){
-                if(15 >= 15){
-                    Toast.makeText(getActivity(), "Du er blevet level Femten",
+                if(0 >= 15){
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentDInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievemente){
                 if(0 >= 20){
-                    Toast.makeText(getActivity(), "20 ord i minuttet",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentEInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementf){
                 if(0 >= 40){
-                    Toast.makeText(getActivity(), "40 ord i minuttet",
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentFInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementg){
-                if(0 >= 10){
-                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 10",
+                if(lixValue >= 10){
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentGInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementh){
-                if(0 >= 20){
-                    Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 20",
+                if(lixValue >= 20){
+                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentHInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementi){
-               if(0 >= 30){
-                   Toast.makeText(getActivity(), "Du læser med sværhedsgraden Lix 30",
+               if(lixValue >= 30){
+                   Toast.makeText(getActivity(), getString(R.string.AchievementFragmentIInfo),
                            Toast.LENGTH_LONG).show();
                }
         }
