@@ -42,9 +42,8 @@
 
     <!-- USERPROFILE FRAGMENT -->
     <string name="UserProfileFragmentWordMin"><b>Ord i minuttet:</b></string>
-    <string name="UserProfileFragmentWordMinValue">30 ord/min</string>
+    <string name="UserProfileFragmentXP"><b>Experience:</b></string>
     <string name="UserProfileFragmentLix"><b>Sværhedsgrad:</b></string>
-    <string name="UserProfileFragmentLixValue">10 Lix</string>
     <string name="UserProfileFragmentAchievement">Trofæer</string>
     <string name="UserProfileFragmentStats">Statistik</string>
     <string name="UserProfileFragmentPilTilbage">Tilbage</string>
