@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private DatabaseReference database;
     private String userId;
     private float currentSize;
+    private Button save;
 
     public SettingsFragment() {
     }
@@ -36,6 +39,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         textSize = (SeekBar) view.findViewById(R.id.textsizebar);
         currentText = (TextView) view.findViewById(R.id.currenttextsize);
         textSize.setOnSeekBarChangeListener(this);
+        save = (Button) view.findViewById(R.id.applySettings);
+
+        save.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -53,7 +59,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                     currentText.setTextSize(currentSize);
                     currentText.setText("" + currentSize);
                     textSize.refreshDrawableState();
-                    textSize.setProgress((int) currentSize/36*100);
+                    textSize.setProgress((int) currentSize*100/36);
                 } else {
                 }
 
@@ -87,7 +93,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-
+        if(v==save){
+            if(isAdded())
+            Toast.makeText(getActivity(), "Ændringer er gemt", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -102,7 +111,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
         currentText.setTextSize(size);
         currentText.setText("" + size);
-
         database.child("users").child(userId).child("textSize").setValue(size);
     }
 

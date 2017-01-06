@@ -85,6 +85,7 @@
     <string name="SettingsThemeOn">Slå fra</string>
     <string name="SettingsThemeOff">Slå til</string>
     <string name="SettingsLogOut">Log ud</string>
+    <string name="SettingsSave">Gem ændringer</string>
 
     <!-- STATS FRAGMENT -->
     <string name="StatsFragment">Stats</string>
