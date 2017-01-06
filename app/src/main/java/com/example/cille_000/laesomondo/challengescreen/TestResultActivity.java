@@ -36,8 +36,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private int lix;
     private int wordCount;
     private int booksRead = 1;
-    private String s;
     private int oldSpeed;
+    private double oldCorrectness;
 
 
     @Override
@@ -79,14 +79,14 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onDataChange(DataSnapshot snap) {
-                System.out.println(snap.child("users").child(userId).child("xp").getValue());
+                //xp
                 if (snap.child("users").child(userId).child("xp").getValue() != null) {
                     oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                     database.child("users").child(userId).child("xp").setValue(oldXp + xp);
                 }
                 else
                     database.child("users").child(userId).child("xp").setValue(xp);
-
+                //text that has been read
                 if (!snap.child("users").child(userId).child("textRead").exists()) {
                     database.child("users").child(userId).child("textRead").setValue(textID);
                 }
@@ -95,7 +95,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
                     booksRead = (oldTextRead + " " + textID).length()/2+1;
                 }
-
+                //lix
                 if (!snap.child("users").child(userId).child("lix").exists()){
                     database.child("users").child(userId).child("lix").setValue(lix);
                 }
@@ -106,6 +106,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     int temp = (int) temp1;
                     database.child("users").child(userId).child("lix").setValue(temp);
                 }
+                //readingspeed words/min
                 if (!snap.child("users").child(userId).child("speed").exists()){
                     double speed = wordCount/seconds*60;
                     int temp = (int) speed;
@@ -117,6 +118,18 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     double temp1 = ((oldSpeed*(booksRead-1)) + speed)/booksRead;
                     int temp = (int) temp1;
                     database.child("users").child(userId).child("speed").setValue(temp);
+                }
+                //correctness
+                if (!snap.child("users").child(userId).child("correctness").exists()){
+                    double d = correct;
+                    database.child("users").child(userId).child("correctness").setValue(d);
+                }
+                else {
+                    oldCorrectness = Double.parseDouble(snap.child("users").child(userId).child("correctness").getValue().toString());
+                    double bR = booksRead;
+                    double c = correct;
+                    double temp1 = ((oldCorrectness*(bR-1)) + c)/bR;
+                    database.child("users").child(userId).child("correctness").setValue(temp1);
                 }
 
     }

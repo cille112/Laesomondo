@@ -11,6 +11,7 @@ public class  User {
     private int xp;
     private int textSize;
     private String textRead;
+    private  double correctness;
 
     public User(){
 
@@ -81,5 +82,9 @@ public class  User {
 
     public String getTextRead() { return  this.textRead;}
 
-    public void setTextRead(String s){ this.textRead = textRead;}
+    public void setTextRead(String s){ this.textRead = s;}
+
+    public double getCorrectness() { return  this.correctness;}
+
+    public void setCorrectness(double d){ this.correctness = d;}
 }
