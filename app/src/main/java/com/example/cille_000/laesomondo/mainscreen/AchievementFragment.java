@@ -22,8 +22,8 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
     private ImageButton achievementa, achievementb, achievementc, achievementd, achievemente, achievementf, achievementg, achievementh, achievementi;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
-    private int lixValue;
-    private int XPValue;
+    private int lixValue, XPValue, wordMinValue, userLevel;
+
 
 
     @Override
@@ -72,6 +72,12 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
                     XPValue = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                 }
 
+                if(!snap.child("users").child(userId).child("speed").exists()){
+                    wordMinValue = 0;
+                }else{
+                    wordMinValue = Integer.parseInt(snap.child("users").child(userId).child("speed").getValue().toString());
+                }
+
 
                 if(XPValue >= 1) { // first test taken
                     achievementa.setImageResource(R.drawable.achievement1);
@@ -93,12 +99,12 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
                 } else{
                     achievementd.setImageResource(R.drawable.achievementlocked);
                 }
-                if(0 >= 20) { //wordMin
+                if(wordMinValue >= 20) { //wordMin
                     achievemente.setImageResource(R.drawable.achievement5);
                 } else{
                     achievemente.setImageResource(R.drawable.achievementlocked);
                 }
-                if(0 >= 40) { //wordMin
+                if(wordMinValue >= 40) { //wordMin
                     achievementf.setImageResource(R.drawable.achievement6);
                 } else{
                     achievementf.setImageResource(R.drawable.achievementlocked);
@@ -164,14 +170,14 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
         }
 
         if(v == achievemente){
-                if(0 >= 20){
+                if(wordMinValue >= 20){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentEInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementf){
-                if(0 >= 40){
+                if(wordMinValue >= 40){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentFInfo),
                             Toast.LENGTH_LONG).show();
                 }
