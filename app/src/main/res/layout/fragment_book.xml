@@ -32,25 +32,50 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal" >
 
-                        <ImageButton
-                            android:background="@drawable/text1cover"
-                            android:id="@+id/imageButtonCover1"
-                            android:layout_width="87dp"
-                            android:layout_marginRight="7dp"
-                            android:layout_marginLeft="7dp"
-                            android:tag="1"
-                            android:layout_marginTop="10dp"
-                            android:layout_height="120dp" />
+                        <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content">
 
-                        <ImageButton
-                            android:background="@drawable/text2cover"
-                            android:id="@+id/imageButtonCover2"
-                            android:layout_width="87dp"
-                            android:layout_height="120dp"
-                            android:layout_marginRight="7dp"
-                            android:layout_marginLeft="7dp"
-                            android:tag="2"
-                            android:layout_marginTop="10dp" />
+                            <ImageButton
+                                android:background="@drawable/text1cover"
+                                android:id="@+id/imageButtonCover1"
+                                android:layout_width="87dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginLeft="7dp"
+                                android:tag="1"
+                                android:layout_marginTop="10dp"
+                                android:layout_height="120dp" />
+
+                            <ImageView
+                                android:background="@drawable/ribbongreen"
+                                android:id="@+id/green"
+                                android:layout_width="87dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginLeft="7dp"
+                                android:tag="1"
+                                android:layout_marginTop="10dp"
+                                android:layout_height="120dp" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content">
+                            <ImageButton
+                                android:background="@drawable/text2cover"
+                                android:id="@+id/imageButtonCover2"
+                                android:layout_width="87dp"
+                                android:layout_height="120dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginLeft="7dp"
+                                android:tag="2"
+                                android:layout_marginTop="10dp" />
+                            <ImageView
+                                android:background="@drawable/ribbonred"
+                                android:id="@+id/red"
+                                android:layout_width="87dp"
+                                android:layout_marginRight="7dp"
+                                android:layout_marginLeft="7dp"
+                                android:tag="1"
+                                android:layout_marginTop="10dp"
+                                android:layout_height="120dp" />
+                        </RelativeLayout>
 
                         <ImageButton
                             android:background="@drawable/text3cover"
