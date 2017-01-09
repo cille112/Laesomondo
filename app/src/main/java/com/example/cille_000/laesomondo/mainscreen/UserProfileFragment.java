@@ -63,6 +63,8 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
 
             @Override
             public void onDataChange(DataSnapshot snap) {
+
+                    //ProfilePicture
                 if (snap.child("users").child(userId).hasChild("avatar")) {
                     if(isAdded()){
                         if(getActivity() !=null) {
@@ -76,17 +78,23 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                     Intent intent1 = new Intent(getActivity(), StartActivity.class);
                     startActivity(intent1);
                 }
-
+                    //LIX
                 if (!snap.child("users").child(userId).child("lix").exists()){
                     lixValue.setText("0 Lix");
                 }else{
                     lixValue.setText(snap.child("users").child(userId).child("lix").getValue().toString()+ " Lix");
                 }
-
+                    //XP
                 if(!snap.child("users").child(userId).child("xp").exists()){
                     XPValue.setText("0 XP");
                 }else{
                     XPValue.setText(snap.child("users").child(userId).child("xp").getValue().toString()+ " XP");
+                }
+
+                if(!snap.child("users").child(userId).child("speed").exists()){
+                    wordMinValue.setText("0 Ord/Min");
+                }else{
+                    wordMinValue.setText(snap.child("users").child(userId).child("speed").getValue().toString()+ " Ord/Min");
                 }
             }
             @Override
