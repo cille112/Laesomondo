@@ -4,21 +4,32 @@
     android:background="@android:color/white"
     android:clickable="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/nav_header_container"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="160dp"
         android:layout_alignParentTop="true"
+        android:orientation="vertical"
         android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/menuprofilepic"
+            android:layout_marginTop="25dp"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:scaleType="fitCenter"
-            android:layout_centerInParent="true" />
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"/>
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/menuprofilename"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="@dimen/textsize_normal"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/drawerList"

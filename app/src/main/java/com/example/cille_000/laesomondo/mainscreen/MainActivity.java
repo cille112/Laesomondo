@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
@@ -23,11 +24,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends ActionBarActivity implements DrawerFragment.DrawerFragmentListener {
 
     private static String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth firebaseAuth;
     private ImageView profilePicture;
+    private TextView email;
     private UserProfileFragment userProfileFragment;
     private SettingsFragment settingsFragment;
     private HelpFragment helpFragment;
@@ -47,6 +51,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             close();
         } else {
             userId = firebaseAuth.getCurrentUser().getUid();
+            email = (TextView) findViewById(R.id.menuprofilename);
+            email.setText(firebaseAuth.getCurrentUser().getEmail().toString());
         }
 
         profilePicture = (ImageView) findViewById(R.id.menuprofilepic);
