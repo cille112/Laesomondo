@@ -97,7 +97,6 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 System.out.println("OldTextRead " + oldTextRead);
                 oldTextRead = oldTextRead + " ";
                 int i = 0;
-                int trim = 0;
                 while (i<oldTextRead.length()-1) {
                     c = oldTextRead.charAt(i);
                     c2 = oldTextRead.charAt(i + 1);
@@ -109,14 +108,15 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                         i=i+2;
                     }
 
-                    else {s = s + c;}
-                    System.out.println(Arrays.toString(textReadArray.toArray()));
+                    else {
+                        s = s + c;
+                        i++;
+                    }
+                    //System.out.println(Arrays.toString(textReadArray.toArray()));
                 }
                 oldTextRead = oldTextRead.substring(0, oldTextRead.length()-1);
                 textID = intent.getIntExtra("textID", 1);
-                System.out.println("textID " + textID);
                 String string = Integer.toString(textID);
-                System.out.println("String textID " + string);
                 if (!textReadArray.contains(string)){
                     updateDBStats();
                 }
