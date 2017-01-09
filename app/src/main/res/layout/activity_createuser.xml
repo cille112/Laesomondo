@@ -39,23 +39,32 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"/>
 
-        <com.example.cille_000.laesomondo.util.NoPopupEditText
+        <EditText
             android:id="@+id/createuser_age"
-            android:hint="@string/CreateUserAge"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:inputType="date" />
+            android:hint="@string/CreateUserAge"/>
+
+        <!--<com.example.cille_000.laesomondo.util.NoPopupEditText-->
+            <!--android:id="@+id/createuser_age"-->
+            <!--android:hint="@string/CreateUserAge"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:layout_marginRight="40dp"-->
+            <!--android:inputType="date" />-->
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="40dp">
+            android:layout_marginStart="45dp">
 
             <TextView
                 android:id="@+id/createuser_picture"

@@ -14,13 +14,15 @@
 
     <!-- CREATE USER ACTIVITY -->
     <string name="CreateUserName">E-mail</string>
-    <string name="CreateUserAge">Fødselsdato: ddmmyyyy</string>
+    <string name="CreateUserAge">Fødselsdato</string>
     <string name="CreateUserEmail">Email adresse</string>
     <string name="CreateUserPicture">Vælg billede:</string>
     <string name="CreateUserAvatar">Avatar</string>
     <string name="CreateUserLogin"><u>Har du allerede en bruger?</u></string>
     <string name="CreateUserSignup">Opret bruger</string>
     <string name="reg_failed">Noget gik galt</string>
+    <string name="DatePickerCancel">Annullér</string>
+    <string name="DatePickerConfirm">Godkend</string>
 
     <!-- CHALLENGE INFO FRAGMENT -->
     <string name="ChallengeInfoFragmentTitle">Din første udfordring</string>

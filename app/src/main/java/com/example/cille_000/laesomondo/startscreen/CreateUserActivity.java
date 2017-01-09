@@ -1,5 +1,6 @@
 package com.example.cille_000.laesomondo.startscreen;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,12 +13,17 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Calendar;
+
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.entities.User;
@@ -32,20 +38,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class CreateUserActivity extends AppCompatActivity implements View.OnClickListener {
+public class CreateUserActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
 
     private static final String TAG = "EmailPassword";
 
     private ImageButton avatar;
     private Button signup;
-    private EditText username, password, age;
+    private EditText username, password, birthDate;
     private TextView login;
     private AvatarFragment avatarFragment;
     private StartLogic logic;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authListener;
     private DatabaseReference database;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +60,19 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
         avatar = (ImageButton) findViewById(R.id.createuser_picturebtn);
         username = (EditText) findViewById(R.id.createuser_name);
         password = (EditText) findViewById(R.id.createuser_password);
-        age = (EditText) findViewById(R.id.createuser_age);
+        birthDate = (EditText) findViewById(R.id.createuser_age);
         signup = (Button) findViewById(R.id.createuser_signup);
         login = (TextView) findViewById(R.id.createuser_login);
 
-        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
         avatarFragment = new AvatarFragment();
         logic = new StartLogic();
+
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        birthDate.setOnTouchListener(this);
+        avatar.setOnClickListener(this);
+        signup.setOnClickListener(this);
+        login.setOnClickListener(this);
 
         avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
             @Override
@@ -70,10 +80,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
                 setAvatar(avatarFragment.getCurrent());
             }
         });
-
-        avatar.setOnClickListener(this);
-        signup.setOnClickListener(this);
-        login.setOnClickListener(this);
 
         username.addTextChangedListener(new TextWatcher() {
             @Override
@@ -119,30 +125,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
                 else {
                     Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
                     password.setError(null, icon);
-                }
-            }
-        });
-
-        age.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(logic.checkAge(s.toString())) {
-                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
-                    age.setError(null, icon);
-                }
-                else {
-                    Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
-                    age.setError(null, icon);
                 }
             }
         });
@@ -202,17 +184,15 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         if(v == avatar) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.activity_createuser, avatarFragment );
+            transaction.replace(R.id.activity_createuser, avatarFragment);
             transaction.commit();
-        }
-        else if(v == signup) {
+        } else if(v == signup) {
             if (!validateForm()) {
                 Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
             } else {
                 createAccount(username.getText().toString(), password.getText().toString());
             }
-        }
-        else if(v == login) {
+        } else if(v == login) {
             this.finish();
         }
     }
@@ -257,7 +237,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            writeNewUser(username.getText().toString(), age.getText().toString(), avatarFragment.getCurrent(), 16);
+            writeNewUser(username.getText().toString(), birthDate.getText().toString(), avatarFragment.getCurrent(), 16);
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);
             startActivity(mainscreen);
@@ -271,6 +251,22 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+            if(event.getAction() != MotionEvent.ACTION_DOWN)
+                return false;
 
+            DatePickerFragment datePicker = new DatePickerFragment();
 
+            datePicker.setCallback(new DatePickerFragment.OnSubmitListener() {
+                @Override
+                public void onSubmitted(int day, int month, int year) {
+                    System.out.println("dag: " + day + " måned: " + month + " år: " + year);
+                    birthDate.setText(day + "/" + month + "/" + year);
+                }
+            });
+
+            datePicker.show(getSupportFragmentManager(), "datePicker");
+            return true;
+    }
 }
