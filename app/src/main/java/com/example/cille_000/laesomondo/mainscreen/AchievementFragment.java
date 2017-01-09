@@ -1,5 +1,6 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.startscreen.StartActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +25,7 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
     private int lixValue, XPValue, wordMinValue, userLevel;
+    private String userId;
 
 
 
@@ -54,8 +57,16 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
 
         database = FirebaseDatabase.getInstance().getReference();
 
+        if(firebaseAuth.getCurrentUser() == null){
+            Intent intent1 = new Intent(getActivity(), StartActivity.class);
+            startActivity(intent1);
+        }
+        else {
+            userId = firebaseAuth.getCurrentUser().getUid();
+        }
+
         database.addListenerForSingleValueEvent(new ValueEventListener() {
-            String userId = firebaseAuth.getCurrentUser().getUid();
+
 
             @Override
             public void onDataChange(DataSnapshot snap) {
