@@ -48,7 +48,7 @@ public class DatePickerFragment extends DialogFragment {
         cancelButton = (Button) view.findViewById(R.id.datepicker_cancel);
         okButton = (Button) view.findViewById(R.id.datepicker_ok);
 
-        datePicker.setMaxDate(new Date().getTime());
+        datePicker.updateDate(1989, 0, 1);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override

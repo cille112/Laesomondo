@@ -19,7 +19,7 @@
             android:contentDescription="@string/app_name"/>
 
         <com.example.cille_000.laesomondo.util.NoPopupEditText
-            android:id="@+id/createuser_name"
+            android:id="@+id/createuser_email"
             android:hint="@string/CreateUserName"
             android:textSize="18sp"
             android:layout_width="match_parent"

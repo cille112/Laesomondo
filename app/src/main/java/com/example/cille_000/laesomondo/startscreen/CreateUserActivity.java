@@ -1,6 +1,5 @@
 package com.example.cille_000.laesomondo.startscreen;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,14 +14,11 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.Calendar;
 
 
 import com.example.cille_000.laesomondo.R;
@@ -44,7 +40,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private ImageButton avatar;
     private Button signup;
-    private EditText username, password, birthDate;
+    private EditText email, password, birthDate;
     private TextView login;
     private AvatarFragment avatarFragment;
     private StartLogic logic;
@@ -58,7 +54,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_createuser);
 
         avatar = (ImageButton) findViewById(R.id.createuser_picturebtn);
-        username = (EditText) findViewById(R.id.createuser_name);
+        email = (EditText) findViewById(R.id.createuser_email);
         password = (EditText) findViewById(R.id.createuser_password);
         birthDate = (EditText) findViewById(R.id.createuser_age);
         signup = (Button) findViewById(R.id.createuser_signup);
@@ -81,7 +77,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        username.addTextChangedListener(new TextWatcher() {
+        email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -94,13 +90,13 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(logic.checkUsername(s.toString())) {
+                if(logic.checkEmail(s.toString())) {
                     Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.checkmark,null);
-                    username.setError(null, icon);
+                    email.setError(null, icon);
                 }
                 else {
                     Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.errormark,null);
-                    username.setError(null, icon);
+                    email.setError(null, icon);
                 }
             }
         });
@@ -190,7 +186,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             if (!validateForm()) {
                 Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
             } else {
-                createAccount(username.getText().toString(), password.getText().toString());
+                createAccount(email.getText().toString(), password.getText().toString());
             }
         } else if(v == login) {
             this.finish();
@@ -222,7 +218,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private boolean validateForm() {
         boolean valid = true;
 
-        String email = username.getText().toString();
+        String email = this.email.getText().toString();
         if (TextUtils.isEmpty(email)) {
             valid = false;
         }
@@ -237,7 +233,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            writeNewUser(username.getText().toString(), birthDate.getText().toString(), avatarFragment.getCurrent(), 16);
+            writeNewUser(email.getText().toString(), birthDate.getText().toString(), avatarFragment.getCurrent(), 16);
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);
             startActivity(mainscreen);

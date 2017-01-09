@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:datePickerMode="spinner"
         android:calendarViewShown="false"
-        android:minDate="01/01/1950">
+        android:minDate="01/01/1950"
+        android:maxDate="01/01/2000">
     </DatePicker>
 
     <LinearLayout
