@@ -1,7 +1,9 @@
 package com.example.cille_000.laesomondo.startscreen;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentTransaction;
@@ -11,7 +13,6 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -47,6 +47,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authListener;
     private DatabaseReference database;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,44 +137,17 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             startActivity(new Intent(this, MainActivity.class));
         }
 
-        // Authentication listener, listen when something changes is authentication
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                //update screen after autehntication
-                updateUI(user);
-            }
-        };
-
         database = FirebaseDatabase.getInstance().getReference();
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        firebaseAuth.addAuthStateListener(authListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (authListener != null) {
-            firebaseAuth.removeAuthStateListener(authListener);
-        }
     }
 
     public void setAvatar(int index) {
         avatar.setTag(index);
         avatar.setBackgroundResource(index);
+    }
+
+    private boolean checkUser() {
+        return firebaseAuth.getCurrentUser() != null;
     }
 
     @Override
@@ -183,36 +157,27 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             transaction.replace(R.id.activity_createuser, avatarFragment);
             transaction.commit();
         } else if(v == signup) {
-            if (!validateForm()) {
-                Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
+            if (validateForm()) {
+                new LoadViewTask().execute();
             } else {
-                createAccount(email.getText().toString(), password.getText().toString());
+                Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
             }
         } else if(v == login) {
             this.finish();
         }
     }
 
-    private void createAccount(String email, String password) {
-        Log.d(TAG, "createAccount:" + email);
-
-        // [START create_user_with_email]
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+    private void createAccount() {
+        firebaseAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            Toast.makeText(CreateUserActivity.this, R.string.reg_failed,
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateUserActivity.this, R.string.reg_failed, Toast.LENGTH_SHORT).show();
                         }
 
                     }
                 });
-        // [END create_user_with_email]
     }
 
     private boolean validateForm() {
@@ -231,8 +196,8 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
         return valid;
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
+    private void nextActivity() {
+        if (firebaseAuth.getCurrentUser() != null) {
             writeNewUser(email.getText().toString(), birthDate.getText().toString(), avatarFragment.getCurrent(), 16);
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);
@@ -264,5 +229,39 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
             datePicker.show(getSupportFragmentManager(), "datePicker");
             return true;
+    }
+
+    private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(CreateUserActivity.this, "Vent venligst",
+                    "Gemmer brugerinformation...", false, false);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                synchronized (this) {
+                    createAccount();
+
+                    // Checker om brugeren er null
+                    while(!checkUser()) {
+                        this.wait(500);
+                    }
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        // Efter ventetid
+        @Override
+        protected void onPostExecute(Void result) {
+            progressDialog.dismiss();
+            nextActivity();
+        }
     }
 }

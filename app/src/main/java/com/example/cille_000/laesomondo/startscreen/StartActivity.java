@@ -181,8 +181,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(StartActivity.this, "Henter brugerinformation",
-                    "Vent venligst...", false, false);
+            progressDialog = ProgressDialog.show(StartActivity.this, "Vent venligst",
+                    "Henter brugerinformation...", false, false);
         }
 
         @Override
