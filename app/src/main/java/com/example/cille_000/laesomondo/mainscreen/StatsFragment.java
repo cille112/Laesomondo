@@ -92,7 +92,6 @@ public class StatsFragment extends Fragment {
                     booksRead = split.length;
                 }
 
-                System.out.print(booksRead);
 
                 ArrayList<Entry> entries = new ArrayList<>();
                 entries.add(new Entry(lixValue, 0));
