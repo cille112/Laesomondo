@@ -6,10 +6,9 @@
     android:background="@color/colorWhite"
     android:clickable="true">
 
-    <com.numetriclabz.numandroidcharts.RadarChart
-        android:id="@+id/radar_chart"
+    <com.github.mikephil.charting.charts.RadarChart
+        android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity='center_horizontal'/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

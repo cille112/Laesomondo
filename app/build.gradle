@@ -12,7 +12,7 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
-    maven { url 'https://dl.bintray.com/sj/maven/'}
+    maven { url 'https://jitpack.io' }
 }
 
 
@@ -55,7 +55,7 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.numetriclabz.numandroidcharts:numandroidcharts:1.0.3'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.6'
 }
 
 apply plugin: 'com.google.gms.google-services'
