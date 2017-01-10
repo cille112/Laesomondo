@@ -181,8 +181,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(StartActivity.this, "Vent venligst",
-                    "Henter brugerinformation...", false, false);
+            progressDialog = ProgressDialog.show(StartActivity.this, "Henter data",
+                    "Vent venligst...", false, false);
         }
 
         @Override
@@ -193,7 +193,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
                     // Checker om brugeren er null
                     while(!checkUser()) {
-                        this.wait(500);
+                        if(!isCancelled()){
+                            this.wait(500);
+                        }
                     }
                 }
             } catch (InterruptedException e) {
@@ -207,7 +209,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         @Override
         protected void onPostExecute(Void result) {
             progressDialog.dismiss();
-            System.out.println("Send til main 2");
             startMain();
         }
     }

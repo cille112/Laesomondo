@@ -235,8 +235,8 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(CreateUserActivity.this, "Vent venligst",
-                    "Gemmer brugerinformation...", false, false);
+            progressDialog = ProgressDialog.show(CreateUserActivity.this, "Gemmer data",
+                    "Vent venligst...", false, false);
         }
 
         @Override
