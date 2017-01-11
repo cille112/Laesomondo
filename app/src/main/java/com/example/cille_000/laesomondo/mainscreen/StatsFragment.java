@@ -80,7 +80,7 @@ public class StatsFragment extends Fragment {
                     correctness = 0;
                 }else{
                     correctnessD = Double.parseDouble(snap.child("users").child(userId).child("correctness").getValue().toString());
-                    correctness = (int)(correctnessD);
+                    correctness = (int)(correctnessD/3*100);
                 }
 
                 // Correctness
@@ -93,44 +93,67 @@ public class StatsFragment extends Fragment {
                 }
 
 
-                ArrayList<Entry> entries = new ArrayList<>();
-                entries.add(new Entry(lixValue, 0));
-                entries.add(new Entry(wordMinValue, 1));
-                entries.add(new Entry(correctness, 2));
-                entries.add(new Entry(booksRead, 3));
-                entries.add(new Entry(10, 4));
+                ArrayList<Entry> entries1 = new ArrayList<>();
+                entries1.add(new Entry(lixValue, 0));
+                entries1.add(new Entry(wordMinValue, 1));
+                entries1.add(new Entry(correctness, 2));
+                entries1.add(new Entry(booksRead, 3));
+                entries1.add(new Entry(10, 4));
+
+                ArrayList<Entry> entries2 = new ArrayList<>();
+                entries2.add(new Entry(30, 0));
+                entries2.add(new Entry(60, 1));
+                entries2.add(new Entry(70, 2));
+                entries2.add(new Entry(4, 3));
+                entries2.add(new Entry(7, 4));
 
 
 
 
-                RadarDataSet dataset_data1 = new RadarDataSet(entries, "You");
+                RadarDataSet dataset_data1 = new RadarDataSet(entries1, getString(R.string.StatsFragmentDataOne));
+                RadarDataSet dataset_data2 = new RadarDataSet(entries2, getString(R.string.StatsFragmentDataTwo));
 
 
                 dataset_data1.setColor(Color.RED);
                 dataset_data1.setDrawFilled(true);
+                dataset_data1.setValueTextSize(10);
+                dataset_data1.setDrawHighlightIndicators(false);
+
+                dataset_data2.setColor(Color.BLUE);
+                dataset_data2.setDrawFilled(true);
+                dataset_data2.setValueTextSize(10);
+                dataset_data2.setDrawHighlightIndicators(false);
 
 
                 ArrayList<RadarDataSet> dataSets = new ArrayList<RadarDataSet>();
                 dataSets.add(dataset_data1);
+                dataSets.add(dataset_data2);
+
 
                 ArrayList<String> labels = new ArrayList<String>();
-                labels.add("Lix");
-                labels.add("Ord/Min");
-                labels.add("Korrekthed");
-                labels.add("Læste Tekster");
-                labels.add("Level");
+                labels.add(getString(R.string.StatsFragmentLabelOne));
+                labels.add(getString(R.string.StatsFragmentLabelTwo));
+                labels.add(getString(R.string.StatsFragmentLabelThree));
+                labels.add(getString(R.string.StatsFragmentLabelFour));
+                labels.add(getString(R.string.StatsFragmentLabelFive));
 
 
                 RadarData data = new RadarData(labels, dataSets);
                 chart.setData(data);
 
-                String description = "Her kan du se alt om dig";
+                String description = getString(R.string.StatsFragmentDescription);
                 chart.setDescription(description);
                 chart.setWebLineWidthInner(0.5f);
                 chart.setDescriptionColor(Color.BLACK);
+                chart.setDescriptionTextSize(10);
+                chart.getYAxis().setDrawLabels(false);
+                chart.getXAxis().setTextSize(15);
+                chart.getLegend().setTextSize(15);
+                chart.getLegend().setFormSize(12);
+                chart.getLegend().setXEntrySpace(25);
 
                 chart.invalidate();
-                chart.animate();
+                chart.setRotationEnabled(false);
 
             }
             @Override

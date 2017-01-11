@@ -46,7 +46,7 @@
 
     <!-- USERPROFILE FRAGMENT -->
     <string name="UserProfileFragmentWordMin"><b>Ord i minuttet:</b></string>
-    <string name="UserProfileFragmentXP"><b>Points:</b></string>
+    <string name="UserProfileFragmentXP"><b>Point:</b></string>
     <string name="UserProfileFragmentLix"><b>Sværhedsgrad:</b></string>
     <string name="UserProfileFragmentAchievement">Trofæer</string>
     <string name="UserProfileFragmentStats">Statistik</string>
@@ -81,6 +81,16 @@
     <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 10</string>
     <string name="AchievementFragmentHInfo">Du læser med sværhedsgraden Lix 20</string>
     <string name="AchievementFragmentIInfo">Du læser med sværhedsgraden Lix 30</string>
+
+    <!-- STATS FRAGMENT -->
+    <string name="StatsFragmentDescription">Her kan du sammenligne dig med gennemsnittet</string>
+    <string name="StatsFragmentLabelOne">Lix</string>
+    <string name="StatsFragmentLabelTwo">Ord/Min</string>
+    <string name="StatsFragmentLabelThree">Korrekthed</string>
+    <string name="StatsFragmentLabelFour">Læste Tekster</string>
+    <string name="StatsFragmentLabelFive">Level</string>
+    <string name="StatsFragmentDataOne">Dig</string>
+    <string name="StatsFragmentDataTwo">Gennemsnittet</string>
 
     <!-- SETTINGS -->
     <string name="SettingsTextSizeHeading">Justér skriftstørrelse</string>
