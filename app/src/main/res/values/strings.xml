@@ -118,6 +118,8 @@
     <string name="A3">Du finder dine trofæer ved at klikke på trofæ-knappen under din profil.</string>
     <string name="Q4">"Hvordan kan jeg se min statistik?"</string>
     <string name="A4">Du finder din statistik ved at klikke på statistik-knappen under din profil.</string>
+    <string name="Q5">"Hvad er LIX?"</string>
+    <string name="A5">Lix er en måleenhed for hvor svær teksten er. F.eks er en børne bog under 24, mens middel er mellem 35 og 44. </string>
 
     <!-- NAVDRAWER -->
     <string name="action_settings">Settings</string>

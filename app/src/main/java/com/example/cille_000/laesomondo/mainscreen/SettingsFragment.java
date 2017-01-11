@@ -1,11 +1,9 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,12 +72,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
 
         firebaseAuth = FirebaseAuth.getInstance();
-        userId = firebaseAuth.getCurrentUser().getUid();
+        if(firebaseAuth.getCurrentUser()!=null) {
+            userId = firebaseAuth.getCurrentUser().getUid();
+        }
         database = FirebaseDatabase.getInstance().getReference();
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snap) {
-                if (snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).hasChild("textSize")) {
+                if (snap.child("users").child(userId).hasChild("textSize")) {
                     currentSize = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
                     currentTextSize.setTextSize(currentSize);
                     currentTextSize.setText("" + currentSize);
@@ -156,7 +155,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 if(noti){
                     alarm.setAlarm(getContext());
                 }
-                else if(!noti){
+                else{
                    alarm.cancelAlarm(getContext());
                 }
                 database.child("users").child(userId).child("Notification").setValue(noti);
@@ -197,11 +196,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(isChecked){
-            noti = true;
-        }
-        else{
-            noti = false;
-        }
+        noti = isChecked;
     }
 }
