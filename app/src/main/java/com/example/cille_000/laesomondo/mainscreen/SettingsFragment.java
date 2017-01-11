@@ -113,8 +113,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onDataChange(DataSnapshot snap) {
                 if (snap.child("users").child(userId).hasChild("Notification")) {
-                    Boolean notification = Boolean.parseBoolean(snap.child("users").child(userId).child("Notification").getValue().toString());
-                    noti = notification;
+                    noti = Boolean.parseBoolean(snap.child("users").child(userId).child("Notification").getValue().toString());
                 }
             }
             @Override
@@ -201,7 +200,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         if(isChecked){
             noti = true;
         }
-        else if (!isChecked){
+        else{
             noti = false;
         }
     }

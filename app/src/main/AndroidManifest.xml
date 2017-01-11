@@ -23,10 +23,6 @@
         <receiver
             android:enabled="true"
             android:name="com.example.cille_000.laesomondo.util.Alarm">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </receiver>
 
         <activity android:name="com.example.cille_000.laesomondo.startscreen.StartActivity">
