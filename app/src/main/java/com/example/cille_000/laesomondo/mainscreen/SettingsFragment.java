@@ -1,17 +1,23 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.startscreen.AvatarFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,13 +28,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener{
 
-    private SeekBar textSize;
-    private TextView currentText;
+    private SeekBar seekBarTextSize;
+    private TextView currentTextSize;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
     private String userId;
     private float currentSize;
     private Button save;
+    private ImageButton profilePicture;
+    private AvatarFragment avatarFragment;
+    private int currentPic;
 
     public SettingsFragment() {
     }
@@ -36,41 +45,60 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        textSize = (SeekBar) view.findViewById(R.id.textsizebar);
-        currentText = (TextView) view.findViewById(R.id.currenttextsize);
-        textSize.setOnSeekBarChangeListener(this);
-        save = (Button) view.findViewById(R.id.applySettings);
+        seekBarTextSize = (SeekBar) view.findViewById(R.id.settings_textsizebar);
+        currentTextSize = (TextView) view.findViewById(R.id.settings_currenttextsize);
+        seekBarTextSize.setOnSeekBarChangeListener(this);
+        save = (Button) view.findViewById(R.id.settings_save);
+        profilePicture = (ImageButton) view.findViewById(R.id.settings_picturebtn);
 
         save.setOnClickListener(this);
+        profilePicture.setOnClickListener(this);
+
+        avatarFragment = new AvatarFragment();
+        avatarFragment.setOnDoneListener(new AvatarFragment.OnDoneListener() {
+            @Override
+            public void onDone() {
+                setAvatar(avatarFragment.getCurrent());
+            }
+        });
+
 
         firebaseAuth = FirebaseAuth.getInstance();
-
         userId = firebaseAuth.getCurrentUser().getUid();
-
         database = FirebaseDatabase.getInstance().getReference();
-
         database.addListenerForSingleValueEvent(new ValueEventListener() {
-
-
             @Override
             public void onDataChange(DataSnapshot snap) {
                 if (snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).hasChild("textSize")) {
                     currentSize = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
-                    currentText.setTextSize(currentSize);
-                    currentText.setText("" + currentSize);
-                    textSize.refreshDrawableState();
-                    textSize.setProgress((int) currentSize*100/36);
-                } else {
+                    currentTextSize.setTextSize(currentSize);
+                    currentTextSize.setText("" + currentSize);
+                    seekBarTextSize.refreshDrawableState();
+
+                    seekBarTextSize.setProgress((int) (currentSize - 16) * 100/20);
                 }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (snap.child("users").child(userId).hasChild("avatar")) {
+                    int drawable = Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString());
+                    profilePicture.setBackgroundResource(drawable);
+                    currentPic = drawable;
+                }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
 
-
+        profilePicture.setBackgroundResource(currentPic);
 
         return view;
     }
@@ -78,7 +106,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -93,9 +120,18 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-        if(v==save){
-            if(isAdded())
-            Toast.makeText(getActivity(), "Ændringer er gemt", Toast.LENGTH_SHORT).show();
+        if(v == profilePicture) {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_settings, avatarFragment);
+            transaction.commit();
+        }
+        if(v == save){
+            if(isAdded()) {
+                database.child("users").child(userId).child("textSize").setValue(currentTextSize.getTextSize()/3);
+                database.child("users").child(userId).child("avatar").setValue(currentPic);
+                Toast.makeText(getActivity(), "Ændringerne blev gemt", Toast.LENGTH_SHORT).show();
+
+            }
         }
     }
 
@@ -109,9 +145,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             size += progress / 5;
         }
 
-        currentText.setTextSize(size);
-        currentText.setText("" + size);
-        database.child("users").child(userId).child("textSize").setValue(size);
+        currentTextSize.setTextSize(size);
+        currentTextSize.setText("" + size);
     }
 
     @Override
@@ -122,5 +157,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+    public void setAvatar(int index) {
+        currentPic = index;
+        profilePicture.setBackgroundResource(index);
     }
 }

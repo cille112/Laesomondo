@@ -83,12 +83,11 @@
     <string name="AchievementFragmentIInfo">Du læser med sværhedsgraden Lix 30</string>
 
     <!-- SETTINGS -->
-    <string name="SettingsChangeTextSize">Justér skriftstørrelsen</string>
+    <string name="SettingsTextSizeHeading">Justér skriftstørrelse</string>
+    <string name="SettingsTextSizeDes">Dette vil ændre på skriftstørrelsen i dine læsetekster. Træk i baren for at justere.</string>
     <string name="SettingsCurrentTextSize">16</string>
-    <string name="SettingsChangeTheme">Night mode</string>
-    <string name="SettingsThemeOn">Slå fra</string>
-    <string name="SettingsThemeOff">Slå til</string>
-    <string name="SettingsLogOut">Log ud</string>
+    <string name="SettingsAvatarHeading">Skift profilbillede</string>
+    <string name="SettingsAvatarDes">Nuværende: </string>
     <string name="SettingsSave">Gem ændringer</string>
 
     <!-- STATS FRAGMENT -->
@@ -100,14 +99,14 @@
 
     <!-- Help/FAQ FRAGMENT -->
     <string name="Q1">"Hvordan skifter jeg bruger?"</string>
-    <string name="A1">Først skal man logge ud ved at gå ind i menuen og vælge "log ud"
-        herefter logger man ind med den bruger man ønsker at skifte til</string>
-    <string name="Q2">"Hvordan ser jeg hvilket level jeg er?"</string>
-    <string name="A2">Dit level kan du finde under din profil, ved at klikke på profil ikonet øverst til højre</string>
+    <string name="A1">Først skal man logge ud ved at gå ind i menuen og vælge "log ud".
+        Herefter logger man ind med den bruger, man ønsker at skifte til.</string>
+    <string name="Q2">"Hvordan ser jeg, hvilket level jeg er i?"</string>
+    <string name="A2">Dit level kan du finde under din profil. Profilen finder du ved at klikke på profil-ikonet øverst til højre på skærmen.</string>
     <string name="Q3">"Hvordan kan jeg se mine trofæer?"</string>
-    <string name="A3">Du finder dine trofæer ved at klikke på trofæ knappen under din profil</string>
+    <string name="A3">Du finder dine trofæer ved at klikke på trofæ-knappen under din profil.</string>
     <string name="Q4">"Hvordan kan jeg se min statistik?"</string>
-    <string name="A4">Du finder din statistik ved at klikke på statistik knappen under din profil</string>
+    <string name="A4">Du finder din statistik ved at klikke på statistik-knappen under din profil.</string>
 
     <!-- NAVDRAWER -->
     <string name="action_settings">Settings</string>
