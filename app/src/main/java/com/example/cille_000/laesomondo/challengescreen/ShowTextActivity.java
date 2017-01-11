@@ -112,4 +112,5 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onBackPressed() { }
 
+
 }

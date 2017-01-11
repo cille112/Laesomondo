@@ -69,7 +69,6 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                     if(isAdded()){
                         if(getActivity() !=null) {
                             avatar = getActivity().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString()));
-                            System.out.println(avatar.toString());
                             profilePicture.setImageDrawable(avatar);
                         }
                     }

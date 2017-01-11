@@ -1,5 +1,6 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,7 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
 
 public class MainActivity extends ActionBarActivity implements DrawerFragment.DrawerFragmentListener {
 
@@ -42,10 +42,15 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.activity_main);
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         if(firebaseAuth.getCurrentUser() == null){
             close();
@@ -191,4 +196,5 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             displayView(0);
         }
     }
+
 }

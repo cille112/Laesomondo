@@ -11,6 +11,7 @@
     <string name="StartToastSuccess">Velkommen</string>
     <string name="StartToastNoSuccess">Fejl ved login</string>
     <string name="auth_failed">Fejl ved login</string>
+    <string name="Prefrence_file_key">com.example.cille_000.laesomondo.PREFERENCE_FILE_KEY</string>
 
     <!-- CREATE USER ACTIVITY -->
     <string name="CreateUserName">E-mail</string>
