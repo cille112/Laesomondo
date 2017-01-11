@@ -67,11 +67,34 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/SettingsNotiHeading"
+                android:textSize="@dimen/textsize_subheading"
+                android:textColor="@color/colorPrimary"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/noti"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:checked="false"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <Button
                 android:text="@string/SettingsSave"

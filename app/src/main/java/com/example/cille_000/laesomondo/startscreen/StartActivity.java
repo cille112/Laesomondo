@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -62,10 +63,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         sharedPref = getSharedPreferences(getString(R.string.Prefrence_file_key), Context.MODE_PRIVATE);
 
-        loadViewTask = new LoadViewTask();
-
-        Alarm alarm = new Alarm();
-        alarm.setAlarm(this);
 
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
@@ -137,6 +134,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v == login && validateForm()) {
+            loadViewTask = new LoadViewTask();
             loadViewTask.execute();
         } else if(v == createuser) {
             Intent intent = new Intent(this, CreateUserActivity.class);
@@ -158,10 +156,13 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         alert.setMessage("Har du glemt dit password, så skriv din mail:");
 
         final EditText input = new EditText(StartActivity.this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         alert.setView(input);
 
         alert.setPositiveButton("Send mail", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
+                loadViewTask.cancel(true);
+                loadViewTask = null;
                 if(input.getText().toString()!=""){
                     firebaseAuth.sendPasswordResetEmail(input.getText().toString());
                     Toast.makeText(StartActivity.this, "Mail sendt",
@@ -175,6 +176,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         alert.setNegativeButton("Annuller", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 loadViewTask.cancel(true);
+                loadViewTask = null;
             }
         });
 

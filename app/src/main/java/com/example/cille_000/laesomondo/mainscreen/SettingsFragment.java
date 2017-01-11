@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.startscreen.AvatarFragment;
+import com.example.cille_000.laesomondo.util.Alarm;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class SettingsFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener{
+public class SettingsFragment extends Fragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {
 
     private SeekBar seekBarTextSize;
     private TextView currentTextSize;
@@ -38,6 +41,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private ImageButton profilePicture;
     private AvatarFragment avatarFragment;
     private int currentPic;
+    private CheckBox notification;
+    private Boolean noti = false;
+    private Alarm alarm;
 
     public SettingsFragment() {
     }
@@ -50,6 +56,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         seekBarTextSize.setOnSeekBarChangeListener(this);
         save = (Button) view.findViewById(R.id.settings_save);
         profilePicture = (ImageButton) view.findViewById(R.id.settings_picturebtn);
+        notification = (CheckBox) view.findViewById(R.id.noti);
+
+        notification.setOnCheckedChangeListener(this);
+
+        alarm = new Alarm();
 
         save.setOnClickListener(this);
         profilePicture.setOnClickListener(this);
@@ -98,6 +109,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             }
         });
 
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (snap.child("users").child(userId).hasChild("Notification")) {
+                    Boolean notification = Boolean.parseBoolean(snap.child("users").child(userId).child("Notification").getValue().toString());
+                    noti = notification;
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        notification.setChecked(noti);
         profilePicture.setBackgroundResource(currentPic);
 
         return view;
@@ -129,6 +154,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             if(isAdded()) {
                 database.child("users").child(userId).child("textSize").setValue(currentTextSize.getTextSize()/3);
                 database.child("users").child(userId).child("avatar").setValue(currentPic);
+                if(noti){
+                    alarm.setAlarm(getContext());
+                }
+                else if(!noti){
+                   alarm.cancelAlarm(getContext());
+                }
+                database.child("users").child(userId).child("Notification").setValue(noti);
                 Toast.makeText(getActivity(), "Ændringerne blev gemt", Toast.LENGTH_SHORT).show();
 
             }
@@ -162,5 +194,15 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     public void setAvatar(int index) {
         currentPic = index;
         profilePicture.setBackgroundResource(index);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(isChecked){
+            noti = true;
+        }
+        else if (!isChecked){
+            noti = false;
+        }
     }
 }
