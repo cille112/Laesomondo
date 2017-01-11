@@ -43,9 +43,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
         setContentView(R.layout.activity_main);
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
@@ -124,6 +121,15 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         displayView(position);
     }
 
+    @Override
+    public void onBackPressed() {
+        if(current == 6 || current == 5){
+            displayView(7);
+        }else {
+            displayView(0);
+        }
+    }
+
     public void displayView(int position) {
         Fragment fragment = null;
         String title = getString(R.string.app_name);
@@ -186,15 +192,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         finish();
         Intent intent = new Intent(this, StartActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(current == 6 || current == 5){
-            displayView(7);
-        }else {
-            displayView(0);
-        }
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.cille_000.laesomondo.startscreen;
 
-import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,7 +61,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         forgotPassword.setOnClickListener(this);
 
         sharedPref = getSharedPreferences(getString(R.string.Prefrence_file_key), Context.MODE_PRIVATE);
-        editor = sharedPref.edit();
 
         loadViewTask = new LoadViewTask();
 
@@ -90,10 +88,14 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        editor.putString("email", username.getText().toString()).commit();
-                        editor.putString("password", password.getText().toString()).commit();
                         if (!task.isSuccessful()) {
                             wrongInput();
+                        }
+                        else if(task.isSuccessful()){
+                            editor = sharedPref.edit();
+                            editor.putString("email", username.getText().toString()).commit();
+                            editor.putString("password", password.getText().toString()).commit();
+                            editor.commit();
                         }
                    }
                 });
@@ -224,9 +226,9 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 synchronized (this) {
                     signIn();
 
-                    // Checker om brugeren er null
-                    while(!checkUser()) {
-                        if(!isCancelled()){
+                    if(!isCancelled()) {
+                        // Checker om brugeren er null
+                        while (!checkUser()) {
                             this.wait(500);
                         }
                     }
@@ -243,6 +245,10 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         protected void onPostExecute(Void result) {
             progressDialog.dismiss();
             startMain();
+        }
+        @Override
+        protected void onCancelled(){
+            progressDialog.dismiss();
         }
     }
 }
