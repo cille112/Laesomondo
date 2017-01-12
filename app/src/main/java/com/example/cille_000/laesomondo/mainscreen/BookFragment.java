@@ -138,7 +138,7 @@ public class BookFragment extends Fragment implements View.OnClickListener {
             }
         }
         else{
-            Toast.makeText(getContext(), "Vent 2 sek", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Indlæser, prøv igen om lidt", Toast.LENGTH_SHORT).show();
         }
 
 
