@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true">
@@ -8,17 +9,18 @@
         android:id="@+id/icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginLeft="10dp"
-        android:paddingTop="12dp" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="24dp"
+        android:paddingTop="10dp" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="75dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="8dp"
+        android:paddingTop="12dp"
+        android:fontFamily="Roboto Medium"
+        android:textStyle="bold"
+        android:textSize="@dimen/textsize_normal" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -6,6 +6,7 @@
     <dimen name="textsize_reading">18sp</dimen>
     <dimen name="textsize_heading">24sp</dimen>
     <dimen name="textsize_subheading">18sp</dimen>
+    <dimen name="textsize_menu">14sp</dimen>
     <dimen name="nav_drawer_width">260dp</dimen>
 
 </resources>

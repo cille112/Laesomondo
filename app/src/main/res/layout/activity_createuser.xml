@@ -93,6 +93,7 @@
             android:layout_gravity="center"
             android:text="@string/CreateUserSignup"
             android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
             style="@style/Widget.AppCompat.Button.Colored"/>
 
         <TextView
