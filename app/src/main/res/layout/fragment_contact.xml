@@ -5,81 +5,94 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
-    <TextView
-        android:text="@string/Contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/contact"
-        android:textSize="@dimen/textsize_subheading"
-        android:layout_gravity="center"
-        android:textColor="@color/colorPrimary"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="textPersonName"
-        android:hint="@string/ContactSubject"
-        android:ems="10"
-        android:id="@+id/subjectEmail"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:paddingLeft="20dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/Contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact"
+                android:textSize="@dimen/textsize_subheading"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textMultiLine"
-                android:hint="@string/ContactMessage"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="textPersonName"
+                android:hint="@string/ContactSubject"
                 android:ems="10"
-                android:id="@+id/Email"/>
+                android:id="@+id/subjectEmail"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:paddingLeft="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:hint="@string/ContactMessage"
+                        android:ems="10"
+                        android:id="@+id/Email"/>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <Button
+                android:text="@string/ContactSend"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_normal"
+                android:textAllCaps="false"
+                android:id="@+id/sendMail" />
+
+
+            <TextView
+                android:text="@string/ContactCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/call"
+                android:textSize="@dimen/textsize_subheading"
+                android:paddingTop="40dp"/>
+
+            <TextView
+                android:text="@string/ContactNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/number"
+                android:textSize="@dimen/textsize_subheading"
+                android:padding="5dp"
+                android:textColor="@color/colorGreyDark"
+                android:clickable="true"/>
 
         </LinearLayout>
+
     </ScrollView>
-
-    <Button
-        android:text="@string/ContactSend"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/textsize_normal"
-        android:textAllCaps="false"
-        android:id="@+id/sendMail" />
-
-
-    <TextView
-        android:text="@string/ContactCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/call"
-        android:textSize="@dimen/textsize_subheading"
-        android:paddingTop="40dp"/>
-
-    <TextView
-        android:text="@string/ContactNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/number"
-        android:textSize="@dimen/textsize_subheading"
-        android:padding="5dp"
-        android:textColor="@color/colorGreyDark"
-        android:clickable="true"/>
 
 </LinearLayout>
