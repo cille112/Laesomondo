@@ -111,7 +111,7 @@
     <string name="ContactMessage">Besked</string>
     <string name="ContactSend">Send</string>
     <string name="ContactCall">Ring til os på:</string>
-    <string name="ContactNumber">+45 12 34 56 78</string>
+    <string name="ContactNumber"><u>+45 12 34 56 78</u></string>
 
     <!-- Help/FAQ FRAGMENT -->
     <string name="Q1">"Hvordan skifter jeg bruger?"</string>
