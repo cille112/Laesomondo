@@ -5,75 +5,87 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:gravity="center"
-        android:textSize="@dimen/textsize_heading"
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/textInfoName" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:layout_marginTop="0dp"
-        android:orientation="horizontal">
-
-        <ScrollView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textSize="@dimen/textsize_heading"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textInfoName" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
-                <TextView
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:textSize="@dimen/textsize_normal"
-                    android:layout_margin="10dp"
-                    android:id="@+id/textInfo" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:textSize="@dimen/textsize_normal"
+                            android:layout_margin="10dp"
+                            android:id="@+id/textInfo" />
+                    </LinearLayout>
+                </ScrollView>
+
+                <ImageView
+                    android:layout_width="127dp"
+                    android:layout_height="170dp"
+                    android:id="@+id/textCover"
+                    android:layout_marginTop="40dp"
+                    android:padding="5dp"
+                    android:layout_weight="0"
+                    android:contentDescription="@string/TextCover"/>
+
             </LinearLayout>
-        </ScrollView>
 
-        <ImageView
-            android:layout_width="127dp"
-            android:layout_height="170dp"
-            android:id="@+id/textCover"
-            android:layout_marginTop="40dp"
-            android:padding="5dp"
-            android:layout_weight="0"
-            android:contentDescription="@string/TextCover"/>
+            <Button
+                android:text="@string/StartText"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                android:id="@+id/button3"
+                android:layout_weight="0"
+                android:layout_gravity="center"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:textSize="@dimen/textsize_normal"
+                android:layout_margin="5dp"
+                android:id="@+id/cancel_test"
+                android:clickable="true"
+                android:text="@string/CancelTest"/>
 
-    <Button
-        android:text="@string/StartText"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:id="@+id/button3"
-        android:layout_weight="0"
-        android:layout_gravity="center"/>
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0"
-        android:textSize="@dimen/textsize_normal"
-        android:layout_margin="5dp"
-        android:id="@+id/cancel_test"
-        android:clickable="true"
-        android:text="@string/CancelTest"/>
-
+    </ScrollView>
 
 </LinearLayout>

@@ -98,7 +98,7 @@
     <string name="SettingsCurrentTextSize">16</string>
     <string name="SettingsAvatarHeading">Skift profilbillede</string>
     <string name="SettingsNotiHeading">Notifikationer</string>
-    <string name="SettingsNotiDes">Slå den ugentlige notifikation til/fra: </string>
+    <string name="SettingsNotiDes">Slå notifikationer til: </string>
     <string name="SettingsAvatarDes">Nuværende: </string>
     <string name="SettingsSave">Gem ændringer</string>
 

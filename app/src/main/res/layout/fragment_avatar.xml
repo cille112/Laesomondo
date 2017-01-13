@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_margin="20dp"
-    android:background="@color/colorPrimary">
+    android:padding="10dp"
+    android:layout_gravity="center|top"
+    android:background="@color/colorPrimary"
+    android:elevation="10dp">
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:gravity="center">
 
         <ImageButton
@@ -44,9 +45,9 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="90dp"
         android:gravity="center">
 
         <ImageButton
@@ -81,10 +82,9 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="180dp"
         android:gravity="center">
 
         <ImageButton
@@ -113,7 +113,6 @@
             android:layout_margin="5dp"
             android:contentDescription="@string/CreateUserAvatar"
             android:tag="av9"/>
-
 
     </LinearLayout>
 

@@ -3,44 +3,59 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:isScrollContainer="true"
     android:id="@+id/activity_challengeinfo">
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/ChallengeInfoFragmentTitle"
-            android:textSize="@dimen/textsize_heading"
-            android:textColor="@color/colorPrimary"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <TextView
-            android:text="@string/ChallengeInfoFragmentDes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/textsize_normal"
-            android:layout_margin="20dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/challengeinfo_button"
-            android:text="@string/ChallengeInfoFragmentButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            style="@style/Widget.AppCompat.Button.Colored" />
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/ChallengeInfoFragmentTitle"
+                android:textSize="@dimen/textsize_heading"
+                android:textColor="@color/colorPrimary"/>
 
-        <TextView
-            android:id="@+id/challengeinfo_later"
-            android:text="@string/ChallengeInfoFragmentNotNow"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"/>
+            <TextView
+                android:text="@string/ChallengeInfoFragmentDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/textsize_normal"
+                android:layout_margin="20dp"/>
 
+            <Button
+                android:id="@+id/challengeinfo_button"
+                android:text="@string/ChallengeInfoFragmentButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <TextView
+                android:id="@+id/challengeinfo_later"
+                android:text="@string/ChallengeInfoFragmentNotNow"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 </LinearLayout>
