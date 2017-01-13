@@ -4,117 +4,132 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    android:clickable="true">
+    android:clickable="true"
+    android:isScrollContainer="true">
 
-    <LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="80dp"
-    android:layout_marginBottom="15dp"
-    android:layout_gravity="center">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/achievement_a"
-        android:layout_width="70dip"
-        android:layout_height="70dip"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/colorWhite"
-        android:contentDescription="@string/AchievementFragmentA"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/achievement_b"
-        android:layout_width="70dip"
-        android:layout_height="70dip"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/colorWhite"
-        android:contentDescription="@string/AchievementFragmentB"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center">
 
-    <ImageButton
-        android:id="@+id/achievement_c"
-        android:layout_width="70dip"
-        android:layout_height="70dip"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/colorWhite"
-        android:contentDescription="@string/AchievementFragmentC"/>
+                <ImageButton
+                    android:id="@+id/achievement_a"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentA"/>
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/achievement_b"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentB"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center">
+                <ImageButton
+                    android:id="@+id/achievement_c"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentC"/>
 
-        <ImageButton
-            android:id="@+id/achievement_d"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentD"/>
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/achievement_e"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentE"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center">
 
-        <ImageButton
-            android:id="@+id/achievement_f"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentF"/>
+                <ImageButton
+                    android:id="@+id/achievement_d"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentD"/>
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/achievement_e"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentE"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center">
+                <ImageButton
+                    android:id="@+id/achievement_f"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentF"/>
 
-        <ImageButton
-            android:id="@+id/achievement_g"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentG"/>
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/achievement_h"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentH"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center">
 
-        <ImageButton
-            android:id="@+id/achievement_i"
-            android:layout_width="70dip"
-            android:layout_height="70dip"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/AchievementFragmentI"/>
+                <ImageButton
+                    android:id="@+id/achievement_g"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentG"/>
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/achievement_h"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentH"/>
+
+                <ImageButton
+                    android:id="@+id/achievement_i"
+                    android:layout_width="70dip"
+                    android:layout_height="70dip"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorWhite"
+                    android:contentDescription="@string/AchievementFragmentI"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>

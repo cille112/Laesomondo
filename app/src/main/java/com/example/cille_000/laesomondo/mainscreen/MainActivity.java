@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,6 +41,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private StatsFragment statsFragment;
     private String userId;
     private static int current;
+    private View icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         statsFragment = new StatsFragment();
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        icon = findViewById(R.id.action_search);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -112,7 +115,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_search){
+        if(id == R.id.action_search) {
             displayView(7);
             return true;
         }
@@ -175,6 +178,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             case 7:
                 fragment = userProfileFragment;
                 title = getString(R.string.title_userprofile);
+
                 current = 7;
                 break;
             default:

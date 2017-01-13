@@ -8,7 +8,7 @@
 
     <ImageButton
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="15dp"
         app:srcCompat="@android:drawable/ic_media_pause"
         android:id="@+id/pauseButton"
         android:layout_weight="0.1" />
