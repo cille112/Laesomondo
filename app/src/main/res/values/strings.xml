@@ -38,7 +38,7 @@
     <string name="Third">Bogen handler om  </string>
     <string name="StartText">Start udfordring  </string>
     <string name="TextCover">Text Cover</string>
-    <string name="CancelTest"><u>Annuller</u></string>
+    <string name="CancelTest"><u>Gå tilbage</u></string>
 
     <!-- Test Result Activity-->
     <string name="result">Udfordring klaret!</string>
@@ -115,16 +115,15 @@
 
     <!-- Help/FAQ FRAGMENT -->
     <string name="Q1">"Hvordan skifter jeg bruger?"</string>
-    <string name="A1">Først skal man logge ud ved at gå ind i menuen og vælge "log ud".
-        Herefter logger man ind med den bruger, man ønsker at skifte til.</string>
-    <string name="Q2">"Hvordan ser jeg, hvilket level jeg er i?"</string>
-    <string name="A2">Dit level kan du finde under din profil. Profilen finder du ved at klikke på profil-ikonet øverst til højre på skærmen.</string>
-    <string name="Q3">"Hvordan kan jeg se mine trofæer?"</string>
-    <string name="A3">Du finder dine trofæer ved at klikke på trofæ-knappen under din profil.</string>
-    <string name="Q4">"Hvordan kan jeg se min statistik?"</string>
-    <string name="A4">Du finder din statistik ved at klikke på statistik-knappen under din profil.</string>
-    <string name="Q5">"Hvad er LIX?"</string>
-    <string name="A5">Lix er en måleenhed for hvor svær teksten er. F.eks er en børne bog under 24, mens middel er mellem 35 og 44. </string>
+    <string name="A1">Vælg først Log ud i menuen. Log derefter ind med den ønskede bruger.</string>
+    <string name="Q2">Hvor finder jeg mine experience points?</string>
+    <string name="A2">Du kan se dine points under din profil. Din profil finder du ved at klikke på ikonet øverst i højre hjørne af skærmen.</string>
+    <string name="Q3">Hvor kan jeg se mine trofæer?</string>
+    <string name="A3">Dem finder du ved at klikke på trofæ-ikonet i din profil.</string>
+    <string name="Q4">Hvordan kan jeg se min statistik?</string>
+    <string name="A4">Du finder din statistik ved at klikke på statistik-ikonet i din profil.</string>
+    <string name="Q5">Hvad er lix?</string>
+    <string name="A5">Lix er en måleenhed for, hvor svær en tekst er. F.eks. har en børnebog et lixtal på 24, mens en middel sværhedsgrad ligger mellem 35 og 44.</string>
 
     <!-- NAVDRAWER -->
     <string name="action_settings">Settings</string>

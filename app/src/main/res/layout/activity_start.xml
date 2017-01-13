@@ -35,12 +35,14 @@
 
     <Button
         android:id="@+id/login_btnlogin"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:padding="10dp"
         style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/StartLogin"
+        android:textAllCaps="false"
         android:textColor="@color/colorWhite" />
 
     <TextView
