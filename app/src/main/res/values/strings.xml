@@ -97,7 +97,8 @@
     <string name="SettingsTextSizeDes">Dette vil ændre på skriftstørrelsen i dine læsetekster. Træk i baren for at justere.</string>
     <string name="SettingsCurrentTextSize">16</string>
     <string name="SettingsAvatarHeading">Skift profilbillede</string>
-    <string name="SettingsNotiHeading">Slå notifikationer til og fra</string>
+    <string name="SettingsNotiHeading">Notifikationer</string>
+    <string name="SettingsNotiDes">Slå den ugentlige notifikation til/fra: </string>
     <string name="SettingsAvatarDes">Nuværende: </string>
     <string name="SettingsSave">Gem ændringer</string>
 
@@ -106,7 +107,11 @@
 
     <!-- Contact FRAGMENT -->
     <string name="Contact">Skriv en mail til os:</string>
-    <string name="Call">Ring til os på:</string>
+    <string name="ContactSubject">Emne</string>
+    <string name="ContactMessage">Besked</string>
+    <string name="ContactSend">Send</string>
+    <string name="ContactCall">Ring til os på:</string>
+    <string name="ContactNumber">+45 12 34 56 78</string>
 
     <!-- Help/FAQ FRAGMENT -->
     <string name="Q1">"Hvordan skifter jeg bruger?"</string>

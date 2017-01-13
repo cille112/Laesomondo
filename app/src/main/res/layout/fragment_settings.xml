@@ -15,6 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
             android:text="@string/SettingsTextSizeHeading"
             android:textSize="@dimen/textsize_subheading"
             android:textColor="@color/colorPrimary"/>
@@ -23,6 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/SettingsTextSizeDes"
+            android:textSize="@dimen/textsize_normal"
+            android:textColor="@color/colorGreyDark"
             android:layout_marginBottom="10dp"/>
 
         <SeekBar
@@ -41,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:paddingBottom="15dp"
             android:text="@string/SettingsAvatarHeading"
             android:textSize="@dimen/textsize_subheading"
             android:textColor="@color/colorPrimary"/>
@@ -56,6 +60,8 @@
                 android:layout_marginEnd="10dp"
                 android:layout_gravity="center_vertical"
                 android:text="@string/SettingsAvatarDes"
+                android:textSize="@dimen/textsize_normal"
+                android:textColor="@color/colorGreyDark"
                 android:layout_marginBottom="10dp"/>
 
             <ImageButton
@@ -67,27 +73,34 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="10dp"
+            android:text="@string/SettingsNotiHeading"
+            android:textSize="@dimen/textsize_subheading"
+            android:textColor="@color/colorPrimary"/>
+
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/SettingsNotiHeading"
-                android:textSize="@dimen/textsize_subheading"
-                android:textColor="@color/colorPrimary"/>
+                android:layout_marginEnd="10dp"
+                android:text="@string/SettingsNotiDes"
+                android:textSize="@dimen/textsize_normal"
+                android:textColor="@color/colorGreyDark"/>
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/noti"
-                android:padding="10dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
                 android:checked="false"/>
+
         </LinearLayout>
 
         <LinearLayout
