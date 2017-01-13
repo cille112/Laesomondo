@@ -160,10 +160,6 @@ public class StatsFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-
-
-
         return view;
     }
 }

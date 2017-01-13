@@ -36,6 +36,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private SettingsFragment settingsFragment;
     private HelpFragment helpFragment;
     private ContactFragment contactFragment;
+    private AchievementFragment achievementFragment;
+    private StatsFragment statsFragment;
     private String userId;
     private static int current;
 
@@ -77,6 +79,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         settingsFragment = new SettingsFragment();
         helpFragment = new HelpFragment();
         contactFragment = new ContactFragment();
+        achievementFragment = new AchievementFragment();
+        statsFragment = new StatsFragment();
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -131,6 +135,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     }
 
     public void displayView(int position) {
+        System.out.println("displayView");
         Fragment fragment = null;
         String title = getString(R.string.app_name);
         switch (position) {
@@ -158,12 +163,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 logout();
                 break;
             case 5:
-                fragment = new AchievementFragment();
+                fragment = achievementFragment;
                 title = getString(R.string.title_achievements);
                 current = 5;
                 break;
             case 6:
-                fragment = new StatsFragment();
+                fragment = statsFragment;
                 title = getString(R.string.title_stats);
                 current = 6;
                 break;
@@ -177,6 +182,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         }
 
         if (fragment != null) {
+            System.out.println("not null");
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_body, fragment);
@@ -185,6 +191,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             // Toolbar title
             getSupportActionBar().setTitle(title);
         }
+
+        System.out.println(current);
     }
 
     private void logout() {

@@ -153,6 +153,9 @@ public class BookFragment extends Fragment implements View.OnClickListener {
                 if(dataSnapshot.child("users").child(userId).child("textRead").exists()){
                     testTaken = true;
                 }
+                else {
+                    testTaken = false;
+                }
             }
 
             @Override
