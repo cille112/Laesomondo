@@ -141,7 +141,7 @@ public class StatsFragment extends Fragment {
                 RadarData data = new RadarData(labels, dataSets);
                 chart.setData(data);
 
-                String description = getString(R.string.StatsFragmentDescription);
+                String description = "";
                 chart.setDescription(description);
                 chart.setWebLineWidthInner(0.5f);
                 chart.setDescriptionColor(Color.BLACK);
