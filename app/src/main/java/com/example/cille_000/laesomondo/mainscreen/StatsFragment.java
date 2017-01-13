@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,6 +34,14 @@ public class StatsFragment extends Fragment {
     private int lixValue, wordMinValue, correctness, booksRead;
     private String userId;
     private double correctnessD;
+    private Context c;
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        c=context;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -110,8 +119,8 @@ public class StatsFragment extends Fragment {
 
 
 
-                RadarDataSet dataset_data1 = new RadarDataSet(entries1, getString(R.string.StatsFragmentDataOne));
-                RadarDataSet dataset_data2 = new RadarDataSet(entries2, getString(R.string.StatsFragmentDataTwo));
+                RadarDataSet dataset_data1 = new RadarDataSet(entries1, c.getString(R.string.StatsFragmentDataOne));
+                RadarDataSet dataset_data2 = new RadarDataSet(entries2, c.getString(R.string.StatsFragmentDataTwo));
 
 
                 dataset_data1.setColor(Color.RED);
@@ -125,17 +134,17 @@ public class StatsFragment extends Fragment {
                 dataset_data2.setDrawHighlightIndicators(false);
 
 
-                ArrayList<RadarDataSet> dataSets = new ArrayList<RadarDataSet>();
+                ArrayList<RadarDataSet> dataSets = new ArrayList<>();
                 dataSets.add(dataset_data1);
                 dataSets.add(dataset_data2);
 
 
-                ArrayList<String> labels = new ArrayList<String>();
-                labels.add(getString(R.string.StatsFragmentLabelOne));
-                labels.add(getString(R.string.StatsFragmentLabelTwo));
-                labels.add(getString(R.string.StatsFragmentLabelThree));
-                labels.add(getString(R.string.StatsFragmentLabelFour));
-                labels.add(getString(R.string.StatsFragmentLabelFive));
+                ArrayList<String> labels = new ArrayList<>();
+                labels.add(c.getString(R.string.StatsFragmentLabelOne));
+                labels.add(c.getString(R.string.StatsFragmentLabelTwo));
+                labels.add(c.getString(R.string.StatsFragmentLabelThree));
+                labels.add(c.getString(R.string.StatsFragmentLabelFour));
+                labels.add(c.getString(R.string.StatsFragmentLabelFive));
 
 
                 RadarData data = new RadarData(labels, dataSets);
