@@ -48,6 +48,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth.AuthStateListener authListener;
     private DatabaseReference database;
     private ProgressDialog progressDialog;
+    private LoadViewTask loadViewTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +159,8 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             transaction.commit();
         } else if(v == signup) {
             if (validateForm()) {
-                new LoadViewTask().execute();
+                loadViewTask = new LoadViewTask();
+                loadViewTask.execute();
             } else {
                 Toast.makeText(getApplicationContext(), "Krav til brugeroplysninger er ikke overholdt. Tjek efter og prøv igen", Toast.LENGTH_LONG).show();
             }
@@ -174,6 +176,8 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
                             Toast.makeText(CreateUserActivity.this, R.string.reg_failed, Toast.LENGTH_SHORT).show();
+                            loadViewTask.cancel(true);
+                            loadViewTask = null;
                         }
 
                     }
@@ -231,7 +235,17 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             return true;
     }
 
+    private void stopLoad() {
+        loadViewTask.cancel(true);
+        loadViewTask = null;
+    }
+
     private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
+
+        @Override
+        protected void onCancelled() {
+            progressDialog.dismiss();
+        }
 
         @Override
         protected void onPreExecute() {
@@ -244,10 +258,16 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             try {
                 synchronized (this) {
                     createAccount();
+                    int count = 0;
 
                     // Checker om brugeren er null
                     while(!checkUser()) {
                         this.wait(500);
+
+                        count++;
+                        if(count >= 200) {
+                            stopLoad();
+                        }
                     }
                 }
             } catch (InterruptedException e) {

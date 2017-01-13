@@ -5,65 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:background="@drawable/logo"/>
-
-    <EditText
-        android:id="@+id/login_username"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:hint="@string/CreateUserName"
-        android:textSize="18sp"
-        android:inputType="textEmailAddress"/>
+        android:paddingBottom="20dp">
 
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:hint="@string/StartPassword"
-        android:textSize="18sp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/login_btnlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:text="@string/StartLogin"
-        android:textAllCaps="false"
-        android:textColor="@color/colorWhite" />
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="105dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/logo"/>
 
-    <TextView
-        android:id="@+id/login_createuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:text="@string/StartCreateUser"
-        android:clickable="true"/>
+            <EditText
+                android:id="@+id/login_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:hint="@string/CreateUserName"
+                android:textSize="18sp"
+                android:inputType="textEmailAddress"/>
 
-    <TextView
-        android:id="@+id/login_forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:text="@string/StartForgotPassword"
-        android:clickable="true"/>
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:hint="@string/StartPassword"
+                android:textSize="18sp"/>
 
+            <Button
+                android:id="@+id/login_btnlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:text="@string/StartLogin"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
 
+            <TextView
+                android:id="@+id/login_createuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="@string/StartCreateUser"
+                android:clickable="true"/>
 
+            <TextView
+                android:id="@+id/login_forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="@string/StartForgotPassword"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
