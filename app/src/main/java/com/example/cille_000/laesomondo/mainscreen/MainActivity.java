@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
+import com.example.cille_000.laesomondo.entities.User;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

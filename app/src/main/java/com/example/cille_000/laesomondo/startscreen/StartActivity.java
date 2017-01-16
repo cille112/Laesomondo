@@ -64,6 +64,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         sharedPref = getSharedPreferences(getString(R.string.Prefrence_file_key), Context.MODE_PRIVATE);
 
 
+
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
 

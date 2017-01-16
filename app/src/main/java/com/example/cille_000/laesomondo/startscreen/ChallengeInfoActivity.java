@@ -43,6 +43,7 @@ public class ChallengeInfoActivity extends AppCompatActivity implements View.OnC
         if(v == challenge) {
             Intent intent = new Intent(this, TextInfoActivity.class);
             intent.putExtra("textID", 1);
+            intent.putExtra("category", "Anbefalet");
             startActivity(intent);
         }
         else if(v == later) {
