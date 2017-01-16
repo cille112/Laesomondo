@@ -6,7 +6,6 @@ import android.content.Intent;
 
 import com.example.cille_000.laesomondo.challengescreen.TestResultActivity;
 import com.example.cille_000.laesomondo.entities.ReadingTest;
-import com.example.cille_000.laesomondo.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,6 @@ import java.util.List;
 public class TestLogic {
 
     private ReadingTest readingTest;
-    private User user;
     private Long startTime, stopTime, startPause, stopPause;
     private ArrayList<Long> pauses = new ArrayList<>();
     private Long totalTime;
@@ -74,12 +72,13 @@ public class TestLogic {
     }
 
     public long getTime(){
+        System.out.println(totalTime);
         return totalTime;
     }
 
     private int calculateXP(long time){
         int standardReadingSpeed = 3;
-        int seconds = (int) time/1000%60;
+        int seconds = (int) time/1000;
         int readingspeed = readingTest.getWordCount()/standardReadingSpeed;
         int xp = (readingTest.getLix()*correct)+readingspeed-seconds+50;
         if(xp <= 10){return 10;}
