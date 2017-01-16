@@ -44,6 +44,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private int seconds;
     private String oldTextRead;
     private Intent intent;
+    private String category;
 
 
     @Override
@@ -63,6 +64,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         userId = firebaseAuth.getCurrentUser().getUid();
 
         intent = getIntent();
+        category = intent.getStringExtra("category");
+        textID = intent.getIntExtra("textID", 1);
 
         ok = (Button) findViewById(R.id.TestButton);
 
@@ -112,8 +115,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     }
                 }
                 oldTextRead = oldTextRead.substring(0, oldTextRead.length()-1);
-                textID = intent.getIntExtra("textID", 1);
-                String string = Integer.toString(textID);
+                String string = Integer.toString(textID)+category;
                 if (!textReadArray.contains(string)){
                     updateDBStats();
                 }
@@ -133,11 +135,10 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
     public void updateDBStats(){
         time = intent.getLongExtra("time", 0);
-        System.out.println("in on create testresult" + time);
         correct = intent.getIntExtra("correct", 0);
         xp = intent.getIntExtra("xp", 0);
         logic = new TestLogic(this);
-        logic.setText(textID);
+        logic.setText(textID, category);
         lix = intent.getIntExtra("lix", 0);
         wordCount = intent.getIntExtra("wordCount", 0);
 
@@ -155,12 +156,10 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
                 //texts that has been read
                 if (!snap.child("users").child(userId).child("textRead").exists()) {
-                    database.child("users").child(userId).child("textRead").setValue(textID);
+                    database.child("users").child(userId).child("textRead").setValue(textID+category);
                 }
                 else {
-                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID);
-                    texts = oldTextRead + " " + textID;
-                    booksRead = texts.length()/2+1;
+                    database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID+category);
                 }
                 //xp
                 if (!snap.child("users").child(userId).child("xp").exists()) {
@@ -178,15 +177,11 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     if (snap.child("users").child(userId).child("xp").exists()) {
                         int totalXp = (Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())+xp);
                         for (int i = 2; i < 11; i++) {
-                            System.out.println("level: " + i +" xp: " + (150 * (Math.pow(i,(1.5)))));
                             if(totalXp > (int) (150 * (Math.pow(i,(1.5))))){
                                 database.child("users").child(userId).child("level").setValue(i);
                             }
                         }
-
-
                     }
-
                 }
 
                 //lix
@@ -237,7 +232,5 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() { }
-
-
 
 }

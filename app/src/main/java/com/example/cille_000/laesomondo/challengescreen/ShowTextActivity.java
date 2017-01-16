@@ -30,6 +30,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
     private boolean paused = false;
     private ScrollView scrool;
     private int textID;
+    private String category;
     private DatabaseReference database;
     private FirebaseAuth firebaseAuth;
 
@@ -40,9 +41,10 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
+        category = intent.getStringExtra("category");
 
         logic = new TestLogic(this);
-        logic.beginTest(textID);
+        logic.beginTest(textID, category);
 
         pdf = (TextView) findViewById(R.id.PDF);
         pause = (ImageButton) findViewById(R.id.pauseButton);
@@ -104,6 +106,7 @@ public class ShowTextActivity extends AppCompatActivity implements View.OnClickL
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("textID", textID);
             intent.putExtra("time", logic.getTime());
+            intent.putExtra("category", category);
             startActivity(intent);
         }
 

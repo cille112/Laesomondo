@@ -30,6 +30,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private TextView question;
     private int questionNumber = 1;
     private boolean busy;
+    private String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
         time = intent.getLongExtra("time", 0);
+        category = intent.getStringExtra("category");
         logic = new TestLogic(this);
-        logic.setText(textID);
+        logic.setText(textID, category);
         busy = false;
 
         first = (Button) findViewById(R.id.firstAnswer);
@@ -188,7 +190,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         thirdQuestion();
                         break;
                     case 4:
-                        logic.getResult(textID, time);
+                        logic.getResult(textID, time, category);
                         break;
                     default:
                         break;

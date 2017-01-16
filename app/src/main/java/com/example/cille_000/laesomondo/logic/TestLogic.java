@@ -24,17 +24,16 @@ public class TestLogic {
     // Skal tage imod en user!!
     public TestLogic(Context context){
         this.context = context;
-        //this.user = user;
         readingTest = new ReadingTest(context);
     }
 
-    public void setText(int textID){
-        readingTest.setTextID(textID);
+    public void setText(int textID, String category){
+        readingTest.setTextID(textID, category);
     }
 
-    public void beginTest(int id){
+    public void beginTest(int id, String categoryID){
         startTime = System.currentTimeMillis();
-        readingTest.setTextID(id);
+        readingTest.setTextID(id, categoryID);
     }
 
     public String getText(){
@@ -97,7 +96,7 @@ public class TestLogic {
     }
 
     // add xp to user
-    public void getResult(int textID, Long time){
+    public void getResult(int textID, Long time, String categoryID){
         int xp = calculateXP(time);
         Intent intent = new Intent(context, TestResultActivity.class);
         intent.putExtra("time", time);
@@ -106,6 +105,7 @@ public class TestLogic {
         intent.putExtra("xp", xp);
         intent.putExtra("lix", readingTest.getLix());
         intent.putExtra("wordCount", readingTest.getWordCount());
+        intent.putExtra("category", categoryID);
         context.startActivity(intent);
     }
 }

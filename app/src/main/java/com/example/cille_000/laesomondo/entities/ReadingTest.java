@@ -15,16 +15,18 @@ public class ReadingTest {
     private List<String> listInfo;
     private int textID;
     private Context context;
+    private String category;
 
     public ReadingTest(Context context){
         this.context = context;
     }
 
-    public void setTextID(int id){
+    public void setTextID(int id, String categoryID){
         textID = id;
+        this.category = categoryID;
         String info;
         try {
-            InputStream is = context.getAssets().open("text" + textID + ".txt");
+            InputStream is = context.getAssets().open("text" + textID + category +  ".txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -34,7 +36,7 @@ public class ReadingTest {
             e.printStackTrace();
         }
         try {
-            InputStream is = context.getAssets().open("text" + textID + "Info.txt");
+            InputStream is = context.getAssets().open("text" + textID + category + "Info.txt");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

@@ -33,12 +33,11 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
-        Bundle bundle = intent.getExtras();
-        category = (String) bundle.get("category");
+        category = intent.getStringExtra("category");
 
         button = (Button) findViewById(R.id.button3);
         logic = new TestLogic(this);
-        logic.setText(textID);
+        logic.setText(textID, category);
         textInfo = (TextView) findViewById(R.id.textInfo);
         textInfoname = (TextView) findViewById(R.id.textInfoName);
         cover = (ImageView) findViewById(R.id.textCover);
@@ -69,7 +68,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         if(v==button) {
             Intent intent = new Intent(this, ShowTextActivity.class);
             intent.putExtra("textID", textID);
-
+            intent.putExtra("category", category);
             startActivity(intent);
         }
         else if(v==cancel){
