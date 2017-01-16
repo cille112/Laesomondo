@@ -6,7 +6,6 @@ import android.content.Intent;
 
 import com.example.cille_000.laesomondo.challengescreen.TestResultActivity;
 import com.example.cille_000.laesomondo.entities.ReadingTest;
-import com.example.cille_000.laesomondo.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,6 @@ import java.util.List;
 public class TestLogic {
 
     private ReadingTest readingTest;
-    private User user;
     private Long startTime, stopTime, startPause, stopPause;
     private ArrayList<Long> pauses = new ArrayList<>();
     private Long totalTime;
