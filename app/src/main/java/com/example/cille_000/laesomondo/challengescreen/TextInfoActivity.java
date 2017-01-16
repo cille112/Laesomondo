@@ -24,6 +24,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
     private TextView textInfoname;
     private ImageView cover;
     private TextView cancel;
+    private String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         textID = intent.getIntExtra("textID", 1);
+        Bundle bundle = intent.getExtras();
+        category = (String) bundle.get("category");
 
         button = (Button) findViewById(R.id.button3);
         logic = new TestLogic(this);
@@ -66,6 +69,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         if(v==button) {
             Intent intent = new Intent(this, ShowTextActivity.class);
             intent.putExtra("textID", textID);
+
             startActivity(intent);
         }
         else if(v==cancel){
@@ -74,22 +78,22 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private int findDrawable(){
-        if (textID == 1){
+        if (textID == 1 && category.equals("Anbefalet")){
             return R.drawable.text1cover;
         }
-        if (textID == 2){
+        if (textID == 2 && category.equals("Anbefalet")){
             return R.drawable.text2cover;
         }
-        if (textID == 3){
+        if (textID == 3 && category.equals("Anbefalet")){
             return R.drawable.text3cover;
         }
-        if (textID == 4){
+        if (textID == 4 && category.equals("Anbefalet")){
             return R.drawable.text4cover;
         }
-        if (textID == 5){
+        if (textID == 5 && category.equals("Anbefalet")){
             return R.drawable.text5cover;
         }
-        if (textID == 6){
+        if (textID == 1 && category.equals("Adventure") ){
             return R.drawable.adventure01;
         }
         if (textID == 7){
