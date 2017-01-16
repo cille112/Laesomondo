@@ -74,12 +74,13 @@ public class TestLogic {
     }
 
     public long getTime(){
+        System.out.println(totalTime);
         return totalTime;
     }
 
     private int calculateXP(long time){
         int standardReadingSpeed = 3;
-        int seconds = (int) time/1000%60;
+        int seconds = (int) time/1000;
         int readingspeed = readingTest.getWordCount()/standardReadingSpeed;
         int xp = (readingTest.getLix()*correct)+readingspeed-seconds+50;
         if(xp <= 10){return 10;}

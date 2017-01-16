@@ -147,7 +147,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
         info = (TextView) findViewById(R.id.resultInfo);
 
-        seconds = (int) (time / 1000) % 60 ;
+        seconds = (int) (time / 1000);
         info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
 
 
