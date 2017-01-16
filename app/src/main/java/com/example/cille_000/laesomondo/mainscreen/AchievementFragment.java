@@ -115,27 +115,27 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
                 } else{
                     achievementd.setImageResource(R.drawable.achievementlocked);
                 }
-                if(wordMinValue >= 20) { //wordMin
+                if(wordMinValue >= 150) { //wordMin
                     achievemente.setImageResource(R.drawable.achievement5);
                 } else{
                     achievemente.setImageResource(R.drawable.achievementlocked);
                 }
-                if(wordMinValue >= 40) { //wordMin
+                if(wordMinValue >= 250) { //wordMin
                     achievementf.setImageResource(R.drawable.achievement6);
                 } else{
                     achievementf.setImageResource(R.drawable.achievementlocked);
                 }
-                if(lixValue >= 10) { //LIX
+                if(lixValue >= 25) { //LIX
                     achievementg.setImageResource(R.drawable.achievement7);
                 } else{
                     achievementg.setImageResource(R.drawable.achievementlocked);
                 }
-                if(lixValue >= 20) { //LIX
+                if(lixValue >= 30) { //LIX
                     achievementh.setImageResource(R.drawable.achievement8);
                 } else{
                     achievementh.setImageResource(R.drawable.achievementlocked);
                 }
-                if(lixValue >= 30) { //LIX
+                if(lixValue >= 35) { //LIX
                     achievementi.setImageResource(R.drawable.achievement9);
                 } else{
                     achievementi.setImageResource(R.drawable.achievementlocked);
@@ -186,35 +186,35 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
         }
 
         if(v == achievemente){
-                if(wordMinValue >= 20){
+                if(wordMinValue >= 150){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentEInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementf){
-                if(wordMinValue >= 40){
+                if(wordMinValue >= 250){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentFInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementg){
-                if(lixValue >= 10){
+                if(lixValue >= 25){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentGInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementh){
-                if(lixValue >= 20){
+                if(lixValue >= 30){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentHInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementi){
-               if(lixValue >= 30){
+               if(lixValue >= 35){
                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentIInfo),
                            Toast.LENGTH_LONG).show();
                }

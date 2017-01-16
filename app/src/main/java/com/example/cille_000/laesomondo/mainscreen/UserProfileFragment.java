@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileFragment extends Fragment implements View.OnClickListener {
 
-    private TextView lixValue, wordMinValue, XPValue;
+    private TextView lixValue, wordMinValue, XPValue, levelValue;
     private ImageButton achievement, stats;
     private ImageView profilePicture;
     private FirebaseAuth firebaseAuth;
@@ -41,6 +41,7 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
         lixValue = (TextView) view.findViewById(R.id.userprofile_lixvalue);
         achievement = (ImageButton) view.findViewById(R.id.userprofile_achievement);
         stats = (ImageButton) view.findViewById(R.id.userprofile_stats);
+        levelValue = (TextView) view.findViewById(R.id.level);
 
         achievement.setOnClickListener(this);
         stats.setOnClickListener(this);
@@ -82,6 +83,12 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                     lixValue.setText("0 Lix");
                 }else{
                     lixValue.setText(snap.child("users").child(userId).child("lix").getValue().toString()+ " Lix");
+                }
+                //Level
+                if (!snap.child("users").child(userId).child("level").exists()){
+                    lixValue.setText("Level 0");
+                }else{
+                    levelValue.setText("Level " + snap.child("users").child(userId).child("level").getValue().toString());
                 }
                     //XP
                 if(!snap.child("users").child(userId).child("xp").exists()){

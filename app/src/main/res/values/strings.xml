@@ -76,11 +76,11 @@
     <string name="AchievementFragmentBInfo">Du kom i level 1</string>
     <string name="AchievementFragmentCInfo">Du kom i level 5</string>
     <string name="AchievementFragmentDInfo">Du kom i level 10</string>
-    <string name="AchievementFragmentEInfo">20 ord i minuttet</string>
-    <string name="AchievementFragmentFInfo">40 ord i minuttet</string>
-    <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 10</string>
-    <string name="AchievementFragmentHInfo">Du læser med sværhedsgraden Lix 20</string>
-    <string name="AchievementFragmentIInfo">Du læser med sværhedsgraden Lix 30</string>
+    <string name="AchievementFragmentEInfo">150 ord i minuttet</string>
+    <string name="AchievementFragmentFInfo">250 ord i minuttet</string>
+    <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 25</string>
+    <string name="AchievementFragmentHInfo">Du læser med sværhedsgraden Lix 30</string>
+    <string name="AchievementFragmentIInfo">Du læser med sværhedsgraden Lix 35</string>
 
     <!-- STATS FRAGMENT -->
     <string name="StatsFragmentDescription">Her kan du sammenligne dig med gennemsnittet</string>

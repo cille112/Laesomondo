@@ -31,7 +31,7 @@ public class StatsFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
-    private int lixValue, wordMinValue, correctness, booksRead;
+    private int lixValue, wordMinValue, correctness, booksRead, level;
     private String userId;
     private double correctnessD;
     private Context c;
@@ -84,6 +84,13 @@ public class StatsFragment extends Fragment {
                     wordMinValue = Integer.parseInt(snap.child("users").child(userId).child("speed").getValue().toString());
                 }
 
+                //level
+                if(!snap.child("users").child(userId).child("level").exists()){
+                    level = 0;
+                }else{
+                    level = Integer.parseInt(snap.child("users").child(userId).child("level").getValue().toString());
+                }
+
                 // Correctness
                 if(!snap.child("users").child(userId).child("correctness").exists()){
                     correctness = 0;
@@ -92,7 +99,7 @@ public class StatsFragment extends Fragment {
                     correctness = (int)(correctnessD/3*100);
                 }
 
-                // Correctness
+                // textread
                 if(!snap.child("users").child(userId).child("textRead").exists()){
                     booksRead = 0;
                 }else{
@@ -107,14 +114,14 @@ public class StatsFragment extends Fragment {
                 entries1.add(new Entry(wordMinValue, 1));
                 entries1.add(new Entry(correctness, 2));
                 entries1.add(new Entry(booksRead, 3));
-                entries1.add(new Entry(10, 4));
+                entries1.add(new Entry(level, 4));
 
                 ArrayList<Entry> entries2 = new ArrayList<>();
                 entries2.add(new Entry(30, 0));
-                entries2.add(new Entry(60, 1));
+                entries2.add(new Entry(200, 1));
                 entries2.add(new Entry(70, 2));
                 entries2.add(new Entry(4, 3));
-                entries2.add(new Entry(7, 4));
+                entries2.add(new Entry(5, 4));
 
 
 

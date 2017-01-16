@@ -138,7 +138,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     }
 
     public void displayView(int position) {
-        System.out.println("displayView");
         Fragment fragment = null;
         String title = getString(R.string.app_name);
         switch (position) {
@@ -186,7 +185,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         }
 
         if (fragment != null) {
-            System.out.println("not null");
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_body, fragment);
@@ -195,8 +193,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             // Toolbar title
             getSupportActionBar().setTitle(title);
         }
-
-        System.out.println(current);
     }
 
     private void logout() {

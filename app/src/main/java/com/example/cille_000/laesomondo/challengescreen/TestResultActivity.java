@@ -93,7 +93,6 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 char c;
                 char c2;
                 String s = "";
-                System.out.println("OldTextRead " + oldTextRead);
                 oldTextRead = oldTextRead + " ";
                 int i = 0;
                 while (i<oldTextRead.length()-1) {
@@ -111,7 +110,6 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                         s = s + c;
                         i++;
                     }
-                    //System.out.println(Arrays.toString(textReadArray.toArray()));
                 }
                 oldTextRead = oldTextRead.substring(0, oldTextRead.length()-1);
                 textID = intent.getIntExtra("textID", 1);
@@ -175,17 +173,14 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 //level
                 if (!snap.child("users").child(userId).child("level").exists()) {
                     database.child("users").child(userId).child("level").setValue(1);
-                    System.out.println("level findes ikke");
                 }
                 else{
                     if (snap.child("users").child(userId).child("xp").exists()) {
                         int totalXp = (Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())+xp);
-                        System.out.println(totalXp);
                         for (int i = 2; i < 11; i++) {
                             System.out.println("level: " + i +" xp: " + (150 * (Math.pow(i,(1.5)))));
-                            if(totalXp > 150 * (Math.pow(i,(1.5)))){
+                            if(totalXp > (int) (150 * (Math.pow(i,(1.5))))){
                                 database.child("users").child(userId).child("level").setValue(i);
-                                System.out.println("level databe " + i);
                             }
                         }
 
