@@ -1,7 +1,9 @@
 package com.example.cille_000.laesomondo.startscreen;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,10 +47,11 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private AvatarFragment avatarFragment;
     private StartLogic logic;
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authListener;
     private DatabaseReference database;
     private ProgressDialog progressDialog;
     private LoadViewTask loadViewTask;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,8 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
         avatarFragment = new AvatarFragment();
         logic = new StartLogic();
+
+        sharedPref = getSharedPreferences(getString(R.string.Prefrence_file_key), Context.MODE_PRIVATE);
 
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
@@ -202,6 +207,10 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void nextActivity() {
         if (firebaseAuth.getCurrentUser() != null) {
+            editor = sharedPref.edit();
+            editor.putString("email", email.getText().toString()).commit();
+            editor.putString("password", password.getText().toString()).commit();
+            editor.commit();
             writeNewUser(email.getText().toString(), birthDate.getText().toString(), avatarFragment.getCurrent(), 16);
             finish();
             Intent mainscreen = new Intent(this, ChallengeInfoActivity.class);

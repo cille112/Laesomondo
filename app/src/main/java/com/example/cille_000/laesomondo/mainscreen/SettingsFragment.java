@@ -39,7 +39,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private AvatarFragment avatarFragment;
     private int currentPic;
     private CheckBox notification;
-    private Boolean noti = false;
+    private Boolean noti;
     private Alarm alarm;
 
     public SettingsFragment() {
@@ -112,7 +112,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             @Override
             public void onDataChange(DataSnapshot snap) {
                 if (snap.child("users").child(userId).hasChild("Notification")) {
-                    noti = Boolean.parseBoolean(snap.child("users").child(userId).child("Notification").getValue().toString());
+                    notification.setChecked(Boolean.parseBoolean(snap.child("users").child(userId).child("Notification").getValue().toString()));
+                }
+                else {
+                    notification.setChecked(true);
                 }
             }
             @Override
@@ -120,7 +123,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             }
         });
 
-        notification.setChecked(noti);
         profilePicture.setBackgroundResource(currentPic);
 
         return view;
