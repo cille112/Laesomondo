@@ -73,9 +73,9 @@
     <string name="AchievementFragmentH">AchivementH</string>
     <string name="AchievementFragmentI">AchivementI</string>
     <string name="AchievementFragmentAInfo">Hurra! Du gennemførte din første udfordring</string>
-    <string name="AchievementFragmentBInfo">Du kom i level 5</string>
-    <string name="AchievementFragmentCInfo">Du kom i level 10</string>
-    <string name="AchievementFragmentDInfo">Du kom i level 15</string>
+    <string name="AchievementFragmentBInfo">Du kom i level 1</string>
+    <string name="AchievementFragmentCInfo">Du kom i level 5</string>
+    <string name="AchievementFragmentDInfo">Du kom i level 10</string>
     <string name="AchievementFragmentEInfo">20 ord i minuttet</string>
     <string name="AchievementFragmentFInfo">40 ord i minuttet</string>
     <string name="AchievementFragmentGInfo">Du læser med sværhedsgraden Lix 10</string>

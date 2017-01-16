@@ -88,6 +88,11 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
                 }else{
                     wordMinValue = Integer.parseInt(snap.child("users").child(userId).child("speed").getValue().toString());
                 }
+                if(!snap.child("users").child(userId).child("level").exists()){
+                    userLevel = 0;
+                }else{
+                    userLevel = Integer.parseInt(snap.child("users").child(userId).child("level").getValue().toString());
+                }
 
 
                 if(XPValue >= 1) { // first test taken
@@ -95,17 +100,17 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
                 } else{
                     achievementa.setImageResource(R.drawable.achievementlocked);
                 }
-                if(0 >= 5) { //userlevel
+                if(userLevel >= 1) { //userlevel
                     achievementb.setImageResource(R.drawable.achievement2);
                 } else{
                     achievementb.setImageResource(R.drawable.achievementlocked);
                 }
-                if(0 >= 10) { //userlevel
+                if(userLevel >= 5) { //userlevel
                     achievementc.setImageResource(R.drawable.achievement3);
                 } else{
                     achievementc.setImageResource(R.drawable.achievementlocked);
                 }
-                if(0 >= 15) { //userlevel
+                if(userLevel >= 10) { //userlevel
                     achievementd.setImageResource(R.drawable.achievement4);
                 } else{
                     achievementd.setImageResource(R.drawable.achievementlocked);
@@ -160,21 +165,21 @@ public class AchievementFragment extends Fragment implements View.OnClickListene
         }
 
         if(v == achievementb) {
-                if(0 >= 5){
+                if(userLevel >= 1){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentBInfo),
                             Toast.LENGTH_LONG).show();
                 }
         }
 
         if(v == achievementc){
-               if(0 >= 10){
+               if(userLevel >= 5){
                    Toast.makeText(getActivity(), getString(R.string.AchievementFragmentCInfo),
                            Toast.LENGTH_LONG).show();
                }
         }
 
         if(v == achievementd){
-                if(0 >= 15){
+                if(userLevel >= 10){
                     Toast.makeText(getActivity(), getString(R.string.AchievementFragmentDInfo),
                             Toast.LENGTH_LONG).show();
                 }

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.math.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.example.cille_000.laesomondo.R;
@@ -70,9 +68,9 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
         ok.setOnClickListener(this);
 
+
+
         update();
-
-
 
     }
 
@@ -81,6 +79,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
     public void update(){
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -135,7 +134,6 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void updateDBStats(){
-
         time = intent.getLongExtra("time", 0);
         System.out.println("in on create testresult" + time);
         correct = intent.getIntExtra("correct", 0);
@@ -149,6 +147,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
         seconds = (int) (time / 1000);
         info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
+
 
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -173,6 +172,28 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     oldXp = Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString());
                     database.child("users").child(userId).child("xp").setValue(oldXp + xp);
                 }
+                //level
+                if (!snap.child("users").child(userId).child("level").exists()) {
+                    database.child("users").child(userId).child("level").setValue(1);
+                    System.out.println("level findes ikke");
+                }
+                else{
+                    if (snap.child("users").child(userId).child("xp").exists()) {
+                        int totalXp = (Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())+xp);
+                        System.out.println(totalXp);
+                        for (int i = 2; i < 11; i++) {
+                            System.out.println("level: " + i +" xp: " + (150 * (Math.pow(i,(1.5)))));
+                            if(totalXp > 150 * (Math.pow(i,(1.5)))){
+                                database.child("users").child(userId).child("level").setValue(i);
+                                System.out.println("level databe " + i);
+                            }
+                        }
+
+
+                    }
+
+                }
+
                 //lix
                 if (!snap.child("users").child(userId).child("lix").exists()){
                     database.child("users").child(userId).child("lix").setValue(lix);
@@ -218,6 +239,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
             }
         });
     }
+
     @Override
     public void onBackPressed() { }
 
