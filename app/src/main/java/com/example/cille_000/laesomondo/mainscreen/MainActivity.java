@@ -44,10 +44,9 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private ContactFragment contactFragment;
     private AchievementFragment achievementFragment;
     private StatsFragment statsFragment;
-    private String userId;
+    private String userId, genre;
     public static int current;
     private View icon;
-    private String genre;
     private ProgressDialog progressDialog;
 
     @Override
@@ -137,10 +136,10 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         Fragment fragment = null;
         String title = getString(R.string.app_name);
         Bundle bundle = new Bundle();
-        bundle.putString("genre", genre);
         switch (position) {
             case 0:
                 fragment = new BookFragment();
+                bundle.putString("genre", genre);
                 fragment.setArguments(bundle);
                 title = getString(R.string.title_books);
                 current = 0;
@@ -228,12 +227,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     }
 
 
-    // Asynctask, loader mens brugeren indlæses
+    // Asynctask, loader mens bøgerne indlæses
     private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(MainActivity.this, "Henter data",
+            progressDialog = ProgressDialog.show(MainActivity.this, "Henter bøger",
                     "Vent venligst...", false, false);
         }
 
@@ -246,12 +245,10 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                     if(!isCancelled()) {
                         int i = 0;
                         while (genre==null) {
-                            i++;
                             this.wait(500);
-                            if(i==10){
+                            System.out.println(i);
+                            if(i++==10){
                                 this.cancel(true);
-                                Toast.makeText(getApplicationContext(), "Der skete en fejl.", Toast.LENGTH_SHORT).show();
-                                logout();
                             }
                         }
                     }
@@ -272,6 +269,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         @Override
         protected void onCancelled(){
             progressDialog.dismiss();
+            logout();
         }
     }
 
