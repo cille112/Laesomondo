@@ -8,9 +8,11 @@
     android:background="@drawable/shelfcolour7">
 
     <TextView
-        android:text="TextView"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/textsize_normal"
+        android:textColor="@color/colorGreyDark"
         android:id="@+id/textView" />
 
     <android.support.v7.widget.RecyclerView
