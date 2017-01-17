@@ -1,9 +1,12 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -32,6 +35,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
     private static String TAG = MainActivity.class.getSimpleName();
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference database;
     private ImageView profilePicture;
     private TextView email;
     private UserProfileFragment userProfileFragment;
@@ -43,6 +47,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private String userId;
     private static int current;
     private View icon;
+    private String genre;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
         setContentView(R.layout.activity_main);
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -63,20 +69,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         }
 
         profilePicture = (ImageView) findViewById(R.id.menuprofilepic);
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snap) {
-                if (snap.child("users").child(userId).hasChild("avatar")) {
-                    profilePicture.setImageDrawable(getResources().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString())));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Der skete en fejl i indlæsning af billeder", Toast.LENGTH_SHORT).show();
-                    close();
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+
 
         userProfileFragment = new UserProfileFragment();
         settingsFragment = new SettingsFragment();
@@ -97,7 +90,9 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         drawerFragment.setDrawerListener(this);
 
         // Det view der skal vises
-        displayView(current);
+//        displayView(current);
+
+        new LoadViewTask().execute();
     }
 
     private void close() {
@@ -141,9 +136,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     public void displayView(int position) {
         Fragment fragment = null;
         String title = getString(R.string.app_name);
+        Bundle bundle = new Bundle();
+        bundle.putString("genre", genre);
         switch (position) {
             case 0:
                 fragment = new BookFragment();
+                fragment.setArguments(bundle);
                 title = getString(R.string.title_books);
                 current = 0;
                 break;
@@ -201,6 +199,73 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         finish();
         Intent intent = new Intent(this, StartActivity.class);
         startActivity(intent);
+    }
+
+
+    private void collectData(){
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (snap.child("users").child(userId).hasChild("avatar")) {
+                    profilePicture.setImageDrawable(getResources().getDrawable(Integer.parseInt(snap.child("users").child(userId).child("avatar").getValue().toString())));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Der skete en fejl i indlæsning af billeder", Toast.LENGTH_SHORT).show();
+                    close();
+                }
+                if (!snap.child("users").child(userId).hasChild("Genre")) {
+                    String standardGenre = "Anbefalet Gyser Krimi Adventure";
+                    database.child("users").child(userId).child("Genre").setValue(standardGenre);
+                    genre = "Anbefalet Gyser Krimi Adventure";
+                }
+                else {
+                    genre = snap.child("users").child(userId).child("Genre").getValue().toString();
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+
+    // Asynctask, loader mens brugeren indlæses
+    private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(MainActivity.this, "Henter data",
+                    "Vent venligst...", false, false);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                synchronized (this) {
+                    collectData();
+
+                    if(!isCancelled()) {
+                        // Checker om brugeren er null
+                        while (genre==null) {
+                            this.wait(500);
+                        }
+                    }
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        // Efter ventetid
+        @Override
+        protected void onPostExecute(Void result) {
+            progressDialog.dismiss();
+            displayView(current);
+        }
+        @Override
+        protected void onCancelled(){
+        }
     }
 
 }
