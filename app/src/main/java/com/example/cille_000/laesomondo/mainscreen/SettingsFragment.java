@@ -154,11 +154,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
             if(currentPic != 0 && currentSize != 0 && isAdded()) {
                 database.child("users").child(userId).child("textSize").setValue(currentTextSize.getTextSize()/3);
                 database.child("users").child(userId).child("avatar").setValue(currentPic);
-                if(noti){
-                    alarm.setAlarm(getContext());
-                }
-                else{
-                    alarm.cancelAlarm(getContext());
+                if(noti != null) {
+                    if (noti) {
+                        alarm.setAlarm(getContext());
+                    } else {
+                        alarm.cancelAlarm(getContext());
+                    }
                 }
                 database.child("users").child(userId).child("Notification").setValue(noti);
                 Toast.makeText(getActivity(), "Ændringerne blev gemt", Toast.LENGTH_SHORT).show();

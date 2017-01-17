@@ -244,9 +244,15 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                     collectData();
 
                     if(!isCancelled()) {
-                        // Checker om brugeren er null
+                        int i = 0;
                         while (genre==null) {
+                            i++;
                             this.wait(500);
+                            if(i==10){
+                                this.cancel(true);
+                                Toast.makeText(getApplicationContext(), "Der skete en fejl.", Toast.LENGTH_SHORT).show();
+                                logout();
+                            }
                         }
                     }
                 }
@@ -265,6 +271,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         }
         @Override
         protected void onCancelled(){
+            progressDialog.dismiss();
         }
     }
 
