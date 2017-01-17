@@ -67,7 +67,7 @@ public class BookListAdapter extends ArrayAdapter<String> {
         }
         else if (itemname[position].equals("Adventure")){
             Integer[] adImages =  {
-                    R.drawable.adventure01, R.drawable.adventure02
+                    R.drawable.adventure01, R.drawable.adventure02, R.drawable.text3adventure, R.drawable.adventure04
             };
             bookList.add(adImages);
             bookListVerticalAdapter adapterAdventure = new bookListVerticalAdapter(context, bookList, bookList.indexOf(adImages), itemname[position]);
