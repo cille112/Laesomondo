@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -160,6 +162,13 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID+category);
+                    if(snap.child("users").child(userId).child("Genre").exists()) {
+                        String genre = snap.child("users").child(userId).child("Genre").getValue().toString();
+                        if(!genre.contains("Roman")) {
+                            database.child("users").child(userId).child("Genre").setValue(genre + " " + "Roman");
+                            Toast.makeText(getApplicationContext(), "Du har fået en ny genre", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
                 //xp
                 if (!snap.child("users").child(userId).child("xp").exists()) {
@@ -183,6 +192,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                         }
                     }
                 }
+
 
                 //lix
                 if (!snap.child("users").child(userId).child("lix").exists()){

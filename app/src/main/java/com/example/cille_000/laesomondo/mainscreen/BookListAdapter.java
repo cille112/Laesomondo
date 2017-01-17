@@ -89,6 +89,14 @@ public class BookListAdapter extends ArrayAdapter<String> {
             bookListVerticalAdapter adapterGys = new bookListVerticalAdapter(context, bookList, bookList.indexOf(gysImages), itemname[position]);
             recyclerView.setAdapter(adapterGys);
         }
+        else if (itemname[position].equals("Roman")){
+            Integer[] gysImages =  {
+                    R.drawable.text1roman, R.drawable.text2roman
+            };
+            bookList.add(gysImages);
+            bookListVerticalAdapter adapterGys = new bookListVerticalAdapter(context, bookList, bookList.indexOf(gysImages), itemname[position]);
+            recyclerView.setAdapter(adapterGys);
+        }
 
         TextView textView = (TextView) rowView.findViewById(R.id.textView);
         textView.setText(itemname[position]);

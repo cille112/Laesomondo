@@ -128,6 +128,12 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         else if(textID == 3 && category.equals("Gyser")) {
             return R.drawable.gyser03;
         }
+        else if(textID == 1 && category.equals("Roman")) {
+            return R.drawable.text1roman;
+        }
+        else if(textID == 2 && category.equals("Roman")) {
+            return R.drawable.text2roman;
+        }
         return 0;
     }
 }
