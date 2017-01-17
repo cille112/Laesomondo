@@ -102,7 +102,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
             return R.drawable.text3adventure;
         }
         else if(textID == 4 && category.equals("Adventure")) {
-            return R.drawable.text3adventure;
+            return R.drawable.adventure04;
         }
         else if (textID == 1 && category.equals("Krimi")){
             return R.drawable.text1krimi;
@@ -125,7 +125,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         else if (textID == 2 && category.equals("Gyser")){
             return R.drawable.gyser02;
         }
-        else if(textID == 3 && category.equals("Adventure")) {
+        else if(textID == 3 && category.equals("Gyser")) {
             return R.drawable.gyser03;
         }
         return 0;
