@@ -45,7 +45,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private AchievementFragment achievementFragment;
     private StatsFragment statsFragment;
     private String userId;
-    private static int current;
+    public static int current;
     private View icon;
     private String genre;
     private ProgressDialog progressDialog;

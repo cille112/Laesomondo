@@ -127,6 +127,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     private void startMain() {
         if (firebaseAuth.getCurrentUser() != null) {
+            MainActivity.current = 0;
             Intent mainscreen = new Intent(this, MainActivity.class);
             startActivity(mainscreen);
         }

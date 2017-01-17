@@ -47,6 +47,7 @@ public class ChallengeInfoActivity extends AppCompatActivity implements View.OnC
             startActivity(intent);
         }
         else if(v == later) {
+            MainActivity.current = 0;
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
