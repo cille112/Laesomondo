@@ -83,7 +83,7 @@ public class BookListAdapter extends ArrayAdapter<String> {
         }
         else if (itemname[position].equals("Gyser")){
             Integer[] gysImages =  {
-                    R.drawable.text1gyser, R.drawable.gyser02
+                    R.drawable.text1gyser, R.drawable.gyser02, R.drawable.gyser03
             };
             bookList.add(gysImages);
             bookListVerticalAdapter adapterGys = new bookListVerticalAdapter(context, bookList, bookList.indexOf(gysImages), itemname[position]);
