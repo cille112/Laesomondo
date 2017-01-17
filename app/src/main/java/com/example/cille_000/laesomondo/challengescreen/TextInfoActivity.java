@@ -80,23 +80,38 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         if (textID == 1 && category.equals("Anbefalet")){
             return R.drawable.text1cover;
         }
-        if (textID == 2 && category.equals("Anbefalet")){
+        else  if (textID == 2 && category.equals("Anbefalet")){
             return R.drawable.text2cover;
         }
-        if (textID == 3 && category.equals("Anbefalet")){
+        else if (textID == 3 && category.equals("Anbefalet")){
             return R.drawable.text3cover;
         }
-        if (textID == 4 && category.equals("Anbefalet")){
+        else if (textID == 4 && category.equals("Anbefalet")){
             return R.drawable.text4cover;
         }
-        if (textID == 5 && category.equals("Anbefalet")){
+        else if (textID == 5 && category.equals("Anbefalet")){
             return R.drawable.text5cover;
         }
-        if (textID == 1 && category.equals("Adventure") ){
+        else if (textID == 1 && category.equals("Adventure") ){
             return R.drawable.adventure01;
         }
-        if (textID == 7){
+        else if (textID == 2 && category.equals("Adventure") ){
+            return R.drawable.adventure02;
+        }
+        else if (textID == 1 && category.equals("Krimi")){
             return R.drawable.text1krimi;
+        }
+        else if (textID == 2 && category.equals("Krimi")){
+            return R.drawable.text2krimi;
+        }
+        else if (textID == 3 && category.equals("Krimi")){
+            return R.drawable.text3krimi;
+        }
+        else if (textID == 4 && category.equals("Krimi")){
+            return R.drawable.krimi04;
+        }
+        else if (textID == 5 && category.equals("Krimi")){
+            return R.drawable.text5krimi;
         }
 
         return 0;
