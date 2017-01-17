@@ -70,16 +70,16 @@ public class BookListAdapter extends ArrayAdapter<String> {
                     R.drawable.adventure01
             };
             bookList.add(adImages);
-            bookListVerticalAdapter adapter = new bookListVerticalAdapter(context, bookList, bookList.indexOf(adImages), itemname[position]);
-            recyclerView.setAdapter(adapter);
+            bookListVerticalAdapter adapterAdventure = new bookListVerticalAdapter(context, bookList, bookList.indexOf(adImages), itemname[position]);
+            recyclerView.setAdapter(adapterAdventure);
         }
         else if (itemname[position].equals("Krimi")){
             Integer[] krimImages =  {
                     R.drawable.text1krimi
             };
             bookList.add(krimImages);
-            bookListVerticalAdapter adapter = new bookListVerticalAdapter(context, bookList, bookList.indexOf(krimImages), itemname[position]);
-            recyclerView.setAdapter(adapter);
+            bookListVerticalAdapter adapterKrimi = new bookListVerticalAdapter(context, bookList, bookList.indexOf(krimImages), itemname[position]);
+            recyclerView.setAdapter(adapterKrimi);
         }
 
         TextView textView = (TextView) rowView.findViewById(R.id.textView);

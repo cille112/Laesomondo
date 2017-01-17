@@ -27,7 +27,7 @@ import java.util.List;
 import static com.example.cille_000.laesomondo.R.id.recyclerView;
 
 public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVerticalAdapter.bookViewHolder> {
-    private final Activity context;
+    private Activity context;
     private List<Integer[]> bookList;
     private int i;
     private String category;
