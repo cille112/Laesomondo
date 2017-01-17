@@ -23,7 +23,7 @@ public class BookFragment extends Fragment {
 
         ListView listView = (ListView) view.findViewById(R.id.ListView01);
         String[] itemname = {
-                "Anbefalet", "Adventure", "Krimi", ""
+                "Anbefalet", "Adventure", "Krimi", "Gyser"
         };
 
 

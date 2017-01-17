@@ -67,8 +67,7 @@ public class BookListAdapter extends ArrayAdapter<String> {
         }
         else if (itemname[position].equals("Adventure")){
             Integer[] adImages =  {
-                    R.drawable.adventure01,
-                    R.drawable.adventure02
+                    R.drawable.adventure01, R.drawable.adventure02
             };
             bookList.add(adImages);
             bookListVerticalAdapter adapterAdventure = new bookListVerticalAdapter(context, bookList, bookList.indexOf(adImages), itemname[position]);
@@ -81,6 +80,14 @@ public class BookListAdapter extends ArrayAdapter<String> {
             bookList.add(krimImages);
             bookListVerticalAdapter adapterKrimi = new bookListVerticalAdapter(context, bookList, bookList.indexOf(krimImages), itemname[position]);
             recyclerView.setAdapter(adapterKrimi);
+        }
+        else if (itemname[position].equals("Gyser")){
+            Integer[] gysImages =  {
+                    R.drawable.text1gyser, R.drawable.gyser02
+            };
+            bookList.add(gysImages);
+            bookListVerticalAdapter adapterGys = new bookListVerticalAdapter(context, bookList, bookList.indexOf(gysImages), itemname[position]);
+            recyclerView.setAdapter(adapterGys);
         }
 
         TextView textView = (TextView) rowView.findViewById(R.id.textView);
