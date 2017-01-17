@@ -65,12 +65,20 @@ public class BookListAdapter extends ArrayAdapter<String> {
             bookListVerticalAdapter adapter = new bookListVerticalAdapter(context, bookList, bookList.indexOf(bookImages), itemname[position]);
             recyclerView.setAdapter(adapter);
         }
-        else {
+        else if (itemname[position].equals("Adventure")){
             Integer[] adImages =  {
                     R.drawable.adventure01
             };
             bookList.add(adImages);
             bookListVerticalAdapter adapter = new bookListVerticalAdapter(context, bookList, bookList.indexOf(adImages), itemname[position]);
+            recyclerView.setAdapter(adapter);
+        }
+        else if (itemname[position].equals("Krimi")){
+            Integer[] krimImages =  {
+                    R.drawable.text1krimi
+            };
+            bookList.add(krimImages);
+            bookListVerticalAdapter adapter = new bookListVerticalAdapter(context, bookList, bookList.indexOf(krimImages), itemname[position]);
             recyclerView.setAdapter(adapter);
         }
 

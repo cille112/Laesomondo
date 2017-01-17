@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "677273937141-8opmqr3t2bq3r1gpmf5rkl50e9tj9tju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cille_000.laesomondo",
+            "certificate_hash": "259262433D601AAA36A7CE67EE6786763806F0E8"
+          }
+        },
+        {
           "client_id": "677273937141-q9e3deegrjemt67fdkllfs9oprok6o53.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677273937141-q9e3deegrjemt67fdkllfs9oprok6o53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
