@@ -163,6 +163,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                 }
                 database.child("users").child(userId).child("Notification").setValue(noti);
                 Toast.makeText(getActivity(), "Ændringerne blev gemt", Toast.LENGTH_SHORT).show();
+                ((MainActivity) this.getActivity()).displayView(0);
             }
         }
     }
