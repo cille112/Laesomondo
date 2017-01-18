@@ -160,8 +160,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                     } else {
                         alarm.cancelAlarm(getContext());
                     }
+                    database.child("users").child(userId).child("Notification").setValue(noti);
                 }
-                database.child("users").child(userId).child("Notification").setValue(noti);
                 Toast.makeText(getActivity(), "Ændringerne blev gemt", Toast.LENGTH_SHORT).show();
             }
         }
