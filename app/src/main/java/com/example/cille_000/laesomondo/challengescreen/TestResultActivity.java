@@ -205,6 +205,9 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
                 else {
                     oldLix = Integer.parseInt(snap.child("users").child(userId).child("lix").getValue().toString());
+                    String bar = snap.child("users").child(userId).child("textRead").getValue().toString();
+                    String[] split = bar.split( " " );
+                    booksRead = split.length+1;
                     double temp1 = ((oldLix*(booksRead-1)) + lix)/booksRead;
                     int temp = (int) temp1;
                     database.child("users").child(userId).child("lix").setValue(temp);
