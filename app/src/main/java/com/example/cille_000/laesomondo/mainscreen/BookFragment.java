@@ -11,7 +11,7 @@ import com.example.cille_000.laesomondo.R;
 
 //  Dette fragment viser alle bøgerne, hylderne osv. Det er 'startskærmen'
 public class BookFragment extends Fragment {
-    private String textRead;
+    private String textRead ="";
 
     public BookFragment() {
     }
