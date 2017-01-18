@@ -247,7 +247,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                         while (genre==null) {
                             this.wait(500);
                             System.out.println(i);
-                            if(i++==10){
+                            if(i++ == 40){
                                 this.cancel(true);
                             }
                         }
