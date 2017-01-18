@@ -251,7 +251,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
                     if(!isCancelled()) {
                         int i = 0;
-                        while (genre==null) {
+                        while (genre==null && textRead == null) {
                             this.wait(500);
                             System.out.println(i);
                             if(i++ == 40){
