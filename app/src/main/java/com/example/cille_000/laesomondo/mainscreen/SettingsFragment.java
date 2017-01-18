@@ -81,7 +81,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                     currentSize = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
                     currentTextSize.setTextSize(currentSize);
                     currentTextSize.setText("" + currentSize);
-                    Toast.makeText(getActivity(), currentSize + " Hentet fra database", Toast.LENGTH_SHORT).show();
                     seekBarTextSize.refreshDrawableState();
 
                     seekBarTextSize.setProgress((int) (currentSize - 16) * 100/20);
@@ -152,12 +151,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         if(v == save){
             if(currentPic != 0 && currentSize != 0 && isAdded()) {
                 String sizeText = currentTextSize.getText().toString();
-                System.out.println(sizeText + " før");
                 sizeText = sizeText.substring(0,2);
-                System.out.println(sizeText + " efter");
                 int size = Integer.parseInt(sizeText);
                 database.child("users").child(userId).child("textSize").setValue(size);
-                Toast.makeText(getActivity(), size + " gemt i database", Toast.LENGTH_SHORT).show();
                 database.child("users").child(userId).child("avatar").setValue(currentPic);
                 if(noti != null) {
                     if (noti) {
