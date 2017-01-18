@@ -1,17 +1,10 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.database.Observable;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.cille_000.laesomondo.R.id.recyclerView;
 
 public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVerticalAdapter.bookViewHolder> {
     private Activity context;
@@ -41,9 +32,6 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
     private Boolean testTaken;
     private FirebaseAuth firebaseAuth;
     private String userId;
-    private String oldTextRead;
-    private List<String> textReadArray = new ArrayList<>();
-    private ProgressDialog progressDialog;
     private String textRead;
 
 
@@ -76,8 +64,7 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
 
     @Override
     public void onBindViewHolder(bookViewHolder holder, int position) {
-        //bookImages = (list.get(position));
-        //addRibbon();
+
         String string = Integer.toString(position+1) + category;
         if(textRead.equals("")){
             holder.imageView.setImageResource(bookList.get(i)[position]);
@@ -151,46 +138,5 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
             }
         });
     }
-
-  /*  private void addRibbon() {
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snap) {
-                if (!snap.child("users").child(userId).child("textRead").exists()) {
-                    //oldTextRead = " ";
-                } else {
-                    oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
-                }
-
-                char c;
-                char c2;
-                String s = "";
-                oldTextRead = oldTextRead + " ";
-                int i = 0;
-                while (i < oldTextRead.length() - 1) {
-                    c = oldTextRead.charAt(i);
-                    c2 = oldTextRead.charAt(i + 1);
-
-                    if (c2 == ' ') {
-                        s = s + Character.toString(c);
-                        textReadArray.add(s);
-                        s = "";
-                        i = i + 2;
-                    } else {
-                        s = s + c;
-                        i++;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-*/
 
 }

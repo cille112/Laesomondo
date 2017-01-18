@@ -7,7 +7,6 @@
 
     <ImageView
         android:layout_height="122dp"
-        android:background="@drawable/adventure01"
         android:id="@+id/imageViewBooks"
         android:layout_width="81.6dp" />
 </LinearLayout>

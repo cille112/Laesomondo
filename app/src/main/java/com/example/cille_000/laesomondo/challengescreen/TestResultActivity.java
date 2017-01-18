@@ -93,28 +93,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
                 }
 
-                char c;
-                char c2;
-                String s = "";
-                oldTextRead = oldTextRead + " ";
-                int i = 0;
-                while (i < oldTextRead.length() - 1) {
-                    c = oldTextRead.charAt(i);
-                    c2 = oldTextRead.charAt(i + 1);
-
-                    if (c2 == ' ') {
-                        s = s + Character.toString(c);
-                        textReadArray.add(s);
-                        s = "";
-                        i=i+2;
-                    } else {
-                        s = s + c;
-                        i++;
-                    }
-                }
-                oldTextRead = oldTextRead.substring(0, oldTextRead.length()-1);
                 String string = Integer.toString(textID)+category;
-                if (!textReadArray.contains(string)){
+                if (!oldTextRead.contains(string)){
                     updateDBStats();
                 }
                 else{
