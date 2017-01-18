@@ -78,12 +78,25 @@ public class TestLogic {
     }
 
     private int calculateXP(long time){
-        int standardReadingSpeed = 3;
+        /*int seconds = (int) time/1000;
+        int readingspeed = readingTest.getWordCount()/(seconds+30);
+        int xp = (readingTest.getLix()*correct)*(readingspeed);
+        if(xp <= 10){return 10;}*/
         int seconds = (int) time/1000;
-        int readingspeed = readingTest.getWordCount()/standardReadingSpeed;
-        int xp = (readingTest.getLix()*correct)+readingspeed-seconds+50;
+        int readingspeed = readingTest.getWordCount()/(seconds+30);
+        int i = 0;
+
+        if (correct == 1)
+            i = 4;
+        if (correct == 2)
+            i = 12;
+        if (correct == 3)
+            i = 32;
+
+        int xp = (readingTest.getLix()*correct*3)+(readingspeed)*i;
         if(xp <= 10){return 10;}
         else {return xp;}
+
     }
 
     public boolean checkAnswer(int question, int answer){
