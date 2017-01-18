@@ -222,9 +222,11 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 }
 
                 if (!snap.child("users").child(userId).child("textRead").exists()) {
-
-                } else {
+                    System.out.println("ingen textRead");
+                }
+                else {
                     textRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                    System.out.println("Text read: " + textRead);
                 }
             }
             @Override
