@@ -17,12 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.entities.User;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
+import com.example.cille_000.laesomondo.util.ProgressBarMath;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,6 +50,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     public static int current;
     private View icon;
     private ProgressDialog progressDialog;
+    private ProgressBar mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
         contactFragment = new ContactFragment();
         achievementFragment = new AchievementFragment();
         statsFragment = new StatsFragment();
+        mProgress = (ProgressBar) findViewById(R.id.progressBar);
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         icon = findViewById(R.id.action_search);
@@ -227,6 +231,15 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 else {
                     textRead = snap.child("users").child(userId).child("textRead").getValue().toString();
                     System.out.println("Text read: " + textRead);
+                }
+
+                ProgressBarMath progressBarMath = new ProgressBarMath();
+
+                if(!snap.child("users").child(userId).child("xp").exists() && !snap.child("users").child(userId).child("level").exists() ) {
+                    mProgress.setProgress(0);
+                } else {
+                    mProgress.setProgress(progressBarMath.progressBarResault(Integer.parseInt(snap.child("users").child(userId).child("level").getValue().toString()),
+                            Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())));
                 }
             }
             @Override
