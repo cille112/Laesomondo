@@ -1,6 +1,7 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -40,7 +41,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
     private int currentPic;
     private CheckBox notification;
     private Boolean noti;
-    private Alarm alarm;
 
     public SettingsFragment() {
     }
@@ -56,8 +56,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         notification = (CheckBox) view.findViewById(R.id.noti);
 
         notification.setOnCheckedChangeListener(this);
-
-        alarm = new Alarm();
 
         save.setOnClickListener(this);
         profilePicture.setOnClickListener(this);
@@ -83,6 +81,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
                     currentSize = Float.parseFloat(snap.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("textSize").getValue().toString());
                     currentTextSize.setTextSize(currentSize);
                     currentTextSize.setText("" + currentSize);
+                    Toast.makeText(getActivity(), currentSize + " Hentet fra database", Toast.LENGTH_SHORT).show();
                     seekBarTextSize.refreshDrawableState();
 
                     seekBarTextSize.setProgress((int) (currentSize - 16) * 100/20);
@@ -152,13 +151,19 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         }
         if(v == save){
             if(currentPic != 0 && currentSize != 0 && isAdded()) {
-                database.child("users").child(userId).child("textSize").setValue(currentTextSize.getTextSize()/3);
+                String sizeText = currentTextSize.getText().toString();
+                System.out.println(sizeText + " før");
+                sizeText = sizeText.substring(0,2);
+                System.out.println(sizeText + " efter");
+                int size = Integer.parseInt(sizeText);
+                database.child("users").child(userId).child("textSize").setValue(size);
+                Toast.makeText(getActivity(), size + " gemt i database", Toast.LENGTH_SHORT).show();
                 database.child("users").child(userId).child("avatar").setValue(currentPic);
                 if(noti != null) {
                     if (noti) {
-                        alarm.setAlarm(getContext());
+                        Alarm.setAlarm(getContext());
                     } else {
-                        alarm.cancelAlarm(getContext());
+                        Alarm.cancelAlarm(getContext());
                     }
                     database.child("users").child(userId).child("Notification").setValue(noti);
                 }
@@ -177,7 +182,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener, 
         } else {
             size += progress / 5;
         }
-
         currentTextSize.setTextSize(size);
         currentTextSize.setText("" + size);
     }
