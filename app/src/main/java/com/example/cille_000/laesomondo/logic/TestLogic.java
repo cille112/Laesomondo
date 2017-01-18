@@ -46,6 +46,8 @@ public class TestLogic {
 
     public String getInfo (){ return readingTest.getInfo();}
 
+    public int getLix () { return readingTest.getLix();}
+
     public List<String> getQuestion1() {return readingTest.getQuestion1();}
 
     public List<String> getQuestion2() {return readingTest.getQuestion2();}
