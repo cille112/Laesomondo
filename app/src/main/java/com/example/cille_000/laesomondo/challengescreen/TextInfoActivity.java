@@ -35,6 +35,7 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
 
         button = (Button) findViewById(R.id.button3);
         logic = new TestLogic(this);
+
         logic.setText(textID, category);
         textInfo = (TextView) findViewById(R.id.textInfo);
         textInfoname = (TextView) findViewById(R.id.textInfoName);
@@ -42,8 +43,18 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
         cancel = (TextView) findViewById(R.id.cancel_test);
 
         cover.setImageResource(findDrawable());
+        String s = "";
+        int i = logic.getLix();
+        if (i <= 24)
+            s = "let";
+        else if (i >= 25 && i <= 34)
+            s = "middel";
+        else if (i >= 35 && i <= 44)
+            s = "svær";
+        else if (i >= 45)
+            s = "meget svær";
 
-        info =  getString(R.string.Second) + " " + logic.getWriter() + "\n\n" +
+        info =  getString(R.string.Second) + " " + logic.getWriter() +"\n"+ "Sværhedsgraden er " + s +" (Lix: " + i + ")" +"\n\n" +
                 getString(R.string.Third) + " " + logic.getInfo();
         textInfo.setText(info);
         textInfoname.setText(logic.getName());
