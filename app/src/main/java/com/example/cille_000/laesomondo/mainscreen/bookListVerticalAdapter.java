@@ -79,7 +79,10 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
         //bookImages = (list.get(position));
         //addRibbon();
         String string = Integer.toString(position+1) + category;
-        if (textRead.contains(string)) {
+        if(textRead.equals("")){
+            holder.imageView.setImageResource(bookList.get(i)[position]);
+        }
+        else if (textRead.contains(string)) {
             Drawable[] layers = new Drawable[2];
             layers[0] = context.getDrawable(bookList.get(i)[position]);
             layers[1] = context.getDrawable(R.drawable.ribbonred);
