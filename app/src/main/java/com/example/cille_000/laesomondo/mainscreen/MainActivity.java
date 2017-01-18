@@ -235,7 +235,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
 
                 ProgressBarMath progressBarMath = new ProgressBarMath();
 
-                if(!snap.child("users").child(userId).child("xp").exists() && !snap.child("users").child(userId).child("level").exists() ) {
+                if(!snap.child("users").child(userId).child("level").exists() ) {
                     mProgress.setProgress(0);
                 } else {
                     mProgress.setProgress(progressBarMath.progressBarResault(Integer.parseInt(snap.child("users").child(userId).child("level").getValue().toString()),

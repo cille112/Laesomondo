@@ -12,7 +12,7 @@ public class ProgressBarMath {
     public int progressBarResault(int level, int totalxp) {
         double p;
         if(level >= 1 && level <= 9){
-            p = (totalxp / (150 * (Math.pow(level, (1.5))))) * 100;
+            p = ((totalxp  * 100)/ (150 * (Math.pow(level+1, (1.5)))));
         } else if (level == 10){
             p = 100;
         } else {

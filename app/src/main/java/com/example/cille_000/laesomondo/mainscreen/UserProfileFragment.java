@@ -97,6 +97,12 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                 }else{
                     XPValue.setText(snap.child("users").child(userId).child("xp").getValue().toString()+ " XP");
                 }
+                if(!snap.child("users").child(userId).child("speed").exists()){
+                    wordMinValue.setText("0 Ord/Min");
+                }
+                else{
+                wordMinValue.setText(snap.child("users").child(userId).child("speed").getValue().toString()+ " Ord/Min");
+                }
 
             }
             @Override
