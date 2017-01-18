@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
+import com.example.cille_000.laesomondo.util.ProgressBarMath;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,11 +33,13 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
     private DatabaseReference database;
     private String userId;
     private Drawable avatar;
+    private ProgressBar mProgress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_userprofile, container, false);
 
+        mProgress = (ProgressBar) view.findViewById(R.id.progressBar);
         XPValue = (TextView) view.findViewById(R.id.userprofile_XPValue);
         wordMinValue = (TextView) view.findViewById(R.id.userprofile_wordminvalue);
         lixValue = (TextView) view.findViewById(R.id.userprofile_lixvalue);
@@ -102,6 +106,11 @@ public class UserProfileFragment extends Fragment implements View.OnClickListene
                 }else{
                     wordMinValue.setText(snap.child("users").child(userId).child("speed").getValue().toString()+ " Ord/Min");
                 }
+
+                ProgressBarMath progressBarMath = new ProgressBarMath();
+
+                mProgress.setProgress(progressBarMath.progressBarResault(Integer.parseInt(snap.child("users").child(userId).child("level").getValue().toString()),
+                        Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())));
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
