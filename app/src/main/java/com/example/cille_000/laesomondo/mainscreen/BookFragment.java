@@ -22,11 +22,13 @@ public class BookFragment extends Fragment {
 
 
         String genre = getArguments().getString("genre");
+        String textRead = getArguments().getString("textRead");
         String[] genres = genre.split("\\s+");
+        //String[] textsRead = textRead.split("\\s+");
 
         ListView listView = (ListView) view.findViewById(R.id.ListView01);
 
-        BookListAdapter adapter = new BookListAdapter(getActivity(), genres);
+        BookListAdapter adapter = new BookListAdapter(getActivity(), genres, textRead);
         listView.setAdapter(adapter);
         return view;
     }

@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
     private ContactFragment contactFragment;
     private AchievementFragment achievementFragment;
     private StatsFragment statsFragment;
-    private String userId, genre;
+    private String userId, genre, textRead;
     public static int current;
     private View icon;
     private ProgressDialog progressDialog;
@@ -140,6 +140,7 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
             case 0:
                 fragment = new BookFragment();
                 bundle.putString("genre", genre);
+                bundle.putString("textRead", textRead);
                 fragment.setArguments(bundle);
                 title = getString(R.string.title_books);
                 current = 0;
@@ -218,6 +219,12 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                 }
                 else {
                     genre = snap.child("users").child(userId).child("Genre").getValue().toString();
+                }
+
+                if (!snap.child("users").child(userId).child("textRead").exists()) {
+
+                } else {
+                    textRead = snap.child("users").child(userId).child("textRead").getValue().toString();
                 }
             }
             @Override

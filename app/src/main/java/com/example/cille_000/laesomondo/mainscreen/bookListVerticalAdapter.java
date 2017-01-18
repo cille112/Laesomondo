@@ -1,9 +1,15 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Observable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.cille_000.laesomondo.R.id.recyclerView;
@@ -34,13 +41,18 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
     private Boolean testTaken;
     private FirebaseAuth firebaseAuth;
     private String userId;
+    private String oldTextRead;
+    private List<String> textReadArray = new ArrayList<>();
+    private ProgressDialog progressDialog;
+    private String textRead;
 
 
-    public bookListVerticalAdapter(Activity context, List<Integer[]> bookList, int i, String category)  {
+    public bookListVerticalAdapter(Activity context, List<Integer[]> bookList, int i, String category, String textRead) {
         this.context = context;
         this.bookList = bookList;
         this.i = i;
         this.category = category;
+        this.textRead = textRead;
     }
 
 
@@ -51,11 +63,12 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser() != null){
+        if (firebaseAuth.getCurrentUser() != null) {
             userId = firebaseAuth.getCurrentUser().getUid();
         }
 
         checkTest();
+
 
         return new bookViewHolder(v);
     }
@@ -64,8 +77,16 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
     @Override
     public void onBindViewHolder(bookViewHolder holder, int position) {
         //bookImages = (list.get(position));
-        holder.imageView.setImageResource(bookList.get(i)[position]);
-        //holder.imageView.setOnClickListener(this);
+        //addRibbon();
+        String string = Integer.toString(position+1) + category;
+        if (textRead.contains(string)) {
+            Drawable[] layers = new Drawable[2];
+            layers[0] = context.getDrawable(bookList.get(i)[position]);
+            layers[1] = context.getDrawable(R.drawable.ribbonred);
+            LayerDrawable layerDrawable = new LayerDrawable(layers);
+            holder.imageView.setImageDrawable(layerDrawable);
+        } else
+            holder.imageView.setImageResource(bookList.get(i)[position]);
     }
 
     @Override
@@ -76,6 +97,7 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
 
     public class bookViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
+
         public bookViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.imageViewBooks);
@@ -92,14 +114,12 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
                             intent.putExtra("category", category);
                             context.startActivity(intent);
 
-                        }
-                        else {
+                        } else {
                             Toast.makeText(context, "Du skal tage læsetesten først", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(context, ChallengeInfoActivity.class);
                             context.startActivity(intent);
                         }
-                    }
-                    else{
+                    } else {
                         Toast.makeText(context, "Indlæser, prøv igen om lidt", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -107,13 +127,13 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
         }
     }
 
-    private void checkTest(){
+    private void checkTest() {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(userId!=null) {
+                if (userId != null) {
                     if (dataSnapshot.child("users").child(userId).child("textRead").exists()) {
                         testTaken = true;
                     } else {
@@ -128,5 +148,46 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
             }
         });
     }
+
+  /*  private void addRibbon() {
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                if (!snap.child("users").child(userId).child("textRead").exists()) {
+                    //oldTextRead = " ";
+                } else {
+                    oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                }
+
+                char c;
+                char c2;
+                String s = "";
+                oldTextRead = oldTextRead + " ";
+                int i = 0;
+                while (i < oldTextRead.length() - 1) {
+                    c = oldTextRead.charAt(i);
+                    c2 = oldTextRead.charAt(i + 1);
+
+                    if (c2 == ' ') {
+                        s = s + Character.toString(c);
+                        textReadArray.add(s);
+                        s = "";
+                        i = i + 2;
+                    } else {
+                        s = s + c;
+                        i++;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+*/
 
 }

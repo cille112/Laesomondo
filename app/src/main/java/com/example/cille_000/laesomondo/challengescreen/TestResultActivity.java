@@ -166,8 +166,12 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 }
                 else {
                     database.child("users").child(userId).child("textRead").setValue(oldTextRead + " " + textID+category);
+                    String bar = snap.child("users").child(userId).child("textRead").getValue().toString();
+                    String[] split = bar.split( " " );
+                    booksRead = split.length+1;
                     if(snap.child("users").child(userId).child("Genre").exists()) {
                         String genre = snap.child("users").child(userId).child("Genre").getValue().toString();
+
                         if(!genre.contains("Roman")) {
                             database.child("users").child(userId).child("Genre").setValue(genre + " " + "Roman");
                             Toast.makeText(getApplicationContext(), "Du har fået en ny genre", Toast.LENGTH_SHORT).show();
@@ -204,10 +208,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 }
 
                 else {
+
                     oldLix = Integer.parseInt(snap.child("users").child(userId).child("lix").getValue().toString());
-                    String bar = snap.child("users").child(userId).child("textRead").getValue().toString();
-                    String[] split = bar.split( " " );
-                    booksRead = split.length+1;
                     double temp1 = ((oldLix*(booksRead-1)) + lix)/booksRead;
                     int temp = (int) temp1;
                     database.child("users").child(userId).child("lix").setValue(temp);

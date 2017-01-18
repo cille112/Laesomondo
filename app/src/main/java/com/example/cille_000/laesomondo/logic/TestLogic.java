@@ -94,7 +94,7 @@ public class TestLogic {
             i = 32;
 
         int xp = (readingTest.getLix()*correct*3)+(readingspeed)*i;
-        if(xp <= 10){return 10;}
+        if(xp <= 50){return 50;}
         else {return xp;}
 
     }
