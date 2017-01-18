@@ -2,10 +2,12 @@ package com.example.cille_000.laesomondo.challengescreen;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ import com.example.cille_000.laesomondo.R;
 import com.example.cille_000.laesomondo.logic.TestLogic;
 import com.example.cille_000.laesomondo.mainscreen.MainActivity;
 import com.example.cille_000.laesomondo.startscreen.StartActivity;
+import com.github.jinatonic.confetti.CommonConfetti;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class TestResultActivity extends AppCompatActivity implements View.OnClickListener{
+public class TestResultActivity extends AppCompatActivity implements View.OnClickListener {
 
     private long time;
     private TestLogic logic;
@@ -40,6 +43,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     private String oldTextRead, category, userId, infoText;
     private Intent intent;
     private ProgressDialog progressDialog;
+    private ViewGroup container;
 
 
     @Override
@@ -63,6 +67,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         textID = intent.getIntExtra("textID", 1);
 
         ok = (Button) findViewById(R.id.TestButton);
+        container = (ViewGroup) findViewById(R.id.testresult_layout);
 
         ok.setOnClickListener(this);
 
@@ -84,14 +89,16 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 if (!snap.child("users").child(userId).child("textRead").exists()) {
                     oldTextRead = "";
                 }
-                else
+                else {
                     oldTextRead = snap.child("users").child(userId).child("textRead").getValue().toString();
+                }
+
                 char c;
                 char c2;
                 String s = "";
                 oldTextRead = oldTextRead + " ";
                 int i = 0;
-                while (i<oldTextRead.length()-1) {
+                while (i < oldTextRead.length() - 1) {
                     c = oldTextRead.charAt(i);
                     c2 = oldTextRead.charAt(i + 1);
 
@@ -100,9 +107,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                         textReadArray.add(s);
                         s = "";
                         i=i+2;
-                    }
-
-                    else {
+                    } else {
                         s = s + c;
                         i++;
                     }
@@ -127,7 +132,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
-    private void updateDBStats(){
+    private void updateDBStats() {
         time = intent.getLongExtra("time", 0);
         correct = intent.getIntExtra("correct", 0);
         xp = intent.getIntExtra("xp", 0);
@@ -142,7 +147,13 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         infoText = "Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp";
         info.setText(infoText);
 
-
+        if(correct == 3) {
+            CommonConfetti.rainingConfetti(container, new int[] {
+                    Color.argb(255, 255, 152, 0),
+                    Color.argb(255, 106, 170, 28),
+                    Color.argb(255, 68, 147, 15)
+            }).infinite();
+        }
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -235,6 +246,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onBackPressed() { }
+
 
     // Asynctask, loader mens brugeren indlæses
     private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
