@@ -23,9 +23,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int textID;
     private long time;
     private TestLogic logic;
-    private List<String> firstQuestion;
-    private List<String> secondQuestion;
-    private List<String> thirdQuestion;
+    private List<String> firstQuestion, secondQuestion, thirdQuestion;
     private Button first, second, third, fourth;
     private TextView question;
     private int questionNumber = 1;

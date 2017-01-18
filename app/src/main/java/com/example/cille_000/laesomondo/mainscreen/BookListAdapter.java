@@ -1,24 +1,15 @@
 package com.example.cille_000.laesomondo.mainscreen;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cille_000.laesomondo.R;
-import com.example.cille_000.laesomondo.challengescreen.TextInfoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +17,8 @@ import java.util.List;
 
 public class BookListAdapter extends ArrayAdapter<String> {
 
-    private final Activity context;
-    private final String[] itemname;
+    private Activity context;
+    private String[] itemname;
     private List<Integer[]> bookList;
 
     public BookListAdapter(Activity context, String[] itemname) {

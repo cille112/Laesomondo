@@ -1,6 +1,8 @@
 package com.example.cille_000.laesomondo.challengescreen;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,28 +27,19 @@ import com.google.firebase.database.ValueEventListener;
 public class TestResultActivity extends AppCompatActivity implements View.OnClickListener{
 
     private long time;
-    private int correct;
     private TestLogic logic;
-    private int xp;
     private TextView info;
     private Button ok;
-    private int textID;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference database;
-    private String userId;
-    private int oldXp;
-    private int oldLix;
-    private int lix;
-    private int wordCount;
+    private int oldXp, oldLix, lix, wordCount, oldSpeed, textID, xp, correct;
     private int booksRead = 1;
-    private int oldSpeed;
     private double oldCorrectness;
-    private String texts;
     private List<String> textReadArray = new ArrayList<>();
     private int seconds;
-    private String oldTextRead;
+    private String oldTextRead, category, userId, infoText;
     private Intent intent;
-    private String category;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -73,9 +66,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
 
         ok.setOnClickListener(this);
 
-
-
-        update();
+        new LoadViewTask().execute();
 
     }
 
@@ -85,7 +76,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         startActivity(intent);
     }
 
-    public void update(){
+    private void update(){
 
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -123,7 +114,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                 }
                 else{
                     info = (TextView) findViewById(R.id.resultInfo);
-                    info.setText("Du har allerede gennemført denne test");
+                    infoText = "Du har allerede gennemført denne test";
+                    info.setText(infoText);
                 }
             }
 
@@ -135,7 +127,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
-    public void updateDBStats(){
+    private void updateDBStats(){
         time = intent.getLongExtra("time", 0);
         correct = intent.getIntExtra("correct", 0);
         xp = intent.getIntExtra("xp", 0);
@@ -147,7 +139,8 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
         info = (TextView) findViewById(R.id.resultInfo);
 
         seconds = (int) (time / 1000);
-        info.setText("Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp");
+        infoText = "Antal korrekte svar: " + correct + "\nDu læste teksten på " + seconds + " sekunder. \nDu får " + xp + " xp";
+        info.setText(infoText);
 
 
 
@@ -243,4 +236,43 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onBackPressed() { }
 
+    // Asynctask, loader mens brugeren indlæses
+    private class LoadViewTask extends AsyncTask<Void, Integer, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = ProgressDialog.show(TestResultActivity.this, "Tjekker resultater",
+                    "Vent venligst...", false, false);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                update();
+                synchronized (this) {
+
+                    if (!isCancelled()) {
+                        while (infoText == "") {
+                            this.wait(500);
+                        }
+                    }
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        // Efter ventetid
+        @Override
+        protected void onPostExecute(Void result) {
+            progressDialog.dismiss();
+        }
+
+        @Override
+        protected void onCancelled() {
+            progressDialog.dismiss();
+        }
+    }
 }

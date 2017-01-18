@@ -84,7 +84,6 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
                 public void onClick(View v) {
                     if (testTaken != null) {
                         if (testTaken == true) {
-                            Toast.makeText(context, "clicked=" + getPosition(), Toast.LENGTH_SHORT).show();
                             final Intent intent;
 
                             //int pos = getAdapterPosition();
@@ -114,11 +113,12 @@ public class bookListVerticalAdapter extends RecyclerView.Adapter<bookListVertic
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("users").child(userId).child("textRead").exists()){
-                    testTaken = true;
-                }
-                else {
-                    testTaken = false;
+                if(userId!=null) {
+                    if (dataSnapshot.child("users").child(userId).child("textRead").exists()) {
+                        testTaken = true;
+                    } else {
+                        testTaken = false;
+                    }
                 }
             }
 

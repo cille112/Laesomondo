@@ -51,7 +51,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
     private ProgressDialog progressDialog;
     private LoadViewTask loadViewTask;
     private SharedPreferences sharedPref;
-    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,7 +206,7 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
 
     private void nextActivity() {
         if (firebaseAuth.getCurrentUser() != null) {
-            editor = sharedPref.edit();
+            SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("email", email.getText().toString()).commit();
             editor.putString("password", password.getText().toString()).commit();
             editor.commit();

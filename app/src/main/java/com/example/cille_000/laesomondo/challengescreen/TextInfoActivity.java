@@ -19,11 +19,9 @@ public class TextInfoActivity extends AppCompatActivity implements View.OnClickL
     private int textID;
     private Button button;
     private TestLogic logic;
-    private TextView textInfo;
+    private TextView textInfo, textInfoname, cancel;
     private String info = "";
-    private TextView textInfoname;
     private ImageView cover;
-    private TextView cancel;
     private String category;
 
     @Override
