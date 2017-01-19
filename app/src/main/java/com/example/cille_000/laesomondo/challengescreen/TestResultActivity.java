@@ -174,7 +174,7 @@ public class TestResultActivity extends AppCompatActivity implements View.OnClic
                     if (snap.child("users").child(userId).child("xp").exists()) {
                         int totalXp = (Integer.parseInt(snap.child("users").child(userId).child("xp").getValue().toString())+xp);
                         for (int i = 2; i < 11; i++) {
-                            if(totalXp > (int) (150 * (Math.pow(i,(1.5))))){
+                            if(totalXp > (int) (200 * (Math.pow(i,(1.5))))){
                                 database.child("users").child(userId).child("level").setValue(i);
                             }
                         }
