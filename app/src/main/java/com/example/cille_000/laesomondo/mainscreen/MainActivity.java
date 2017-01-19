@@ -225,12 +225,8 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                     genre = snap.child("users").child(userId).child("Genre").getValue().toString();
                 }
 
-                if (!snap.child("users").child(userId).child("textRead").exists()) {
-                    System.out.println("ingen textRead");
-                }
-                else {
+                if (snap.child("users").child(userId).child("textRead").exists()) {
                     textRead = snap.child("users").child(userId).child("textRead").getValue().toString();
-                    System.out.println("Text read: " + textRead);
                 }
 
                 ProgressBarMath progressBarMath = new ProgressBarMath();
@@ -268,7 +264,6 @@ public class MainActivity extends ActionBarActivity implements DrawerFragment.Dr
                         int i = 0;
                         while (genre==null) {
                             this.wait(500);
-                            System.out.println(i);
                             if(i++ == 40){
                                 this.cancel(true);
                             }

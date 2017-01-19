@@ -73,7 +73,6 @@ public class TestLogic {
     }
 
     public long getTime(){
-        System.out.println(totalTime);
         return totalTime;
     }
 

@@ -234,7 +234,6 @@ public class CreateUserActivity extends AppCompatActivity implements View.OnClic
             datePicker.setCallback(new DatePickerFragment.OnSubmitListener() {
                 @Override
                 public void onSubmitted(int day, int month, int year) {
-                    System.out.println("dag: " + day + " måned: " + month + " år: " + year);
                     birthDate.setText(day + "/" + month + "/" + year);
                 }
             });
